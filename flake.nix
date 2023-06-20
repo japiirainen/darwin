@@ -36,6 +36,7 @@
             extraSpecialArgs = {inherit pwnvim;};
             users.japiirainen.imports = [
               ./home
+              ./home/tmux.nix
             ];
           };
         }

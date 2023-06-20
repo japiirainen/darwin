@@ -5,11 +5,11 @@
 }: {
   home.stateVersion = "23.05";
 
-  home.packages = [
-    pkgs.ripgrep
-    pkgs.fd
-    pkgs.curl
-    pkgs.less
+  home.packages = with pkgs; [
+    ripgrep
+    fd
+    curl
+    less
     pwnvim.packages."aarch64-darwin".default
   ];
 
@@ -32,7 +32,21 @@
     userEmail = "joona.piirainen@gmail.com";
     ignores = [".DS_Store"];
     userName = "japiirainen";
+    aliases = {
+      co = "checkout";
+      br = "branch";
+      ci = "commit";
+      st = "status";
+      pl = "pull";
+      ps = "push";
+      aa = "add -A";
+      upd = "! git pull && git submodule update --recursive";
+    };
+    # Enhanced diffs
+    delta.enable = true;
   };
+
+  programs.gh.enable = true;
 
   programs.zsh.enable = true;
   programs.zsh = {
