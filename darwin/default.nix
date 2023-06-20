@@ -35,7 +35,7 @@
     dock.autohide = true;
     NSGlobalDomain.AppleShowAllExtensions = true;
     NSGlobalDomain.InitialKeyRepeat = 1;
-    defaults.NSGlobalDomain.KeyRepeat = 1;
+    NSGlobalDomain.KeyRepeat = 1;
   };
 
   homebrew = {
