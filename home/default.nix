@@ -1,6 +1,7 @@
+pwnvim:
+
 {
   pkgs,
-  pwnvim,
   ...
 }: {
   home.stateVersion = "23.05";
@@ -58,10 +59,6 @@
       nixswitch = "darwin-rebuild switch --flake ~/dev/darwin/.#";
       nixup = "pushd ~/dev/darwin; nix flake update; nixswitch";
     };
-  };
-
-  programs.kitty = {
-    enable = true;
   };
 
   home.file.".inputrc".source = ./dotfiles/inputrc;

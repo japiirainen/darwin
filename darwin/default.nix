@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   documentation.enable = false;
 
-  users.users.japiirainen.home = "/Users/japiirainen";
-
   programs.zsh.enable = true;
 
   environment = {
@@ -22,10 +20,10 @@
   '';
 
   system.keyboard.enableKeyMapping = true;
-  system.keyboard.remapCapsLockToEscape = true;
+  system.keyboard.remapCapsLockToControl = true;
 
   fonts.fontDir.enable = true; # DANGER
-  fonts.fonts = [(pkgs.nerdfonts.override {fonts = ["Meslo"];})];
+  fonts.fonts = [(pkgs.nerdfonts.override {fonts = ["Meslo" "FiraCode"];})];
 
   services.nix-daemon.enable = true;
 
@@ -47,7 +45,4 @@
     taps = [];
     brews = [];
   };
-
-  # backwards compat; don't change
-  system.stateVersion = 4;
 }
