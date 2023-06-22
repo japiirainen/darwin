@@ -40,6 +40,4 @@
   };
 
   programs.gh.enable = true;
-
-  home.file.".inputrc".source = ./dotfiles/inputrc;
 }

@@ -107,6 +107,9 @@ in {
     ll = "ls -l --time-style long-iso --icons";
     ls = "${exa}/bin/exa";
     tb = "toggle-background";
+    v = "nvim";
+    vi = "nvim";
+    vim = "nvim";
   };
 
   # Configuration that should be above `loginShellInit` and `interactiveShellInit`.
