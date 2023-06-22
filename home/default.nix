@@ -1,12 +1,12 @@
-pwnvim: {pkgs, ...}: {
+{pkgs, ...}: {
   home.stateVersion = "23.05";
 
   home.packages = with pkgs; [
     ripgrep
+    vim
     fd
     curl
     less
-    pwnvim.packages."aarch64-darwin".default
   ];
 
   home.sessionVariables = {

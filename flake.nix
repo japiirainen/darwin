@@ -20,15 +20,11 @@
       flake = false;
     };
     flake-utils.url = "github:numtide/flake-utils";
-
-    # Tricked out nvim
-    pwnvim.url = "github:zmre/pwnvim";
   };
   outputs = {
     self,
     home-manager,
     darwin,
-    pwnvim,
     flake-utils,
     ...
   } @ inputs: let
@@ -92,11 +88,12 @@
       };
 
       homeManagerModules = {
-        jp-home = import ./home pwnvim;
+        jp-home = import ./home;
         jp-tmux = import ./home/tmux.nix;
         jp-kitty = import ./home/kitty.nix;
         jp-colors = import ./home/colors.nix;
         jp-fish = import ./home/fish.nix;
+	jp-neovim = import ./home/neovim.nix;
 
         colors = import ./modules/home/colors;
         programs-kitty-extras = import ./modules/home/programs/kitty/extras.nix;
