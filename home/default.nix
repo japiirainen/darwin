@@ -1,9 +1,4 @@
-pwnvim:
-
-{
-  pkgs,
-  ...
-}: {
+pwnvim: {pkgs, ...}: {
   home.stateVersion = "23.05";
 
   home.packages = with pkgs; [
@@ -22,9 +17,6 @@ pwnvim:
 
   programs.bat.enable = true;
   programs.bat.config.theme = "TwoDark";
-
-  programs.fzf.enable = true;
-  programs.fzf.enableZshIntegration = true;
 
   programs.exa.enable = true;
 
@@ -48,18 +40,6 @@ pwnvim:
   };
 
   programs.gh.enable = true;
-
-  programs.zsh.enable = true;
-  programs.zsh = {
-    enableCompletion = true;
-    enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
-    shellAliases = {
-      ls = "ls --color=auto -F";
-      nixswitch = "darwin-rebuild switch --flake ~/dev/darwin/.#";
-      nixup = "pushd ~/dev/darwin; nix flake update; nixswitch";
-    };
-  };
 
   home.file.".inputrc".source = ./dotfiles/inputrc;
 }

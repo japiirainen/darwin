@@ -96,6 +96,7 @@
         jp-tmux = import ./home/tmux.nix;
         jp-kitty = import ./home/kitty.nix;
         jp-colors = import ./home/colors.nix;
+        jp-fish = import ./home/fish.nix;
 
         colors = import ./modules/home/colors;
         programs-kitty-extras = import ./modules/home/programs/kitty/extras.nix;
