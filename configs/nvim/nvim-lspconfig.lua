@@ -6,6 +6,8 @@
 -- `../../../../home/neovim.nix`.
 local foreach = require 'pl.tablex'.foreach
 
+local M = {}
+
 -- Configures `sumneko_lua` properly for Neovim config editing when it makes sense.
 require 'neodev'.setup {
   override = function(root_dir, library)
@@ -20,7 +22,7 @@ require 'neodev'.setup {
 
 local lspconf = require 'lspconfig'
 
-local function on_attach(client, bufnr)
+function M.on_attach(client, bufnr)
 end
 
 local servers_config = {
@@ -96,7 +98,8 @@ local coq = require 'coq'
 
 foreach(servers_config, function(v, k)
   lspconf[k].setup(coq.lsp_ensure_capabilities(
-   vim.tbl_extend('error', v, { on_attach = on_attach })
+   vim.tbl_extend('error', v, { on_attach = M.on_attach })
   ))
 end)
 
+return M

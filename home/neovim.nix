@@ -135,6 +135,9 @@ in
     }
 
     { use = vim-commentary; opt = true; }
+
+    # Lean4
+    { use = lean-nvim; deps = [ nvim-lspconfig plenary-nvim ]; config = requireConf lean-nvim; }
   ];
 
   programs.neovim.extraPackages = with pkgs; [

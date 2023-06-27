@@ -33,6 +33,7 @@
       github-copilot-cli
       typescript
       nodejs
+      elan
       ;
 
     # Haskell related tools
