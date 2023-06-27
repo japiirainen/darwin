@@ -81,7 +81,7 @@
       };
 
       darwinModules = {
-        jp-darwin = import ./darwin;
+        jp-general = import ./darwin/general.nix;
         jp-homebrew = import ./darwin/homebrew.nix;
 
         users-primaryUser = import ./modules/darwin/users.nix;
@@ -89,6 +89,8 @@
 
       homeManagerModules = {
         jp-home = import ./home;
+        jp-programs = import ./home/programs.nix;
+        jp-git = import ./home/git.nix;
         jp-tmux = import ./home/tmux.nix;
         jp-kitty = import ./home/kitty.nix;
         jp-colors = import ./home/colors.nix;

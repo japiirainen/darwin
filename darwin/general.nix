@@ -71,7 +71,8 @@
   system.defaults.NSGlobalDomain = {
     "com.apple.trackpad.scaling" = 3.0;
     AppleShowAllExtensions = true;
-    AppleInterfaceStyleSwitchesAutomatically = true;
+    AppleInterfaceStyle = "Dark";
+    AppleInterfaceStyleSwitchesAutomatically = false;
     AppleMeasurementUnits = "Centimeters";
     AppleMetricUnits = 1;
     AppleShowScrollBars = "Automatic";
@@ -96,7 +97,7 @@
     autohide = true;
     expose-group-by-app = false;
     mru-spaces = false;
-    tilesize = 128;
+    tilesize = 36;
     wvous-bl-corner = 1;
     wvous-br-corner = 1;
     wvous-tl-corner = 1;
