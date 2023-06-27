@@ -15,3 +15,9 @@ darwin-rebuild switch --flake ${nixConfigDirectory}
 
 drs
 ```
+
+set `fish` as default shell after applying flake.
+
+```sh
+make set-fish
+```
