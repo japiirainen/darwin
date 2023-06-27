@@ -1,4 +1,4 @@
-my macos configuration
+This repository contains my nix configurations for my macOS machines.
 
 ## Bootstrap new machine
 

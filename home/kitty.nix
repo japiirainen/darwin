@@ -8,6 +8,8 @@
       font_size = "14.0";
       adjust_line_height = "100%";
       disable_ligatures = "cursor";
+
+      confirm_os_window_close = "100";
     };
 
     # Colors config
