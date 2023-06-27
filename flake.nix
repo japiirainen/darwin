@@ -121,6 +121,8 @@
       darwinModules = {
         jp-general = import ./darwin/general.nix;
         jp-homebrew = import ./darwin/homebrew.nix;
+        jp-yabai = import ./darwin/yabai.nix;
+        jp-skhd = import ./darwin/skhd.nix;
 
         users-primaryUser = import ./modules/darwin/users.nix;
       };
