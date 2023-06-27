@@ -112,5 +112,6 @@ in
         telescope-zoxide
       ];
     }
+    { use = nvim-tree-lua; opt = true; }
   ];
 }

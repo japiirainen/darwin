@@ -83,6 +83,28 @@ telescope.load_extension 'fzf'
 telescope.load_extension 'hoogle'
 telescope.load_extension 'zoxide'
 
+-- nvim-tree-lua
+
+require('nvim-tree').setup({
+  hijack_cursor = true,
+  update_focused_file = { enable = true },
+  view = {
+    width = 35,
+    side = 'right'
+  },
+  renderer = {
+    icons = {
+      git_placement = "signcolumn",
+      show = {
+        file = false,
+        folder = false,
+        folder_arrow = false,
+        git = true
+      }
+    }
+  }
+})
+
 -- WhichKey maps
 
 -- Define all `<Space>` prefixed keymaps with which-key.nvim
@@ -136,6 +158,12 @@ wk.register ({
     s = { function() require'telescope.builtin'.symbols(require'telescope.themes'.get_dropdown({sources = {'emoji', 'math'}})) end, 'Symbols' },
     z = { '<Cmd>Telescope zoxide list<CR>', 'Z' },
     ['?'] = { '<Cmd>Telescope help_tags<CR>', 'Vim help' },
-  }
+  },
+
+  -- Open
+  o = {
+    name = "+Open",
+    p = { '<Cmd>NvimTreeToggle<CR>', 'Open File Tree' },
+  },
 }, { prefix = "<leader>" })
 
