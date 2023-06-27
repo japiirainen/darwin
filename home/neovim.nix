@@ -119,9 +119,22 @@ in
     { use = copilot-vim; }
     { use = coq_nvim; opt = true; deps = [ coq-artifacts coq-thirdparty ]; config = requireConf coq_nvim; }
 
+    { use = formatter-nvim; config = requireConf formatter-nvim; }
+
     { use = lspsaga-nvim; config = requireConf lspsaga-nvim; }
     { use = null-ls-nvim; config = requireConf null-ls-nvim; }
     { use = nvim-lspconfig; deps = [ neodev-nvim ]; config = requireConf nvim-lspconfig; }
+
+    {
+      use = cornelis;
+      setup = ''
+        vim.g.cornelis_use_global_binary = 1
+        vim.g.cornelis_agda_prefix = '\\'
+      '';
+      config = requireConf cornelis;
+    }
+
+    { use = vim-commentary; opt = true; }
   ];
 
   programs.neovim.extraPackages = with pkgs; [
@@ -140,5 +153,7 @@ in
     vscode-langservers-extracted
 
     proselint
+    (agda.withPackages (p: [ p.standard-library ]))
+    cornelis
   ];
 }

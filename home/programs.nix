@@ -31,12 +31,15 @@
     inherit (pkgs)
       cloc
       github-copilot-cli
-      stack
       typescript
       nodejs
       ;
 
-    ghc = pkgs.haskell.compiler.native-bignum.ghc961;
+    # Haskell related tools
+    ghc = pkgs.haskell.compiler.ghc945;
+    hls = pkgs.haskell-language-server.override {
+      supportedGhcVersions = [ "945" ];
+    };
 
     inherit (pkgs.haskellPackages)
       cabal-install
@@ -44,7 +47,8 @@
       hoogle
       hpack
       implicit-hie
-      haskell-language-server
+      ghcid
+      fourmolu
       ;
 
     agda = pkgs.agda.withPackages (ps: [ ps.standard-library ]);
@@ -56,6 +60,11 @@
       nix-tree
       nix-update
       statix
+      ;
+
+    # npm packages
+    inherit (pkgs.nodePackages)
+      prettier
       ;
   };
 }

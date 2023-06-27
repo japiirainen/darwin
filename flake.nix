@@ -20,6 +20,12 @@
       flake = false;
     };
     flake-utils.url = "github:numtide/flake-utils";
+
+    # Agda mode for Neovim
+    cornelis.url = "github:isovector/cornelis";
+    cornelis.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    cornelis.inputs.flake-compat.follows = "flake-compat";
+    cornelis.inputs.flake-utils.follows = "flake-utils";
   };
   outputs =
     { self
@@ -35,7 +41,18 @@
         config = {
           allowUnfree = true;
         };
-        overlays = attrValues self.overlays;
+        overlays = attrValues self.overlays ++ [
+          inputs.cornelis.overlays.cornelis
+        ] ++ singleton (
+          final: prev: (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
+            # Sub in x86 version of packages that don't build on Apple Silicon.
+            inherit (final.pkgs-x86)
+              idris2
+              ;
+          }) // {
+            # Add other overlays here if needed.
+          }
+        );
       };
 
       primaryUserDefaults = {
@@ -78,6 +95,27 @@
               inherit (nixpkgsDefaults) config;
             };
           };
+
+        # Overlay that adds various additional utility functions to `vimUtils`
+        vimUtils = import ./overlays/vimUtils.nix;
+
+        # Overlay that adds some additional Neovim plugins
+        vimPlugins = final: prev:
+          let
+            inherit (self.overlays.vimUtils final prev) vimUtils;
+          in
+          {
+            vimPlugins = prev.vimPlugins.extend (_: _:
+              # Useful for testing/using Vim plugins that aren't in `nixpkgs`.
+              vimUtils.buildVimPluginsFromFlakeInputs inputs [
+                # Add flake input names here for a Vim plugin repos
+              ] // {
+                # Other Vim plugins
+                inherit (inputs.cornelis.packages.${prev.stdenv.system}) cornelis-vim;
+              }
+            );
+          };
+
       };
 
       darwinModules = {

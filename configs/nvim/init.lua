@@ -193,6 +193,8 @@ wk.register({
             S = { '<Cmd>Telescope lsp_workspace_symbols<CR>', 'Workspace symbols' },
         },
     },
+
+   f = { '<Cmd>Format<CR>', 'Format buffer using formatter-nvim' },
 }, { prefix = "<leader>" })
 
 -- Spaced prefiexd in mode Visual mode
