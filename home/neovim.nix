@@ -99,7 +99,7 @@ in
 
   # neovim plugins
   programs.neovim.plugins = with pkgs.vimPlugins; map packer [
-    { use = which-key-nvim; opt = true; }
+    { use = which-key-nvim; opt = true; config = requireConf which-key-nvim; }
     { use = NeoSolarized; opt = true; }
     { use = neogit; config = "require'neogit'.setup()"; }
     {
@@ -112,8 +112,9 @@ in
         telescope-symbols-nvim
         telescope-zoxide
       ];
+      config = requireConf telescope-nvim;
     }
-    { use = nvim-tree-lua; opt = true; }
+    { use = nvim-tree-lua; config = requireConf nvim-tree-lua; }
     { use = gitsigns-nvim; config = requireConf gitsigns-nvim; }
 
     { use = copilot-vim; }
