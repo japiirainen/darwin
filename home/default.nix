@@ -32,6 +32,7 @@
       st = "status";
       pl = "pull";
       ps = "push";
+      pf = "push --force-with-lease";
       aa = "add -A";
       upd = "! git pull && git submodule update --recursive";
     };
