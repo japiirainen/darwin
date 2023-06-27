@@ -22,8 +22,6 @@
     space_icon_color = "0xff51afef";
     space_icon_strip = "I II III IV V VI VII VIII IX X";
     spaces_for_all_displays = "on";
-    power_icon_strip = " ";
-    power_incon_color = "0xffcd950c";
     display_separator = "on";
     display_separator_icon = "|";
     clock_format = ''"%d/%m/%y %R"'';

@@ -9,7 +9,7 @@
 
   services.skhd.skhdConfig = ''
         # Open Terminal
-        ctrl - return : /Users/japiirainen/Applications/Home Manager Apps/kitty.app
+        ctrl + alt - enter : kitty
 
         # Toggle Window
         lalt - t : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
