@@ -1,4 +1,4 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 let
   inherit (lib) concatStringsSep optional;
   inherit (config.lib.file) mkOutOfStoreSymlink;
@@ -11,7 +11,8 @@ let
       pattern = ${mkLuaTableFromList pattern},
       callback = ${callback},
     })'';
-  requireConf = p: "require 'malo.${builtins.replaceStrings [ "." ] [ "-" ] p.pname}'";
+
+  requireConf = p: "require '${builtins.replaceStrings [ "." ] [ "-" ] p.pname}'";
 
   packer =
     { use
@@ -86,10 +87,10 @@ in
 
   # Put neovim configuration located in this repository into place in a way that edits to the
   # configuration don't require rebuilding the `home-manager` environment to take effect.
-  xdg.configFile."nvim/lua/nvim.lua".source = mkOutOfStoreSymlink "${nixConfigDirectory}/configs/nvim.lua";
+  xdg.configFile."nvim/lua/".source = mkOutOfStoreSymlink "${nixConfigDirectory}/configs/nvim";
 
   # Load the `init` module from the above configs
-  programs.neovim.extraConfig = "lua require('nvim')";
+  programs.neovim.extraConfig = "lua require('init')";
 
   # Add NodeJs since it's required by some plugins I use.
   programs.neovim.withNodeJs = true;
@@ -99,7 +100,7 @@ in
   # neovim plugins
   programs.neovim.plugins = with pkgs.vimPlugins; map packer [
     { use = which-key-nvim; opt = true; }
-    { use = NeoSolarized; opt = true;  }
+    { use = NeoSolarized; opt = true; }
     { use = neogit; config = "require'neogit'.setup()"; }
     {
       use = telescope-nvim;
@@ -113,5 +114,28 @@ in
       ];
     }
     { use = nvim-tree-lua; opt = true; }
+
+    { use = copilot-vim; }
+    { use = coq_nvim; opt = true; deps = [ coq-artifacts coq-thirdparty ]; config = requireConf coq_nvim; }
+
+    { use = lspsaga-nvim; config = requireConf lspsaga-nvim; }
+    { use = null-ls-nvim; config = requireConf null-ls-nvim; }
+    { use = nvim-lspconfig; deps = [ neodev-nvim ]; config = requireConf nvim-lspconfig; }
+  ];
+
+  programs.neovim.extraPackages = with pkgs; [
+    nodePackages.bash-language-server
+    shellcheck
+
+    nodePackages.typescript-language-server
+
+    deadnix
+    nixpkgs-fmt
+    statix
+    nil
+
+    nodePackages.vim-language-server
+    sumneko-lua-language-server
+    vscode-langservers-extracted
   ];
 }

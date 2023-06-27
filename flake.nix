@@ -21,31 +21,30 @@
     };
     flake-utils.url = "github:numtide/flake-utils";
   };
-  outputs = {
-    self,
-    home-manager,
-    darwin,
-    flake-utils,
-    ...
-  } @ inputs: let
-    inherit (self.lib) makeOverridable optionalAttrs attrValues singleton;
+  outputs =
+    { self
+    , flake-utils
+    , ...
+    } @ inputs:
+    let
+      inherit (self.lib) makeOverridable optionalAttrs attrValues singleton;
 
-    homeStateVersion = "23.05";
+      homeStateVersion = "23.05";
 
-    nixpkgsDefaults = {
-      config = {
-        allowUnfree = true;
+      nixpkgsDefaults = {
+        config = {
+          allowUnfree = true;
+        };
+        overlays = attrValues self.overlays;
       };
-      overlays = attrValues self.overlays;
-    };
 
-    primaryUserDefaults = {
-      username = "japiirainen";
-      fullName = "Joona Piirainen";
-      email = "joona.piirainen@gmail.com";
-      nixConfigDirectory = "/Users/japiirainen/dev/darwin";
-    };
-  in
+      primaryUserDefaults = {
+        username = "japiirainen";
+        fullName = "Joona Piirainen";
+        email = "joona.piirainen@gmail.com";
+        nixConfigDirectory = "/Users/japiirainen/dev/darwin";
+      };
+    in
     {
       lib = inputs.nixpkgs-unstable.lib.extend (_: _: {
         mkDarwinSystem = import ./lib/mkDarwinSystem.nix inputs;
@@ -93,34 +92,34 @@
         jp-kitty = import ./home/kitty.nix;
         jp-colors = import ./home/colors.nix;
         jp-fish = import ./home/fish.nix;
-	jp-neovim = import ./home/neovim.nix;
+        jp-neovim = import ./home/neovim.nix;
 
         colors = import ./modules/home/colors;
         programs-kitty-extras = import ./modules/home/programs/kitty/extras.nix;
-        home-user-info = {lib, ...}: {
+        home-user-info = { lib, ... }: {
           options.home.user-info =
-            (self.darwinModules.users-primaryUser {inherit lib;}).options.users.primaryUser;
+            (self.darwinModules.users-primaryUser { inherit lib; }).options.users.primaryUser;
         };
       };
 
       # System configurations
 
       darwinConfigurations.jp-mbp = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults
-        // {
-          modules =
-            (attrValues self.darwinModules)
-            ++ (singleton {
-              nixpkgs = nixpkgsDefaults;
-              networking.computerName = "jp-mbp";
-              networking.hostName = "jp-mbp";
-              nix.registry.my.flake = inputs.self;
-            });
-          inherit homeStateVersion;
-          system = "aarch64-darwin";
-          homeModules = attrValues self.homeManagerModules;
-        });
+      // {
+        modules =
+          (attrValues self.darwinModules)
+          ++ (singleton {
+            nixpkgs = nixpkgsDefaults;
+            networking.computerName = "jp-mbp";
+            networking.hostName = "jp-mbp";
+            nix.registry.my.flake = inputs.self;
+          });
+        inherit homeStateVersion;
+        system = "aarch64-darwin";
+        homeModules = attrValues self.homeManagerModules;
+      });
     }
     // flake-utils.lib.eachDefaultSystem (system: {
-      legacyPackages = import inputs.nixpkgs-unstable (nixpkgsDefaults // {inherit system;});
+      legacyPackages = import inputs.nixpkgs-unstable (nixpkgsDefaults // { inherit system; });
     });
 }
