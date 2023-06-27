@@ -1,8 +1,22 @@
-{
-  pkgs,
-  config,
-  ...
+{ pkgs
+, config
+, ...
 }: {
+  # Nix configuration
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+
+    keep-derivations = true;
+    keep-outputs = true;
+  };
+
+  services.nix-daemon.enable = true;
+
+  nix.configureBuildUsers = true;
+
   documentation.enable = false;
 
   environment.shells = with pkgs; [
@@ -11,13 +25,21 @@
     fish
   ];
 
-  environment.systemPackages = with pkgs; [coreutils];
+  environment.systemPackages = with pkgs; [
+    coreutils
+    kitty
+  ];
+
+  programs.nix-index.enable = true;
 
   environment.loginShell = pkgs.fish;
 
-  environment.systemPath = ["/opt/homebrew/bin"];
+  environment.systemPath = [ "/opt/homebrew/bin" ];
 
-  environment.pathsToLink = ["/Applications"];
+  environment.pathsToLink = [ "/Applications" ];
+
+  # Install and setup ZSH to work with nix(-darwin) as well
+  programs.zsh.enable = true;
 
   # Make Fish the default shell
   programs.fish.enable = true;
@@ -35,37 +57,57 @@
 
   environment.variables.SHELL = "${pkgs.fish}/bin/fish";
 
-  # Install and setup ZSH to work with nix(-darwin) as well
-  programs.zsh.enable = true;
+  # Fonts
+  fonts.fontDir.enable = true;
+  fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "Meslo" "FiraCode" ]; }) ];
 
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
-
+  # Keyboard
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToControl = true;
 
-  fonts.fontDir.enable = true; # DANGER
-  fonts.fonts = [(pkgs.nerdfonts.override {fonts = ["Meslo" "FiraCode"];})];
+  # Add ability to use TouchID for sudo auth
+  security.pam.enableSudoTouchIdAuth = true;
 
-  services.nix-daemon.enable = true;
-
-  system.defaults = {
-    finder.AppleShowAllExtensions = true;
-    finder._FXShowPosixPathInTitle = true;
-    dock.autohide = true;
-    NSGlobalDomain.AppleShowAllExtensions = true;
-    NSGlobalDomain.InitialKeyRepeat = 14;
-    NSGlobalDomain.KeyRepeat = 1;
+  system.defaults.NSGlobalDomain = {
+    "com.apple.trackpad.scaling" = 3.0;
+    AppleShowAllExtensions = true;
+    AppleInterfaceStyleSwitchesAutomatically = true;
+    AppleMeasurementUnits = "Centimeters";
+    AppleMetricUnits = 1;
+    AppleShowScrollBars = "Automatic";
+    AppleTemperatureUnit = "Celsius";
+    InitialKeyRepeat = 14;
+    KeyRepeat = 1;
+    NSAutomaticCapitalizationEnabled = false;
+    NSAutomaticDashSubstitutionEnabled = false;
+    NSAutomaticPeriodSubstitutionEnabled = false;
   };
 
-  homebrew = {
-    enable = true;
-    caskArgs.no_quarantine = true;
-    global.brewfile = true;
-    masApps = {};
-    casks = ["raycast"];
-    taps = [];
-    brews = [];
+  # Firewall
+  system.defaults.alf = {
+    globalstate = 1;
+    allowsignedenabled = 1;
+    allowdownloadsignedenabled = 1;
+    stealthenabled = 1;
   };
+
+  # Dock
+  system.defaults.dock = {
+    autohide = true;
+    expose-group-by-app = false;
+    mru-spaces = false;
+    tilesize = 128;
+    wvous-bl-corner = 1;
+    wvous-br-corner = 1;
+    wvous-tl-corner = 1;
+    wvous-tr-corner = 1;
+  };
+
+  # Finder
+  system.defaults.finder = {
+    AppleShowAllExtensions = true;
+    _FXShowPosixPathInTitle = true;
+  };
+
+  system.stateVersion = 4;
 }

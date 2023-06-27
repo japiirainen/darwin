@@ -82,6 +82,7 @@
 
       darwinModules = {
         jp-darwin = import ./darwin;
+        jp-homebrew = import ./darwin/homebrew.nix;
 
         users-primaryUser = import ./modules/darwin/users.nix;
       };

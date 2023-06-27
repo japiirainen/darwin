@@ -114,6 +114,7 @@ in
       ];
     }
     { use = nvim-tree-lua; opt = true; }
+    { use = gitsigns-nvim; config = requireConf gitsigns-nvim; }
 
     { use = copilot-vim; }
     { use = coq_nvim; opt = true; deps = [ coq-artifacts coq-thirdparty ]; config = requireConf coq_nvim; }
@@ -137,5 +138,7 @@ in
     nodePackages.vim-language-server
     sumneko-lua-language-server
     vscode-langservers-extracted
+
+    proselint
   ];
 }
