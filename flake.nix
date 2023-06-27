@@ -26,6 +26,10 @@
     cornelis.inputs.nixpkgs.follows = "nixpkgs-unstable";
     cornelis.inputs.flake-compat.follows = "flake-compat";
     cornelis.inputs.flake-utils.follows = "flake-utils";
+
+    # Spacebar
+    spacebar.url = "github:cmacrae/spacebar/v1.4.0";
+    spacebar.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
   outputs =
     { self
@@ -43,15 +47,14 @@
         };
         overlays = attrValues self.overlays ++ [
           inputs.cornelis.overlays.cornelis
+          inputs.spacebar.overlay.aarch64-darwin
         ] ++ singleton (
           final: prev: (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
             # Sub in x86 version of packages that don't build on Apple Silicon.
             inherit (final.pkgs-x86)
               idris2
               ;
-          }) // {
-            # Add other overlays here if needed.
-          }
+          }) // { }
         );
       };
 
@@ -75,18 +78,21 @@
             inherit (nixpkgsDefaults) config;
           };
         };
+
         pkgs-stable = _: prev: {
           pkgs-stable = import inputs.nixpkgs-stable {
             inherit (prev.stdenv) system;
             inherit (nixpkgsDefaults) config;
           };
         };
+
         pkgs-unstable = _: prev: {
           pkgs-unstable = import inputs.nixpkgs-unstable {
             inherit (prev.stdenv) system;
             inherit (nixpkgsDefaults) config;
           };
         };
+
         apple-silicon = _: prev:
           optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
             # Add access to x86 packages system is running Apple Silicon
@@ -123,6 +129,7 @@
         jp-homebrew = import ./darwin/homebrew.nix;
         jp-yabai = import ./darwin/yabai.nix;
         jp-skhd = import ./darwin/skhd.nix;
+        jp-spacebar = import ./darwin/spacebar.nix;
 
         users-primaryUser = import ./modules/darwin/users.nix;
       };
