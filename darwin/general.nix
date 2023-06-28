@@ -10,9 +10,23 @@
     ];
 
     keep-derivations = true;
+
     keep-outputs = true;
+
+    cores = 8;
+
     trusted-users = [ "root" "japiirainen" ];
+
+    auto-optimise-store = true;
   };
+
+  nix.settings.substituters = [
+    "https://cachix.org/api/v1/cache/nix-community"
+  ];
+
+  nix.settings.trusted-public-keys = [
+    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  ];
 
   services.nix-daemon.enable = true;
 
@@ -86,6 +100,7 @@
     NSAutomaticCapitalizationEnabled = false;
     NSAutomaticDashSubstitutionEnabled = false;
     NSAutomaticPeriodSubstitutionEnabled = false;
+    _HIHideMenuBar = true;
   };
 
   # Firewall
