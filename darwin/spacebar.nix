@@ -25,7 +25,7 @@
     display_separator = "on";
     display_separator_icon = "|";
     clock_format = ''"%d/%m/%y %R"'';
-    right_shell = "off";
+    right_shell = "on";
     right_shell_icon = "";
     right_shell_command = "whoami";
   };

@@ -8,16 +8,23 @@
     layout = "bsp";
     auto_balane = "off";
     split_ratio = "0.50";
-    window_border = "off";
-    window_border_width = "2";
+    window_border = "on";
+    window_border_width = "3";
+    active_window_border_color = "0xffe1e3e4";
+    normal_window_border_color = "0xff494d64";
+    window_border_hidpi = "off";
+    window_border_radius = "11";
+    window_border_blur = "off";
+    window_animation_duration = "0.3";
+    insert_feedback_color = "0xff9dd274";
     window_placement = "second_child";
     focus_follows_mouse = "off";
     mouse_follows_focus = "off";
-    top_padding = "36";
-    bottom_padding = "10";
-    left_padding = "10";
-    right_padding = "10";
-    window_gap = "10";
+    top_padding = "34";
+    bottom_padding = "8";
+    left_padding = "8";
+    right_padding = "8";
+    window_gap = "8";
   };
 
   #services.yabai.extraConfig = ''
