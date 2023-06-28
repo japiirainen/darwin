@@ -15,7 +15,7 @@
 
     cores = 8;
 
-    trusted-users = [ "root" "japiirainen" ];
+    trusted-users = [ "root" config.users.primaryUser.username ];
 
     auto-optimise-store = true;
   };
