@@ -16,6 +16,30 @@
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.zoxide.enable
   programs.zoxide.enable = true;
 
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      dracula-theme.theme-dracula
+      vscodevim.vim
+      jnoortheen.nix-ide
+      bbenoist.nix
+    ];
+
+    userSettings = {
+      "vim.insertModeKeyBindings" = [{ "before" = [ "j" "k" ]; "after" = [ "<esc>" ]; }];
+      "workbench.colorTheme" = "Dracula";
+      "editor.fontFamily" = "Fira Code";
+      "editor.codeLens" = false;
+      "editor.minimap.enabled" = false;
+      "editor.renderIndentGuides" = false;
+      "window.menuBarVisibility" = "toggle";
+      "workbench.activityBar.visible" = false;
+      "workbench.iconTheme" = null;
+      "workbench.startupEditor" = "newUntitledFile";
+      "workbench.statusBar.visible" = false;
+    };
+  };
+
   home.packages = lib.attrValues {
     inherit (pkgs)
       ripgrep

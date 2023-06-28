@@ -119,7 +119,7 @@
     autohide = true;
     expose-group-by-app = false;
     mru-spaces = false;
-    tilesize = 36;
+    tilesize = 100;
     wvous-bl-corner = 1;
     wvous-br-corner = 1;
     wvous-tl-corner = 1;
