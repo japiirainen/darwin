@@ -9,8 +9,8 @@
     auto_balane = "off";
     split_ratio = "0.50";
     window_border = "on";
-    window_border_width = "3";
-    active_window_border_color = "0xffe1e3e4";
+    window_border_width = "2";
+    active_window_border_color = "0xff00ff00";
     normal_window_border_color = "0xff494d64";
     window_border_hidpi = "off";
     window_border_radius = "11";

@@ -136,6 +136,7 @@ in
     }
 
     { use = vim-commentary; opt = true; }
+    { use = vim-tmux-navigator; config = requireConf vim-tmux-navigator; }
 
     # Lean4
     { use = lean-nvim; deps = [ nvim-lspconfig plenary-nvim ]; config = requireConf lean-nvim; }
