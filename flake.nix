@@ -143,6 +143,7 @@
         jp-colors = import ./home/colors.nix;
         jp-fish = import ./home/fish.nix;
         jp-neovim = import ./home/neovim.nix;
+        jp-skhdrc = import ./home/skhdrc.nix;
 
         colors = import ./modules/home/colors;
         programs-kitty-extras = import ./modules/home/programs/kitty/extras.nix;

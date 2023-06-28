@@ -1,15 +1,16 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
+{ config
+, lib
+, pkgs
+, ...
+}:
+let
   inherit (lib) elem optionalString;
   inherit (config.home.user-info) nixConfigDirectory;
-in {
+in
+{
   programs.fish.enable = true;
 
-  home.packages = with pkgs; [fishPlugins.done];
+  home.packages = with pkgs; [ fishPlugins.done ];
 
   programs.fish.functions = {
     # Toggles `$term_background` between "light" and "dark". Other Fish functions trigger when this

@@ -26,7 +26,6 @@
       exa
       bottom
       wget
-      font-awesome_5
       ;
 
     inherit (pkgs)

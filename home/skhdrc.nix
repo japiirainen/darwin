@@ -1,12 +1,6 @@
-{ pkgs, ... }:
-
-{
-  # temporarily disabled since broken. configured using homebrew instead...
-  services.skhd.enable = false;
-
-  services.skhd.package = pkgs.skhd;
-
-  services.skhd.skhdConfig = ''
+_: {
+  # skhd config file
+  home.file.".skhdrc".text = ''
     # Toggle Window
     lalt - t : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
     lalt - f : yabai -m window --toggle zoom-fullscreen
@@ -48,6 +42,4 @@
     shift + ctrl - left : yabai -m window --space prev && yabai -m space --focus prev
     shift + ctrl - right : yabai -m window --space next && yabai -m space --focus next
   '';
-
-  system.keyboard.enableKeyMapping = true;
 }

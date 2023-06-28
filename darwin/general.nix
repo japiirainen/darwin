@@ -11,6 +11,7 @@
 
     keep-derivations = true;
     keep-outputs = true;
+    trusted-users = [ "root" "japiirainen" ];
   };
 
   services.nix-daemon.enable = true;
@@ -59,7 +60,10 @@
 
   # Fonts
   fonts.fontDir.enable = true;
-  fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "Meslo" "FiraCode" ]; }) ];
+  fonts.fonts = with pkgs; [
+    font-awesome_5
+    (nerdfonts.override { fonts = [ "Meslo" "FiraCode" ]; })
+  ];
 
   # Keyboard
   system.keyboard.enableKeyMapping = true;

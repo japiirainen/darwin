@@ -26,7 +26,9 @@ in
   homebrew.onActivation.cleanup = "zap";
   homebrew.global.brewfile = true;
 
-  homebrew.taps = [ ];
+  homebrew.taps = [
+    "koekeishiya/formulae"
+  ];
 
   homebrew.masApps = {
     Slack = 803453959;
@@ -37,5 +39,7 @@ in
     "google-chrome"
   ];
 
-  homebrew.brews = [ ];
+  homebrew.brews = [
+    "skhd"
+  ];
 }
