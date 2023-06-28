@@ -30,6 +30,10 @@
     # Spacebar
     spacebar.url = "github:cmacrae/spacebar/v1.4.0";
     spacebar.inputs.nixpkgs.follows = "nixpkgs-unstable";
+
+    # Ocaml
+    ocaml-overlay.url = "github:nix-ocaml/nix-overlays";
+    ocaml-overlay.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
   outputs =
     { self
@@ -48,6 +52,7 @@
         overlays = attrValues self.overlays ++ [
           inputs.cornelis.overlays.cornelis
           inputs.spacebar.overlay.aarch64-darwin
+          inputs.ocaml-overlay.overlays.default
         ] ++ singleton (
           final: prev: (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
             # Sub in x86 version of packages that don't build on Apple Silicon.

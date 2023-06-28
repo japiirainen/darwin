@@ -37,6 +37,7 @@ in
   homebrew.casks = [
     "raycast"
     "google-chrome"
+    "qutebrowser"
   ];
 
   homebrew.brews = [

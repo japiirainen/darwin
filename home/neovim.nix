@@ -125,6 +125,10 @@ in
     { use = lspsaga-nvim; config = requireConf lspsaga-nvim; }
     { use = null-ls-nvim; config = requireConf null-ls-nvim; }
     { use = nvim-lspconfig; deps = [ neodev-nvim ]; config = requireConf nvim-lspconfig; }
+    {
+      use = nvim-treesitter.withAllGrammars;
+      config = requireConf nvim-treesitter;
+    }
 
     {
       use = cornelis;
@@ -135,7 +139,7 @@ in
       config = requireConf cornelis;
     }
 
-    { use = vim-commentary; opt = true; }
+    { use = comment-nvim; config = "require'comment'.setup()"; }
     { use = vim-tmux-navigator; config = requireConf vim-tmux-navigator; }
 
     # Lean4

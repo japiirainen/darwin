@@ -61,6 +61,8 @@ local servers_config = {
   sourcekit = {},
   tsserver = {},
 
+  ocamllsp = {},
+
   vimls = {
     init_options = {
       iskeyword = '@,48-57,_,192-255,-#',

@@ -54,6 +54,17 @@
 
     agda = pkgs.agda.withPackages (ps: [ ps.standard-library ]);
 
+    inherit (pkgs.ocaml-ng.ocamlPackages_5_0)
+      menhir
+      merlin
+      dune-build-info
+      dune
+      ocaml
+      utop
+      ocamlformat
+      ocaml-lsp
+      ;
+
     # Nix related tools
     inherit (pkgs)
       cachix
