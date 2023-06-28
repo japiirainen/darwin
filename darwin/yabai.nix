@@ -20,11 +20,12 @@
     window_placement = "second_child";
     focus_follows_mouse = "off";
     mouse_follows_focus = "off";
-    top_padding = "34";
+    top_padding = "8";
     bottom_padding = "8";
     left_padding = "8";
     right_padding = "8";
     window_gap = "8";
+    external_bar = "main:28:0";
   };
 
   #services.yabai.extraConfig = ''

@@ -21,17 +21,20 @@
   };
 
   nix.settings.substituters = [
+    "https://cachix.org/api/v1/cache/japiirainen"
     "https://cachix.org/api/v1/cache/nix-community"
   ];
 
   nix.settings.trusted-public-keys = [
     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    "japiirainen.cachix.org-1:DN3k1GBybULfClDDZccSKQP4OQXFNHdliEnZHTFhhnw="
   ];
 
   services.nix-daemon.enable = true;
 
   nix.configureBuildUsers = true;
 
+  # Remove this when it stops breaking builds..
   documentation.enable = false;
 
   environment.shells = with pkgs; [
@@ -87,7 +90,7 @@
   security.pam.enableSudoTouchIdAuth = true;
 
   system.defaults.NSGlobalDomain = {
-    "com.apple.trackpad.scaling" = 3.0;
+    "com.apple.trackpad.scaling" = 2.0;
     AppleShowAllExtensions = true;
     AppleInterfaceStyle = "Dark";
     AppleInterfaceStyleSwitchesAutomatically = false;
