@@ -31,4 +31,3 @@ let g:cornelis_split_location = 'bottom'
 let g:cornelis_agda_prefix = "\\"
 
 ]], false)
-
