@@ -38,6 +38,7 @@ in
     "raycast"
     "google-chrome"
     "qutebrowser"
+    "notion"
   ];
 
   homebrew.brews = [
