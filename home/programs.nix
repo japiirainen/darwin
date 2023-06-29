@@ -42,6 +42,7 @@
 
   home.packages = lib.attrValues {
     inherit (pkgs)
+      tree
       ripgrep
       vim
       fd
@@ -60,34 +61,7 @@
       elan
       ;
 
-    # Haskell related tools
-    ghc = pkgs.haskell.compiler.ghc945;
-    hls = pkgs.haskell-language-server.override {
-      supportedGhcVersions = [ "945" ];
-    };
-
-    inherit (pkgs.haskellPackages)
-      cabal-install
-      cabal-fmt
-      hoogle
-      hpack
-      implicit-hie
-      ghcid
-      fourmolu
-      ;
-
     agda = pkgs.agda.withPackages (ps: [ ps.standard-library ]);
-
-    inherit (pkgs.ocaml-ng.ocamlPackages_5_0)
-      menhir
-      merlin
-      dune-build-info
-      dune
-      ocaml
-      utop
-      ocamlformat
-      ocaml-lsp
-      ;
 
     # Nix related tools
     inherit (pkgs)
