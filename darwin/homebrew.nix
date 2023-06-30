@@ -39,6 +39,7 @@ in
     "google-chrome"
     "qutebrowser"
     "notion"
+    "spotify"
   ];
 
   homebrew.brews = [
