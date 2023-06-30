@@ -40,6 +40,7 @@ in
     "qutebrowser"
     "notion"
     "spotify"
+    "miro"
   ];
 
   homebrew.brews = [
