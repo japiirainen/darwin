@@ -44,6 +44,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    icu
+    zlib
     coreutils
     kitty
   ];
