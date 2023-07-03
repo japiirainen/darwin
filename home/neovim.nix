@@ -100,6 +100,7 @@ in
   # neovim plugins
   programs.neovim.plugins = with pkgs.vimPlugins; map packer [
     { use = which-key-nvim; opt = true; config = requireConf which-key-nvim; }
+    { use = harpoon; config = requireConf which-key-nvim; }
     { use = NeoSolarized; opt = true; }
     { use = neogit; config = "require'neogit'.setup()"; }
     {

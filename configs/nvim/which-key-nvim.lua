@@ -1,5 +1,10 @@
 local cmd = vim.cmd
 
+cmd 'packadd harpoon'
+require("harpoon").setup()
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
+
 -- WhichKey maps
 
 -- Define all `<Space>` prefixed keymaps with which-key.nvim
@@ -11,6 +16,16 @@ wk.setup { plugins = { spelling = { enabled = true } } }
 
 -- space prefixed in Normal mode
 wk.register({
+    -- Harpoon
+    a = {
+      a = { mark.add_file, 'Add file to harpoon' },
+      e = { ui.toggle_quick_menu, 'Toggle quick menu' },
+      h = { function() ui.nav_file(1) end, 'Navigate to file 1' },
+      t = { function() ui.nav_file(2) end, 'Navigate to file 2' },
+      n = { function() ui.nav_file(3) end, 'Navigate to file 3' },
+      s = { function() ui.nav_file(4) end, 'Navigate to file 4' },
+    },
+
     t = {
         name = "+Tabs",
         n = { "<Cmd>tabnew<CR>", "new tab" },
