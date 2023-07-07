@@ -28,6 +28,7 @@ in
 
   homebrew.taps = [
     "koekeishiya/formulae"
+    "oven-sh/bun"
   ];
 
   homebrew.masApps = {
@@ -46,5 +47,6 @@ in
   homebrew.brews = [
     "skhd"
     "elan"
+    "bun"
   ];
 }

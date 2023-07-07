@@ -45,7 +45,6 @@
       github-copilot-cli
       typescript
       nodejs
-      bun
       ;
 
     agda = pkgs.agda.withPackages (ps: [ ps.standard-library ]);
