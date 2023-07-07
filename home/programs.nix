@@ -58,6 +58,7 @@
       github-copilot-cli
       typescript
       nodejs
+      bun
       elan
       ;
 
