@@ -17,6 +17,7 @@
   programs.zoxide.enable = true;
 
   programs.vscode = {
+    # only install vscode and extensions via nix for now
     enable = true;
     extensions = with pkgs.vscode-extensions; [
       dracula-theme.theme-dracula
@@ -24,20 +25,6 @@
       jnoortheen.nix-ide
       bbenoist.nix
     ];
-
-    userSettings = {
-      "vim.insertModeKeyBindings" = [{ "before" = [ "j" "k" ]; "after" = [ "<esc>" ]; }];
-      "workbench.colorTheme" = "Dracula";
-      "editor.fontFamily" = "Fira Code";
-      "editor.codeLens" = false;
-      "editor.minimap.enabled" = false;
-      "editor.renderIndentGuides" = false;
-      "window.menuBarVisibility" = "toggle";
-      "workbench.activityBar.visible" = false;
-      "workbench.iconTheme" = null;
-      "workbench.startupEditor" = "newUntitledFile";
-      "workbench.statusBar.visible" = false;
-    };
   };
 
   home.packages = lib.attrValues {
@@ -59,7 +46,6 @@
       typescript
       nodejs
       bun
-      elan
       ;
 
     agda = pkgs.agda.withPackages (ps: [ ps.standard-library ]);

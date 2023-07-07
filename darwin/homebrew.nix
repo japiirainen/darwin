@@ -45,5 +45,6 @@ in
 
   homebrew.brews = [
     "skhd"
+    "elan"
   ];
 }
