@@ -63,6 +63,8 @@ local servers_config = {
 
   ocamllsp = {},
 
+  rust_analyzer = {},
+
   vimls = {
     init_options = {
       iskeyword = '@,48-57,_,192-255,-#',
