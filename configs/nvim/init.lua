@@ -46,3 +46,6 @@ g.maplocalleader = ","
 -- mappings
 
 map("i", "jk", "<Esc>")
+
+-- disable github copilot by default
+g.copilot_enabled = false
