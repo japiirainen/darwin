@@ -143,6 +143,7 @@ in
     { use = comment-nvim; config = "require'comment'.setup()"; }
     { use = vim-tmux-navigator; config = requireConf vim-tmux-navigator; }
     { use = todo-comments-nvim; config = "require'todo-comments'.setup()"; }
+    { use = vim-visual-multi; }
 
     # Lean4
     { use = lean-nvim; deps = [ nvim-lspconfig plenary-nvim ]; config = requireConf lean-nvim; }

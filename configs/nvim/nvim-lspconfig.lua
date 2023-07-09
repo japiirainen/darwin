@@ -27,7 +27,9 @@ end
 
 local servers_config = {
   bashls = {},
-  ccls = {},
+  clangd = {
+    capabilities = { offsetEncoding = "utf-8" },
+  },
   hls = {},
   jsonls = {},
 
