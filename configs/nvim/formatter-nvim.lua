@@ -115,11 +115,11 @@ require('formatter').setup({
   }
 })
 
-vim.api.nvim_exec([[
-
-augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost * FormatWrite
-augroup END
-
-]], false)
+-- vim.api.nvim_exec([[
+--
+-- augroup FormatAutogroup
+--   autocmd!
+--   autocmd BufWritePost * FormatWrite
+-- augroup END
+--
+-- ]], false)
