@@ -9,7 +9,7 @@ function! AgdaFiletype()
     nnoremap <buffer> <localleader>. :CornelisTypeContextInfer<CR>
     nnoremap <buffer> <localleader>n :CornelisSolve<CR>
     nnoremap <buffer> <localleader>a :CornelisAuto<CR>
-    nnoremap <buffer> gd        :CornelisGoToDefinition<CR>
+    nnoremap <buffer> <localleader>gd        :CornelisGoToDefinition<CR>
     nnoremap <buffer> [/        :CornelisPrevGoal<CR>
     nnoremap <buffer> ]/        :CornelisNextGoal<CR>
     nnoremap <buffer> <C-A>     :CornelisInc<CR>
