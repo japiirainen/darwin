@@ -47,8 +47,6 @@
       nodejs
       ;
 
-    agda = pkgs.agda.withPackages (ps: [ ps.standard-library ]);
-
     # Nix related tools
     inherit (pkgs)
       cachix
