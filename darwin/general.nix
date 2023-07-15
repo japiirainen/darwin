@@ -13,7 +13,8 @@
 
     keep-outputs = true;
 
-    cores = 8;
+    # `0` denotes all available cores
+    cores = 0;
 
     trusted-users = [ "root" config.users.primaryUser.username ];
 
