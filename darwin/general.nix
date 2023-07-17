@@ -82,7 +82,7 @@
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
     font-awesome_5
-    (nerdfonts.override { fonts = [ "Meslo" "FiraCode" ]; })
+    (nerdfonts.override { fonts = [ "Meslo" "FiraCode" "DejaVuSansMono" ]; })
   ];
 
   # Keyboard
