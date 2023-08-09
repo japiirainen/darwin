@@ -38,6 +38,7 @@
       exa
       bottom
       wget
+      neovide
       ;
 
     inherit (pkgs)
