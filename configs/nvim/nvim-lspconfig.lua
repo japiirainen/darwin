@@ -33,6 +33,8 @@ local servers_config = {
   hls = {},
   jsonls = {},
 
+  marksman = {},
+
   lua_ls = {
     settings = {
       Lua = {

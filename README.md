@@ -1,4 +1,4 @@
-This repository contains my nix configurations for my macOS machines.
+This repository contains my [nix](https://nixos.org) configurations for my macOS machines.
 
 ## Bootstrap new machine
 

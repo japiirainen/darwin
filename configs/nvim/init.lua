@@ -49,3 +49,8 @@ map("i", "jk", "<Esc>")
 
 -- disable github copilot by default
 g.copilot_enabled = false
+
+-- neovide specific
+if g.neovide then
+  o.guifont = "DejaVuSansM Nerd Font Mono"
+end

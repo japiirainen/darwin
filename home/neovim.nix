@@ -158,6 +158,7 @@ in
     nodePackages.bash-language-server
     shellcheck
 
+    marksman
     nodePackages.typescript-language-server
 
     deadnix
