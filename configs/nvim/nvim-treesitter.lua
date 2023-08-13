@@ -3,6 +3,7 @@
 vim.cmd 'packadd nvim-treesitter'
 
 require'nvim-treesitter.configs'.setup {
+  ensure_installed = { 'dhall' },
   highlight = { enable = true },
   incremental_selection = { enable = true },
   indent = { enable = true },

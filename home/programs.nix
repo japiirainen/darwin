@@ -39,6 +39,7 @@
       bottom
       wget
       neovide
+      dhall
       ;
 
     inherit (pkgs)

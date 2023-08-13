@@ -147,6 +147,9 @@ in
 
     # Lean4
     { use = lean-nvim; deps = [ nvim-lspconfig plenary-nvim ]; config = requireConf lean-nvim; }
+
+    # dhall
+    { use = dhall-vim; }
   ];
 
   programs.neovim.extras.termBufferAutoChangeDir = true;
@@ -160,6 +163,7 @@ in
 
     marksman
     nodePackages.typescript-language-server
+    dhall-lsp-server
 
     deadnix
     nixpkgs-fmt

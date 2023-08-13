@@ -35,6 +35,8 @@ local servers_config = {
 
   marksman = {},
 
+  dhall_lsp_server = {},
+
   lua_ls = {
     settings = {
       Lua = {
