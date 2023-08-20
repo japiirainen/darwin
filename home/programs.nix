@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, sp, ... }: {
   programs.bat.enable = true;
   programs.bat.config.style = "plain";
 
@@ -28,6 +28,8 @@
   };
 
   home.packages = lib.attrValues {
+    _ = sp.packages."aarch64-darwin".default;
+
     inherit (pkgs)
       tree
       ripgrep

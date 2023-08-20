@@ -27,6 +27,9 @@
     cornelis.inputs.flake-compat.follows = "flake-compat";
     cornelis.inputs.flake-utils.follows = "flake-utils";
 
+    sp.url = "github:japiirainen/sp";
+    sp.inputs.nixpkgs.follows = "nixpkgs-stable";
+
     # Spacebar
     spacebar.url = "github:cmacrae/spacebar/v1.4.0";
     spacebar.inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -38,6 +41,7 @@
   outputs =
     { self
     , flake-utils
+    , sp
     , ...
     } @ inputs:
     let
@@ -174,6 +178,7 @@
         inherit homeStateVersion;
         system = "aarch64-darwin";
         homeModules = attrValues self.homeManagerModules;
+        extraSpecialArgs = { inherit sp; };
       });
     }
     // flake-utils.lib.eachDefaultSystem (system: {
