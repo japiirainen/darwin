@@ -5,4 +5,21 @@ vim.cmd 'packadd lspsaga.nvim'
 
 local saga = require 'lspsaga'
 
-saga.setup {}
+saga.setup {
+  lightbulb = {
+    enable = false,
+  },
+  code_action = {
+    keys = {
+      quit = '<ESC>',
+      exec = '<CR>'
+    }
+  },
+  rename = {
+    keys = {
+      quit = '<ESC>',
+      exec = '<CR>'
+    }
+  }
+}
+
