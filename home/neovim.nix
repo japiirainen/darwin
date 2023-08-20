@@ -163,7 +163,8 @@ in
 
     marksman
     nodePackages.typescript-language-server
-    dhall-lsp-server
+    # Uncomment when updating inputs
+    # dhall-lsp-server
 
     deadnix
     nixpkgs-fmt
