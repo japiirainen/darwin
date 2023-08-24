@@ -49,6 +49,7 @@
       github-copilot-cli
       typescript
       nodejs
+      cbqn
       ;
 
     # Nix related tools
