@@ -49,6 +49,7 @@
       github-copilot-cli
       typescript
       nodejs
+      deno
       cbqn
       ;
 
