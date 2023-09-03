@@ -22,14 +22,11 @@ require 'neodev'.setup {
 
 local lspconf = require 'lspconfig'
 
-function M.on_attach(client, bufnr)
+function M.on_attach(_, _)
 end
 
 local servers_config = {
   bashls = {},
-  clangd = {
-    capabilities = { offsetEncoding = "utf-8" },
-  },
   hls = {},
   jsonls = {},
 
