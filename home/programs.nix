@@ -37,7 +37,7 @@
       fd
       curl
       less
-      exa
+      eza
       bottom
       wget
       neovide

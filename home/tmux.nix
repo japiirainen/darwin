@@ -20,6 +20,9 @@
       # Previous window/tab
       bind N previous-window
 
+      # Clear history
+      bind u send-keys C-l \; run-shell "sleep .3s" \; clear-history
+
       # Open new panes in current path
       bind '"' split-window -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"

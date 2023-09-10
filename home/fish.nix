@@ -106,7 +106,7 @@ in
     ".." = "cd ..";
     la = "ll -a";
     ll = "ls -l --time-style long-iso --icons";
-    ls = "${exa}/bin/exa";
+    ls = "${eza}/bin/eza";
     tb = "toggle-background";
     v = "nvim";
     vi = "nvim";
