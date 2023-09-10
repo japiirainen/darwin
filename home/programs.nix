@@ -1,30 +1,32 @@
 { pkgs, lib, sp, ... }: {
-  programs.bat.enable = true;
-  programs.bat.config.style = "plain";
+  programs = {
+    bat.enable = true;
+    bat.config.style = "plain";
 
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
+    direnv.enable = true;
+    direnv.nix-direnv.enable = true;
 
-  programs.htop.enable = true;
-  programs.htop.settings.show_program_path = true;
+    htop.enable = true;
+    htop.settings.show_program_path = true;
 
-  programs.ssh.enable = true;
-  programs.ssh.controlPath = "~/.ssh/%C";
+    ssh.enable = true;
+    ssh.controlPath = "~/.ssh/%C";
 
-  # Zoxide, a faster way to navigate the filesystem
-  # https://github.com/ajeetdsouza/zoxide
-  # https://rycee.gitlab.io/home-manager/options.html#opt-programs.zoxide.enable
-  programs.zoxide.enable = true;
+    # Zoxide, a faster way to navigate the filesystem
+    # https://github.com/ajeetdsouza/zoxide
+    # https://rycee.gitlab.io/home-manager/options.html#opt-programs.zoxide.enable
+    zoxide.enable = true;
 
-  programs.vscode = {
-    # only install vscode and extensions via nix for now
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      dracula-theme.theme-dracula
-      vscodevim.vim
-      jnoortheen.nix-ide
-      bbenoist.nix
-    ];
+    vscode = {
+      # only install vscode and extensions via nix for now
+      enable = true;
+      extensions = with pkgs.vscode-extensions; [
+        dracula-theme.theme-dracula
+        vscodevim.vim
+        jnoortheen.nix-ide
+        bbenoist.nix
+      ];
+    };
   };
 
   home.packages = lib.attrValues {
@@ -50,6 +52,7 @@
       typescript
       nodejs
       deno
+      bun
       cbqn
       ;
 

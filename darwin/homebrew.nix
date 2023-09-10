@@ -20,33 +20,33 @@ in
       set -p fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
     end
   '';
+  homebrew = {
 
-  homebrew.enable = true;
-  homebrew.onActivation.autoUpdate = true;
-  homebrew.onActivation.cleanup = "zap";
-  homebrew.global.brewfile = true;
+    enable = true;
+    onActivation.autoUpdate = true;
+    onActivation.cleanup = "zap";
+    global.brewfile = true;
 
-  homebrew.taps = [
-    "koekeishiya/formulae"
-    "oven-sh/bun"
-  ];
+    taps = [
+      "koekeishiya/formulae"
+    ];
 
-  homebrew.masApps = {
-    Slack = 803453959;
+    masApps = {
+      Slack = 803453959;
+    };
+
+    casks = [
+      "raycast"
+      "google-chrome"
+      "qutebrowser"
+      "notion"
+      "spotify"
+      "miro"
+    ];
+
+    brews = [
+      "skhd"
+      "elan"
+    ];
   };
-
-  homebrew.casks = [
-    "raycast"
-    "google-chrome"
-    "qutebrowser"
-    "notion"
-    "spotify"
-    "miro"
-  ];
-
-  homebrew.brews = [
-    "skhd"
-    "elan"
-    "bun"
-  ];
 }
