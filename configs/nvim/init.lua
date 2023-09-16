@@ -6,7 +6,7 @@ local map = vim.keymap.set
 
 -- colorscheme
 
-cmd "colorscheme iceberg"
+cmd "colorscheme NeoSolarized"
 
 -- some basic vim settings
 
