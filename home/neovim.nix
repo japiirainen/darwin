@@ -102,6 +102,7 @@ in
     { use = which-key-nvim; opt = true; config = requireConf which-key-nvim; }
     { use = harpoon; config = requireConf which-key-nvim; }
     { use = NeoSolarized; opt = true; }
+    { use = iceberg-vim; opt = true; }
     { use = neogit; config = "require'neogit'.setup()"; }
     {
       use = telescope-nvim;

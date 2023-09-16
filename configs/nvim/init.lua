@@ -6,7 +6,7 @@ local map = vim.keymap.set
 
 -- colorscheme
 
-cmd "colorscheme NeoSolarized"
+cmd "colorscheme iceberg"
 
 -- some basic vim settings
 
@@ -54,3 +54,11 @@ g.copilot_enabled = false
 if g.neovide then
   o.guifont = "DejaVuSansM Nerd Font Mono"
 end
+
+
+-- custom handling of certain file extensions
+vim.api.nvim_exec([[
+
+autocmd BufNewFile,BufRead *.nue setfiletype html
+
+]], false)
