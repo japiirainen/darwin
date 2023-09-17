@@ -62,3 +62,10 @@ vim.api.nvim_exec([[
 autocmd BufNewFile,BufRead *.nue setfiletype html
 
 ]], false)
+
+-- always load agda-input.vim
+vim.api.nvim_exec([[
+
+runtime agda-input.vim
+
+]], false)
