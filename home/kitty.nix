@@ -3,8 +3,13 @@
 
   programs.kitty.settings = {
     # font settings
-    font_family = "DejaVuSansM Nerd Font Mono";
-    font_size = "15.0";
+
+    # font_family = "DejaVuSansM Nerd Font Mono";
+    # font_size = "15.0";
+
+    font_family = "CozetteVector";
+    font_size = "20.0";
+
     adjust_line_height = "100%";
     disable_ligatures = "cursor";
 

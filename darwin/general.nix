@@ -81,6 +81,7 @@
   # Fonts
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
+    cozette
     font-awesome_5
     (nerdfonts.override { fonts = [ "Meslo" "FiraCode" "DejaVuSansMono" ]; })
   ];
