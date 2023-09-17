@@ -69,5 +69,22 @@
     inherit (pkgs.nodePackages)
       prettier
       ;
+
+    # a minimal python setup with commonly needed libs
+    inherit (pkgs)
+      pyright
+      black
+      pylint
+      ;
+    python311 = pkgs.python311.withPackages
+      (p: with p; [
+        numpy
+        sympy
+        vulture
+        matplotlib
+        fastapi
+        pydantic
+        gunicorn
+      ]);
   };
 }
