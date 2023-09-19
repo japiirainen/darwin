@@ -66,6 +66,6 @@ autocmd BufNewFile,BufRead *.nue setfiletype html
 -- always load agda-input.vim
 vim.api.nvim_exec([[
 
-runtime agda-input.vim
+autocmd BufWinEnter * runtime agda-input.vim
 
 ]], false)

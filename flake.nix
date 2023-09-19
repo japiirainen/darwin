@@ -22,10 +22,14 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     # Agda mode for Neovim
-    cornelis.url = "github:isovector/cornelis";
-    cornelis.inputs.nixpkgs.follows = "nixpkgs-unstable";
-    cornelis.inputs.flake-compat.follows = "flake-compat";
-    cornelis.inputs.flake-utils.follows = "flake-utils";
+    cornelis = {
+      url = "github:isovector/cornelis";
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+        flake-compat.follows = "flake-compat";
+        flake-utils.follows = "flake-utils";
+      };
+    };
 
     sp.url = "github:japiirainen/sp";
     sp.inputs.nixpkgs.follows = "nixpkgs-stable";
