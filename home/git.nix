@@ -1,5 +1,4 @@
 _:
-
 let
   messageFile = ".config/git/message";
 in
