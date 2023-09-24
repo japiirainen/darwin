@@ -4,11 +4,16 @@ local g = vim.g
 local cmd = vim.cmd
 local map = vim.keymap.set
 
--- colorscheme
+-- colorscheme variations
 
--- cmd "colorscheme NeoSolarized"
+-- solarized-light
+cmd "set background=light"
+cmd "colorscheme NeoSolarized"
+
+-- cmd "set background=dark"
 -- cmd "colorscheme iceberg"
-cmd "colorscheme default"
+
+-- cmd "colorscheme default"
 
 -- some basic vim settings
 
