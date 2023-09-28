@@ -7,13 +7,12 @@ local map = vim.keymap.set
 -- colorscheme variations
 
 -- solarized-light
-cmd "set background=light"
-cmd "colorscheme NeoSolarized"
+-- cmd "set background=light"
+-- cmd "colorscheme NeoSolarized"
 
 -- cmd "set background=dark"
--- cmd "colorscheme iceberg"
+cmd "colorscheme iceberg"
 
--- cmd "colorscheme default"
 
 -- some basic vim settings
 
@@ -26,7 +25,7 @@ o.ruler = true
 o.completeopt = "menuone,noselect"
 o.wildmenu = true
 o.clipboard = "unnamedplus"
-o.guicursor = ""
+--o.guicursor = ""
 wo.cursorline = false
 wo.cursorlineopt = "number"
 o.nu = false
@@ -61,7 +60,6 @@ g.copilot_enabled = false
 if g.neovide then
   o.guifont = "DejaVuSansM Nerd Font Mono"
 end
-
 
 -- custom handling of certain file extensions
 vim.api.nvim_exec([[
