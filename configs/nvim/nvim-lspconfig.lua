@@ -45,7 +45,7 @@ local servers_config = {
   },
 
   nil_ls = {
-    settings ={
+    settings = {
       ['nil'] = {
         formatting = {
           command = { 'nixpkgs-fmt' },
@@ -105,7 +105,7 @@ local coq = require 'coq'
 
 foreach(servers_config, function(v, k)
   lspconf[k].setup(coq.lsp_ensure_capabilities(
-   vim.tbl_extend('error', v, { on_attach = M.on_attach })
+    vim.tbl_extend('error', v, { on_attach = M.on_attach })
   ))
 end)
 

@@ -1,6 +1,5 @@
 vim.api.nvim_exec([[
 
-
 function! AgdaFiletype()
     nnoremap <buffer> <localleader>l :CornelisLoad<CR>
     nnoremap <buffer> <localleader>r :CornelisRefine<CR>
