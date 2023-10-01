@@ -11,8 +11,9 @@ local map = vim.keymap.set
 -- cmd "colorscheme NeoSolarized"
 
 -- cmd "set background=dark"
-cmd "colorscheme iceberg"
+-- cmd "colorscheme iceberg"
 
+cmd "colorscheme NeoSolarized"
 
 -- some basic vim settings
 

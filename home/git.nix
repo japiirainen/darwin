@@ -24,7 +24,6 @@ in
         aa = "add -A";
         upd = "! git pull && git submodule update --recursive";
       };
-
       # Enhanced diffs
       delta.enable = true;
 
