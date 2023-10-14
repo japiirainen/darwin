@@ -46,7 +46,6 @@ in
 
     brews = [
       "skhd"
-      "elan"
     ];
   };
 }

@@ -14,6 +14,13 @@ cmd 'packadd! gitsigns.nvim' -- needed for some mappings
 local wk = require 'which-key'
 wk.setup { plugins = { spelling = { enabled = true } } }
 
+-- enables Agda input mode
+function Agda_input()
+  vim.api.nvim_exec([[
+  runtime agda-input.vim
+  ]], false)
+end
+
 -- space prefixed in Normal mode
 wk.register({
   -- Harpoon
@@ -79,6 +86,12 @@ wk.register({
   o = {
     name = "+Open",
     p = { '<Cmd>NvimTreeToggle<CR>', 'Open File Tree' },
+  },
+
+  -- Input Mode
+  i = {
+    name = "Input Mode+",
+    a = {"<Cmd>:lua Agda_input()<CR>", "Enable agda input mode"},
   },
 
   -- Language servers

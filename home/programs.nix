@@ -99,6 +99,7 @@
           fastapi
           pydantic
           gunicorn
+          ipython
         ]);
     };
 }
