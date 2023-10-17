@@ -27,14 +27,14 @@ in
     # Set `$term_background` based on whether macOS is light or dark mode. Other Fish functions
     # trigger when this variable changes. We use a universal variable so that all instances of Fish
     # have the same value for the variable.
-    set-background-to-macOS.body = ''
-      # Returns 'Dark' if in dark mode fails otherwise.
-      if defaults read -g AppleInterfaceStyle &>/dev/null
-        set -U term_background dark
-      else
-        set -U term_background light
-      end
-    '';
+    # set-background-to-macOS.body = ''
+    #   # Returns 'Dark' if in dark mode fails otherwise.
+    #   if defaults read -g AppleInterfaceStyle &>/dev/null
+    #     set -U term_background dark
+    #   else
+    #     set -U term_background light
+    #   end
+    # '';
 
     # Sets Fish Shell to light or dark colorscheme based on `$term_background`.
     set-shell-colors = {
@@ -114,10 +114,10 @@ in
   };
 
   # Configuration that should be above `loginShellInit` and `interactiveShellInit`.
-  programs.fish.shellInit = ''
-    set -U fish_term24bit 1
-    ${optionalString pkgs.stdenv.isDarwin "set-background-to-macOS"}
-  '';
+  # programs.fish.shellInit = ''
+  #   set -U fish_term24bit 1
+  #   ${optionalString pkgs.stdenv.isDarwin "set-background-to-macOS"}
+  # '';
 
   programs.fish.interactiveShellInit = ''
     set -g fish_greeting ""
