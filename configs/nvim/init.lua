@@ -13,6 +13,7 @@ local map = vim.keymap.set
 -- cmd "set background=dark"
 -- cmd "colorscheme iceberg"
 
+cmd "set background=light"
 cmd "colorscheme NeoSolarized"
 
 -- some basic vim settings

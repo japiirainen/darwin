@@ -150,6 +150,9 @@ in
 
     # dhall
     { use = dhall-vim; }
+
+    # Coq
+    { use = Coqtail; }
   ];
 
   programs.neovim.extras.termBufferAutoChangeDir = true;
