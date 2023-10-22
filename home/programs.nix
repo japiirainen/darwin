@@ -84,6 +84,10 @@
         prettier
         ;
 
+      inherit (pkgs)
+        uiua
+        ;
+
       # a minimal python setup with commonly needed libs
       inherit (pkgs)
         pyright
