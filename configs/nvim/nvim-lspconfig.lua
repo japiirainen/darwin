@@ -101,12 +101,8 @@ local servers_config = {
   },
 }
 
-local coq = require 'coq'
-
-foreach(servers_config, function(v, k)
-  lspconf[k].setup(coq.lsp_ensure_capabilities(
-    vim.tbl_extend('error', v, { on_attach = M.on_attach })
-  ))
+foreach(servers_config, function(_, k)
+  lspconf[k].setup{}
 end)
 
 return M

@@ -119,9 +119,9 @@ in
     { use = gitsigns-nvim; config = requireConf gitsigns-nvim; }
 
     { use = copilot-vim; }
-    { use = coq_nvim; opt = true; deps = [ coq-artifacts coq-thirdparty ]; config = requireConf coq_nvim; }
 
     { use = formatter-nvim; config = requireConf formatter-nvim; }
+    { use = mini-nvim; config = "require('mini.completion').setup()"; }
 
     { use = lspsaga-nvim; config = requireConf lspsaga-nvim; }
     { use = null-ls-nvim; config = requireConf null-ls-nvim; }
