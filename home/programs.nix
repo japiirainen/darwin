@@ -25,6 +25,7 @@
         vscodevim.vim
         jnoortheen.nix-ide
         bbenoist.nix
+        uiua-lang.uiua-vscode
       ];
     };
   };
