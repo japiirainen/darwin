@@ -124,7 +124,6 @@ in
     { use = mini-nvim; config = "require('mini.completion').setup()"; }
 
     { use = lspsaga-nvim; config = requireConf lspsaga-nvim; }
-    { use = null-ls-nvim; config = requireConf null-ls-nvim; }
     { use = nvim-lspconfig; deps = [ neodev-nvim ]; config = requireConf nvim-lspconfig; }
     {
       use = nvim-treesitter.withAllGrammars;
