@@ -55,8 +55,7 @@ g.maplocalleader = ","
 
 map("i", "jk", "<Esc>")
 
--- disable github copilot by default
-g.copilot_enabled = false
+g.copilot_enabled = true
 
 -- neovide specific
 if g.neovide then
