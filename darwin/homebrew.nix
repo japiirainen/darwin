@@ -42,6 +42,7 @@ in
       "notion"
       "spotify"
       "miro"
+      "zoom"
     ];
 
     brews = [
