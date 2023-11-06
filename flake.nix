@@ -156,6 +156,7 @@
         jp-colors = import ./home/colors.nix;
         jp-fish = import ./home/fish.nix;
         jp-neovim = import ./home/neovim.nix;
+        jp-emacs = import ./home/emacs.nix;
         jp-skhdrc = import ./home/skhdrc.nix;
 
         colors = import ./modules/home/colors;
