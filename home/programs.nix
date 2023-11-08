@@ -46,6 +46,16 @@
         }))
       ]);
 
+      haskell = pkgs.haskellPackages.ghcWithPackages
+        (p: with p; [
+          ghcid
+          cabal-install
+          text
+          containers
+          fourmolu
+        ]);
+
+      hls = pkgs.haskell-language-server;
 
       inherit (pkgs)
         tree
