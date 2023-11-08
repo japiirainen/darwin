@@ -1,2 +1,9 @@
 result
 configs/emacs/straight/*
+configs/emacs/auto-save-list/*
+configs/emacs/projectile-bookmarks.eld
+configs/emacs/projects
+configs/emacs/recentf
+configs/emacs/.lsp*
+configs/emacs/transient/*
+configs/emacs/autosave/*

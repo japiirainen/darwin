@@ -18,7 +18,19 @@
 (require 'core/keys)
 
 (require 'theme/modus)
+(require 'theme/tweaks)
+
+(require 'editor/company)
+(require 'editor/flycheck)
+(require 'editor/default-bindings)
+(require 'editor/lsp)
+(require 'editor/projectile)
+
+(require 'tools/dired)
+(require 'tools/magit)
+
+(require 'lang/emacs-lisp)
+(require 'lang/haskell)
 
 (provide 'init)
-
 ;;; init.el ends here
