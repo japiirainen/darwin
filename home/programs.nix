@@ -78,7 +78,7 @@
         nodejs
         deno
         bun
-        cbqn
+        cbqn-replxx
         ;
 
       # Nix related tools

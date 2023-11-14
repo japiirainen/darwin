@@ -16,6 +16,9 @@ local map = vim.keymap.set
 cmd "set background=dark"
 cmd "colorscheme NeoSolarized"
 
+-- cmd "set background=dark"
+-- cmd "colorscheme zenburn"
+
 -- some basic vim settings
 
 o.scrolloff = 10
