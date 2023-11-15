@@ -68,6 +68,8 @@ local servers_config = {
 
   rust_analyzer = {},
 
+  zls = {},
+
   vimls = {
     init_options = {
       iskeyword = '@,48-57,_,192-255,-#',
@@ -101,8 +103,12 @@ local servers_config = {
   },
 }
 
-foreach(servers_config, function(_, k)
-  lspconf[k].setup{}
-end)
+function Enable_lspconfig()
+  foreach(servers_config, function(_, k)
+    lspconf[k].setup{}
+  end)
+end
+
+Enable_lspconfig()
 
 return M
