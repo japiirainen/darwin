@@ -29,7 +29,6 @@ in
 
     taps = [
       "koekeishiya/formulae"
-      "d12frosted/emacs-plus"
     ];
 
     masApps = {
