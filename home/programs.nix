@@ -40,8 +40,8 @@
           src = pkgs.fetchFromGitHub {
             repo = "agda-stdlib";
             owner = "agda";
-            rev = "177dc9e983606b653a3c6af2ae2162bbc87882ad";
-            sha256 = "sha256-ovnhL5otoaACpqHZnk/ucivwtEfBQtGRu4/xw4+Ws+c=";
+            rev = "92f79251170958b216f6d1466d05ae5b079b646c";
+            sha256 = "sha256-rFzTA504a6aFiWi92PfoC7jQJd7Ljiki+fi5DeewZ1c=";
           };
         }))
       ]);
