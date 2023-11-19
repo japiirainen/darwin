@@ -104,6 +104,7 @@ in
     { use = iceberg-vim; opt = true; }
     { use = zenburn; opt = true; }
     { use = neogit; config = "require'neogit'.setup()"; }
+    { use = oil-nvim; config = requireConf oil-nvim; }
     {
       use = telescope-nvim;
       deps = [
@@ -116,7 +117,6 @@ in
       ];
       config = requireConf telescope-nvim;
     }
-    { use = nvim-tree-lua; config = requireConf nvim-tree-lua; }
     { use = gitsigns-nvim; config = requireConf gitsigns-nvim; }
 
     { use = copilot-vim; }

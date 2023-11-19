@@ -69,11 +69,6 @@ wk.register({
     ['?'] = { '<Cmd>Telescope help_tags<CR>', 'Vim help' },
   },
 
-  -- Open
-  o = {
-    name = "+Open",
-    p = { '<Cmd>NvimTreeToggle<CR>', 'Open File Tree' },
-  },
 
   -- Input Mode
   i = {
