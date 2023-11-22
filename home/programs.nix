@@ -73,6 +73,7 @@
 
       inherit (pkgs)
         cloc
+        termdown
         github-copilot-cli
         typescript
         nodejs

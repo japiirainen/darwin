@@ -43,6 +43,7 @@ in
       "spotify"
       "miro"
       "zoom"
+      "firefox"
     ];
 
     brews = [
