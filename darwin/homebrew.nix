@@ -44,7 +44,6 @@ in
       "miro"
       "zoom"
       "firefox"
-      "qutebrowser"
     ];
 
     brews = [
