@@ -7,12 +7,12 @@ local map = vim.keymap.set
 -- colorscheme variations
 
 -- solarized-light
-cmd "set background=light"
-cmd "colorscheme NeoSolarized"
+-- cmd "set background=light"
+-- cmd "colorscheme NeoSolarized"
 
 -- solarized-dark
--- cmd "set background=dark"
--- cmd "colorscheme NeoSolarized"
+cmd "set background=dark"
+cmd "colorscheme NeoSolarized"
 
 -- cmd "set background=dark"
 -- cmd "colorscheme iceberg"
