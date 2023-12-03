@@ -66,7 +66,26 @@ local servers_config = {
 
   ocamllsp = {},
 
-  rust_analyzer = {},
+  rust_analyzer = {
+    settings = {
+      ["rust-analyzer"] = {
+        imports = {
+          granularity = {
+            group = "module",
+          },
+          prefix = "self",
+        },
+        cargo = {
+          buildScripts = {
+            enable = true,
+          },
+        },
+        procMacro = {
+          enable = true
+        },
+      },
+    },
+  },
 
   zls = {},
 
@@ -105,7 +124,7 @@ local servers_config = {
 
 function Enable_lspconfig()
   foreach(servers_config, function(_, k)
-    lspconf[k].setup{}
+    lspconf[k].setup {}
   end)
 end
 

@@ -4,7 +4,10 @@
   programs.kitty.settings = {
     # font settings
 
-    font_family = "DejaVuSansM Nerd Font Mono";
+    # font_family = "DejaVuSansM Nerd Font Mono";
+    # font_size = "15.0";
+
+    font_family = "JetBrainsMono Nerd Font Mono";
     font_size = "15.0";
 
     # font_family = "CozetteVector";

@@ -7,14 +7,15 @@ local map = vim.keymap.set
 -- colorscheme variations
 
 -- solarized-light
--- cmd "set background=light"
+cmd "set background=light"
+cmd "colorscheme NeoSolarized"
+
+-- solarized-dark
+-- cmd "set background=dark"
 -- cmd "colorscheme NeoSolarized"
 
 -- cmd "set background=dark"
 -- cmd "colorscheme iceberg"
-
-cmd "set background=dark"
-cmd "colorscheme NeoSolarized"
 
 -- cmd "set background=dark"
 -- cmd "colorscheme zenburn"
@@ -60,11 +61,6 @@ g.maplocalleader = ","
 map("i", "jk", "<Esc>")
 
 g.copilot_enabled = true
-
--- neovide specific
-if g.neovide then
-  o.guifont = "DejaVuSansM Nerd Font Mono"
-end
 
 -- custom handling of certain file extensions
 vim.api.nvim_exec([[

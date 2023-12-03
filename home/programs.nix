@@ -67,7 +67,6 @@
         eza
         bottom
         wget
-        neovide
         dhall
         ;
 
