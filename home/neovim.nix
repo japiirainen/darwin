@@ -144,7 +144,6 @@ in
     { use = vim-tmux-navigator; config = requireConf vim-tmux-navigator; }
     { use = todo-comments-nvim; config = "require'todo-comments'.setup()"; }
     { use = vim-visual-multi; }
-    { use = indent-blankline-nvim; config = requireConf indent-blankline-nvim; }
 
     # Lean4
     { use = lean-nvim; deps = [ nvim-lspconfig plenary-nvim ]; config = requireConf lean-nvim; }
