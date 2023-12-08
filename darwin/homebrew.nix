@@ -44,6 +44,7 @@ in
       "miro"
       "zoom"
       "firefox"
+      "1password"
     ];
 
     brews = [

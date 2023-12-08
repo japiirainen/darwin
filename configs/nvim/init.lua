@@ -11,14 +11,17 @@ local map = vim.keymap.set
 -- cmd "colorscheme NeoSolarized"
 
 -- solarized-dark
-cmd "set background=dark"
-cmd "colorscheme NeoSolarized"
+-- cmd "set background=dark"
+-- cmd "colorscheme NeoSolarized"
 
 -- cmd "set background=dark"
 -- cmd "colorscheme iceberg"
 
 -- cmd "set background=dark"
 -- cmd "colorscheme zenburn"
+
+cmd "set background=dark"
+cmd "colorscheme base16-default-dark"
 
 -- some basic vim settings
 
@@ -31,7 +34,7 @@ o.ruler = true
 o.completeopt = "menuone,noselect"
 o.wildmenu = true
 o.clipboard = "unnamedplus"
-o.guicursor = ""
+-- o.guicursor = ""
 wo.cursorline = true
 wo.cursorlineopt = "both"
 o.nu = false

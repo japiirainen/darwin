@@ -102,6 +102,7 @@ in
     { use = which-key-nvim; opt = true; config = requireConf which-key-nvim; }
     { use = NeoSolarized; opt = true; }
     { use = iceberg-vim; opt = true; }
+    { use = base16-vim; opt = true; }
     { use = zenburn; opt = true; }
     { use = neogit; config = "require'neogit'.setup()"; }
     { use = oil-nvim; config = requireConf oil-nvim; }
