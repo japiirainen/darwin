@@ -58,6 +58,10 @@
       hls = pkgs.haskell-language-server;
 
       inherit (pkgs)
+        kitty-themes
+        ;
+
+      inherit (pkgs)
         tree
         ripgrep
         vim

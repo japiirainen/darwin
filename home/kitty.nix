@@ -1,5 +1,7 @@
-{ config, ... }: {
+{ ... }: {
   programs.kitty.enable = true;
+
+  programs.kitty.theme = "Atom";
 
   programs.kitty.settings = {
     # font settings
@@ -42,23 +44,4 @@
     # Move to end
     "cmd+right" = "send_text all \\x05";
   };
-
-  # Colors config
-  programs.kitty.extras.colors = {
-    enable = true;
-
-    # Background dependent colors
-    dark = config.colors.solarized-dark.pkgThemes.kitty;
-    light = config.colors.solarized-light.pkgThemes.kitty;
-  };
-
-  programs.fish.functions.set-term-colors = {
-    body = "term-background $term_background";
-    onVariable = "term_background";
-  };
-
-  programs.fish.interactiveShellInit = ''
-    # Set term colors based on value of `$term_backdround` when shell starts up.
-    set-term-colors
-  '';
 }
