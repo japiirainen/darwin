@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.tmux = {
     enable = true;
 
@@ -80,6 +80,8 @@
       set-option -g visual-silence off
       set-window-option -g monitor-activity off
       set-option -g bell-action none
+
+      set -g status-style 'bg=#333333 fg=#5eacd3'
     '';
   };
 }
