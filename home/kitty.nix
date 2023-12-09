@@ -10,7 +10,7 @@
     # font_size = "15.0";
 
     font_family = "JetBrainsMono Nerd Font Mono";
-    font_size = "15.0";
+    font_size = "16.0";
 
     # font_family = "CozetteVector";
     # font_size = "20.0";

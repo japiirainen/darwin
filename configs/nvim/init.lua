@@ -53,6 +53,8 @@ o.termguicolors = true
 o.scrolloff = 8
 o.signcolumn = "yes"
 o.autoread = true
+o.list = true
+o.listchars = "trail:␣,"
 
 -- leader keys
 
@@ -63,7 +65,7 @@ g.maplocalleader = ","
 
 map("i", "jk", "<Esc>")
 
-g.copilot_enabled = true
+g.copilot_enabled = false
 
 -- custom handling of certain file extensions
 vim.api.nvim_exec([[
