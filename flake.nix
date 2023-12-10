@@ -31,8 +31,13 @@
       };
     };
 
+    # sp
     sp.url = "github:japiirainen/sp";
-    sp.inputs.nixpkgs.follows = "nixpkgs-stable";
+    sp.inputs.nixpkgs.follows = "nixpkgs-unstable";
+
+    # ngn/k
+    k.url = "github:nathyong/ngnk-nix";
+    k.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     # Spacebar
     spacebar.url = "github:cmacrae/spacebar/v1.4.0";
@@ -46,6 +51,7 @@
     { self
     , flake-utils
     , sp
+    , k
     , ...
     } @ inputs:
     let
@@ -180,7 +186,7 @@
         inherit homeStateVersion;
         system = "aarch64-darwin";
         homeModules = attrValues self.homeManagerModules;
-        extraSpecialArgs = { inherit sp; };
+        extraSpecialArgs = { inherit sp k; };
       });
     }
     // flake-utils.lib.eachDefaultSystem (system: {

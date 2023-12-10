@@ -1,4 +1,4 @@
-{ pkgs, lib, sp, ... }: {
+{ pkgs, lib, sp, k, ... }: {
   programs = {
     bat.enable = true;
     bat.config.style = "plain";
@@ -32,7 +32,8 @@
 
   home.packages =
     lib.attrValues {
-      _ = sp.packages."aarch64-darwin".default;
+      sp = sp.packages."aarch64-darwin".default;
+      k = k.packages."aarch64-darwin".k;
 
       agda = pkgs.agda.withPackages (ps: [
         (ps.standard-library.overrideAttrs (_: {
@@ -95,13 +96,9 @@
         ;
 
       # npm packages
-      inherit (pkgs.nodePackages)
-        prettier
-        ;
+      inherit (pkgs.nodePackages) prettier;
 
-      inherit (pkgs)
-        uiua
-        ;
+      inherit (pkgs) uiua;
 
       # a minimal python setup with commonly needed libs
       inherit (pkgs)
