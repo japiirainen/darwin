@@ -54,7 +54,7 @@ o.scrolloff = 8
 o.signcolumn = "yes"
 o.autoread = true
 o.list = true
-o.listchars = "trail:␣,"
+o.listchars = "tab:→ ,trail:·,extends:›,precedes:‹,nbsp:·"
 
 -- leader keys
 
