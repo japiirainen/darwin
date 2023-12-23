@@ -58,11 +58,12 @@ in
     ns = "nix search";
     ".." = "cd ..";
     la = "ll -a";
-    ll = "ls -l --time-style long-iso --icons";
+    ll = "ls -lah --time-style long-iso --icons";
     ls = "${eza}/bin/eza";
     v = "nvim";
     vi = "nvim";
     vim = "nvim";
+    cat = "bat";
   };
 
   programs.fish.interactiveShellInit = ''

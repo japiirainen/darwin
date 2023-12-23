@@ -14,14 +14,20 @@ local map = vim.keymap.set
 -- cmd "set background=dark"
 -- cmd "colorscheme NeoSolarized"
 
--- cmd "set background=dark"
--- cmd "colorscheme iceberg"
+cmd "set background=dark"
+cmd "colorscheme iceberg"
 
 -- cmd "set background=dark"
 -- cmd "colorscheme zenburn"
 
-cmd "set background=dark"
-cmd "colorscheme base16-default-dark"
+-- cmd "set background=dark"
+-- cmd "colorscheme base16-default-dark"
+
+-- cmd "set background=dark"
+-- cmd "colorscheme base16-onedark"
+
+-- cmd "set background=dark"
+-- cmd "colorscheme default"
 
 -- some basic vim settings
 
@@ -35,7 +41,7 @@ o.completeopt = "menuone,noselect"
 o.wildmenu = true
 o.clipboard = "unnamedplus"
 -- o.guicursor = ""
-wo.cursorline = true
+wo.cursorline = true -- highlight current row?
 wo.cursorlineopt = "both"
 o.nu = false
 o.relativenumber = true
