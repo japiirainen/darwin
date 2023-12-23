@@ -1,16 +1,20 @@
 { ... }: {
   programs.kitty.enable = true;
 
-  programs.kitty.theme = "Atom";
+  programs.kitty.theme = "One Dark";
 
   programs.kitty.settings = {
+
     # font settings
 
     # font_family = "DejaVuSansM Nerd Font Mono";
     # font_size = "15.0";
 
-    font_family = "JetBrainsMono Nerd Font Mono";
-    font_size = "16.0";
+    # font_family = "JetBrainsMono Nerd Font Mono";
+    # font_size = "16.0";
+
+    font_family = "Terminess Nerd Font Mono";
+    font_size = "18.0";
 
     # font_family = "CozetteVector";
     # font_size = "20.0";

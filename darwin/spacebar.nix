@@ -15,7 +15,8 @@
     padding_right = 20;
     spacing_left = 25;
     spacing_right = 25;
-    text_font = ''"JetBrainsMono Nerd Font Mono:16.0"'';
+    # text_font = ''"JetBrainsMono Nerd Font Mono:16.0"'';
+    text_font = ''"Terminess Nerd Font Mono:18.0"'';
     icon_font = ''"Font Awesome 5 Free:Solid:16.0"'';
     background_color = "0xff242730";
     foreground_color = "0xffbbc2cf";
