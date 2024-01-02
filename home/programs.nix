@@ -53,6 +53,7 @@
           cabal-install
           text
           containers
+          data-ordlist
           fourmolu
         ]);
 
