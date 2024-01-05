@@ -173,21 +173,23 @@
 
       # System configurations
 
-      darwinConfigurations.jp-mbp = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults
-      // {
-        modules =
-          (attrValues self.darwinModules)
-          ++ (singleton {
-            nixpkgs = nixpkgsDefaults;
-            networking.computerName = "jp-mbp";
-            networking.hostName = "jp-mbp";
-            nix.registry.my.flake = inputs.self;
-          });
-        inherit homeStateVersion;
-        system = "aarch64-darwin";
-        homeModules = attrValues self.homeManagerModules;
-        extraSpecialArgs = { inherit sp k; };
-      });
+      darwinConfigurations = {
+        # My personal m2 machine
+        jp-personal = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
+          modules =
+            (attrValues self.darwinModules)
+            ++ (singleton {
+              nixpkgs = nixpkgsDefaults;
+              networking.computerName = "jp-personal";
+              networking.hostName = "jp-personal";
+              nix.registry.my.flake = inputs.self;
+            });
+          inherit homeStateVersion;
+          system = "aarch64-darwin";
+          homeModules = attrValues self.homeManagerModules;
+          extraSpecialArgs = { inherit sp k; };
+        });
+      };
     }
     // flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import inputs.nixpkgs-unstable (nixpkgsDefaults // { inherit system; });
