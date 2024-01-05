@@ -45,6 +45,8 @@ in
       "zoom"
       "firefox"
       "1password"
+      "docker"
+      "microsoft-teams"
     ];
 
     brews = [

@@ -174,7 +174,7 @@
       # System configurations
 
       darwinConfigurations = {
-        # My personal m2 machine
+        # Personal machine
         jp-personal = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
           modules =
             (attrValues self.darwinModules)
@@ -185,6 +185,24 @@
               nix.registry.my.flake = inputs.self;
             });
           inherit homeStateVersion;
+          system = "aarch64-darwin";
+          homeModules = attrValues self.homeManagerModules;
+          extraSpecialArgs = { inherit sp k; };
+        });
+
+        # Work machine
+        jp-work = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
+          modules =
+            (attrValues self.darwinModules)
+            ++ (singleton {
+              nixpkgs = nixpkgsDefaults;
+              networking.computerName = "jp-work";
+              networking.hostName = "jp-work";
+              nix.registry.my.flake = inputs.self;
+            });
+          inherit homeStateVersion;
+          username = "jp-mbp";
+          nixConfigDirectory = "/Users/jp-mbp/dev/darwin";
           system = "aarch64-darwin";
           homeModules = attrValues self.homeManagerModules;
           extraSpecialArgs = { inherit sp k; };

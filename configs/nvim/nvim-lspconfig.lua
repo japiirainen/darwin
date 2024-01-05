@@ -28,7 +28,11 @@ end
 local servers_config = {
   bashls = {},
   hls = {},
+
   jsonls = {},
+  html = {},
+  cssls = {},
+  tailwindcss = {},
 
   marksman = {},
 

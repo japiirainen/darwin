@@ -85,6 +85,8 @@
         deno
         bun
         cbqn-replxx
+        pnpm
+        podman
         ;
 
       # Nix related tools
@@ -106,6 +108,8 @@
         pyright
         black
         pylint
+        pre-commit
+        poetry
         ;
       python311 = pkgs.python311.withPackages
         (p: with p; [

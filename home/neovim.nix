@@ -179,6 +179,7 @@ in
     sumneko-lua-language-server
     vscode-langservers-extracted
     yaml-language-server
+    tailwindcss-language-server
 
     proselint
     (agda.withPackages (p: [ p.standard-library ]))
