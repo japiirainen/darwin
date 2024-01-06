@@ -81,7 +81,8 @@
       set-window-option -g monitor-activity off
       set-option -g bell-action none
 
-      set -g status-style 'bg=#333333 fg=#5eacd3'
+      # set -g status-style 'bg=#333333 fg=#5eacd3'
+      set -g status-style 'bg=default'
     '';
   };
 }
