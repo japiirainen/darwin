@@ -6,16 +6,14 @@ local map = vim.keymap.set
 
 -- colorscheme variations
 
--- solarized-light
 -- cmd "set background=light"
 -- cmd "colorscheme NeoSolarized"
 
--- solarized-dark
 -- cmd "set background=dark"
 -- cmd "colorscheme NeoSolarized"
 
-cmd "set background=dark"
-cmd "colorscheme iceberg"
+-- cmd "set background=dark"
+-- cmd "colorscheme iceberg"
 
 -- cmd "set background=dark"
 -- cmd "colorscheme zenburn"
@@ -28,6 +26,9 @@ cmd "colorscheme iceberg"
 
 -- cmd "set background=dark"
 -- cmd "colorscheme default"
+
+-- default light
+cmd "set background=light"
 
 -- some basic vim settings
 

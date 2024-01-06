@@ -22,7 +22,7 @@ in
         ''
         + optionalString config.programs.bat.enable ''
           # Use correct theme for `bat`.
-          set -xg BAT_THEME "base16"
+          set -xg BAT_THEME "ansi"
         ''
         + optionalString (elem pkgs.bottom config.home.packages) ''
           # Use correct theme for `btm`.
@@ -30,13 +30,6 @@ in
             alias btm "btm --color default-light"
           else
             alias btm "btm --color default"
-          end
-        ''
-        + optionalString config.programs.neovim.enable ''
-          # Set `background` of all running Neovim instances.
-          for server in (${pkgs.neovim-remote}/bin/nvr --serverlist)
-            ${pkgs.neovim-remote}/bin/nvr -s --nostart --servername $server \
-              -c "set background=$term_background" &
           end
         '';
       onVariable = "term_background";

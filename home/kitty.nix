@@ -1,7 +1,7 @@
 { ... }: {
   programs.kitty.enable = true;
 
-  programs.kitty.theme = "Blazer";
+  programs.kitty.theme = "Man Page";
 
   programs.kitty.settings = {
 

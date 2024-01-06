@@ -24,8 +24,14 @@ in
         aa = "add -A";
         upd = "! git pull && git submodule update --recursive";
       };
+
       # Enhanced diffs
-      delta.enable = true;
+      delta = {
+        enable = true;
+        options = {
+          light = true;
+        };
+      };
 
       extraConfig = {
         commit = {
