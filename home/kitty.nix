@@ -1,7 +1,7 @@
 { ... }: {
   programs.kitty.enable = true;
 
-  # programs.kitty.theme = "Doom One";
+  programs.kitty.theme = "Blazer";
 
   programs.kitty.settings = {
 

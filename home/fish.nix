@@ -18,7 +18,7 @@ in
       body =
         ''
           # Set LS_COLORS
-          set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate iceberg-dark)
+          # set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate iceberg-dark)
         ''
         + optionalString config.programs.bat.enable ''
           # Use correct theme for `bat`.
