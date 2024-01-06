@@ -122,5 +122,8 @@
           gunicorn
           ipython
         ]);
+
+      # racket
+      inherit (pkgs) racket;
     };
 }

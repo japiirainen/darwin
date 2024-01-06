@@ -154,6 +154,12 @@ in
 
     # Coq
     { use = Coqtail; }
+
+    # Racket
+    { use = vim-racket; }
+
+    # Conjure for lisps
+    { use = conjure; }
   ];
 
   programs.neovim.extras.termBufferAutoChangeDir = true;
