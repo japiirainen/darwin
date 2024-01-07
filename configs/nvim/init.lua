@@ -24,11 +24,14 @@ local map = vim.keymap.set
 -- cmd "set background=dark"
 -- cmd "colorscheme base16-onedark"
 
+cmd "set background=dark"
+cmd "colorscheme catppuccin_mocha"
+
 -- cmd "set background=dark"
 -- cmd "colorscheme default"
 
 -- default light
-cmd "set background=light"
+-- cmd "set background=light"
 
 -- some basic vim settings
 

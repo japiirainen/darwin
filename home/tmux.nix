@@ -4,6 +4,7 @@
 
     plugins = with pkgs; [
       tmuxPlugins.better-mouse-mode
+      tmuxPlugins.catppuccin
     ];
 
     extraConfig = ''
@@ -16,6 +17,7 @@
 
       # Tabs
       set -g base-index 1
+      set -g renumber-windows on
 
       # Previous window/tab
       bind N previous-window
@@ -80,9 +82,6 @@
       set-option -g visual-silence off
       set-window-option -g monitor-activity off
       set-option -g bell-action none
-
-      # set -g status-style 'bg=#333333 fg=#5eacd3'
-      set -g status-style 'bg=default'
     '';
   };
 }

@@ -29,7 +29,7 @@ in
       delta = {
         enable = true;
         options = {
-          light = true;
+          light = false;
         };
       };
 
