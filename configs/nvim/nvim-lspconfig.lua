@@ -65,6 +65,8 @@ local servers_config = {
   },
 
   pyright = {},
+  ruff_lsp = {},
+
   sourcekit = {},
   tsserver = {},
 

@@ -186,6 +186,7 @@ in
     vscode-langservers-extracted
     yaml-language-server
     tailwindcss-language-server
+    ruff-lsp
 
     proselint
     (agda.withPackages (p: [ p.standard-library ]))
