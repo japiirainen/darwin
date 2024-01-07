@@ -29,10 +29,13 @@ local servers_config = {
   bashls = {},
   hls = {},
 
+  tsserver = {},
+  eslint = {},
   jsonls = {},
   html = {},
   cssls = {},
   tailwindcss = {},
+  sourcekit = {},
 
   marksman = {},
 
@@ -66,9 +69,6 @@ local servers_config = {
 
   pyright = {},
   ruff_lsp = {},
-
-  sourcekit = {},
-  tsserver = {},
 
   ocamllsp = {},
 
