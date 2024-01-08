@@ -35,7 +35,6 @@ local servers_config = {
   html = {},
   cssls = {},
   tailwindcss = {},
-  sourcekit = {},
 
   marksman = {},
 
