@@ -125,5 +125,8 @@
 
       # racket
       inherit (pkgs) racket;
+
+      # gcp
+      inherit (pkgs) google-cloud-sdk;
     };
 }
