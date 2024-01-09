@@ -13,6 +13,14 @@ in
   home.packages = with pkgs; [ fishPlugins.done ];
 
   programs.fish.functions = {
+    toggle-background.body = ''
+      if test "$term_background" = light
+        set -U term_background dark
+      else
+        set -U term_background light
+      end
+    '';
+
     # Sets Fish Shell to light or dark colorscheme based on `$term_background`.
     set-shell-colors = {
       body =
@@ -84,6 +92,7 @@ in
     la = "ll -a";
     ll = "ls -lah --time-style long-iso --icons";
     ls = "${eza}/bin/eza";
+    tb = "toggle-background";
     v = "nvim";
     vi = "nvim";
     vim = "nvim";
