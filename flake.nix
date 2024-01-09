@@ -159,10 +159,12 @@
         jp-git = import ./home/git.nix;
         jp-tmux = import ./home/tmux.nix;
         jp-kitty = import ./home/kitty.nix;
+        jp-colors = import ./home/colors.nix;
         jp-fish = import ./home/fish.nix;
         jp-neovim = import ./home/neovim.nix;
         jp-skhdrc = import ./home/skhdrc.nix;
 
+        colors = import ./modules/home/colors;
         programs-neovim-extras = import ./modules/home/programs/neovim/extras.nix;
         programs-kitty-extras = import ./modules/home/programs/kitty/extras.nix;
         home-user-info = { lib, ... }: {

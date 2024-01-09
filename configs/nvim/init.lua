@@ -9,8 +9,8 @@ local map = vim.keymap.set
 -- cmd "set background=light"
 -- cmd "colorscheme NeoSolarized"
 
--- cmd "set background=dark"
--- cmd "colorscheme NeoSolarized"
+cmd "set background=dark"
+cmd "colorscheme NeoSolarized"
 
 -- cmd "set background=dark"
 -- cmd "colorscheme iceberg"
@@ -24,8 +24,8 @@ local map = vim.keymap.set
 -- cmd "set background=dark"
 -- cmd "colorscheme base16-onedark"
 
-cmd "set background=dark"
-cmd "colorscheme catppuccin_mocha"
+-- cmd "set background=dark"
+-- cmd "colorscheme catppuccin_mocha"
 
 -- cmd "set background=dark"
 -- cmd "colorscheme default"
