@@ -26,6 +26,8 @@ function M.on_attach(_, _)
 end
 
 local servers_config = {
+  copilot = {},
+
   bashls = {},
   hls = {},
 

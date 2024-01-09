@@ -75,7 +75,7 @@ g.maplocalleader = ","
 
 map("i", "jk", "<Esc>")
 
-g.copilot_enabled = false
+g.copilot_enabled = true
 
 -- custom handling of certain file extensions
 vim.api.nvim_exec([[
