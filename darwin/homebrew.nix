@@ -47,6 +47,8 @@ in
       "1password"
       "docker"
       "microsoft-teams"
+      "pgadmin4"
+      "thunderbird"
     ];
 
     brews = [

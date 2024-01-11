@@ -124,5 +124,8 @@
 
       # gcp
       inherit (pkgs) google-cloud-sdk;
+
+      # postgresql
+      inherit (pkgs) postgresql;
     };
 }

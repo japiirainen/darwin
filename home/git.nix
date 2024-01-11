@@ -23,6 +23,7 @@ in
         pf = "push --force-with-lease";
         aa = "add -A";
         upd = "! git pull && git submodule update --recursive";
+        pushu = "! git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)";
       };
 
       # Enhanced diffs
