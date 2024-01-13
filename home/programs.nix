@@ -73,6 +73,7 @@
         wget
         dhall
         cargo
+        kitty-themes
         ;
 
       inherit (pkgs)
