@@ -59,6 +59,8 @@
 
       hls = pkgs.haskell-language-server;
 
+      ocamllsp = pkgs.ocamlPackages.ocaml-lsp;
+
       inherit (pkgs)
         tree
         ripgrep
@@ -70,6 +72,7 @@
         bottom
         wget
         dhall
+        cargo
         ;
 
       inherit (pkgs)
@@ -92,6 +95,7 @@
         nix-tree
         nix-update
         statix
+        nil
         ;
 
       # npm packages

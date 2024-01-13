@@ -54,6 +54,7 @@ in
     brews = [
       "skhd"
       "elan"
+      "ghcup"
     ];
   };
 }
