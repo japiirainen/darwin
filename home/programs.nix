@@ -132,5 +132,8 @@
 
       # postgresql
       inherit (pkgs) postgresql;
+
+      # redis
+      inherit (pkgs) redis;
     };
 }
