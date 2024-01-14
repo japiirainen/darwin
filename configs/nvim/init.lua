@@ -253,6 +253,13 @@ require('lazy').setup {
   { dependencies = {
     'nvim-lua/plenary.nvim',
   }, 'ThePrimeagen/harpoon' },
+
+  {
+    'rmagatti/goto-preview',
+    config = function()
+      require('goto-preview').setup {}
+    end,
+  },
 }
 
 -- basic vim/neovim settings
@@ -501,6 +508,24 @@ vim.defer_fn(function()
     },
   }
 end, 0)
+
+-- goto-preview
+
+map('n', '<leader>lgd', '<cmd>lua require("goto-preview").goto_preview_definition()<CR>', {
+  desc = 'Goto Preview Definition',
+})
+map('n', '<leader>lgt', '<cmd>lua require("goto-preview").goto_preview_type_definition()<CR>', {
+  desc = 'Goto Preview Type Definition',
+})
+map('n', '<leader>lgi', '<cmd>lua require("goto-preview").goto_preview_implementation()<CR>', {
+  desc = 'Goto Preview Implementation',
+})
+map('n', '<leader>lgr', '<cmd>lua require("goto-preview").goto_preview_references()<CR>', {
+  desc = 'Goto Preview References',
+})
+map('n', '<leader>lgq', '<cmd>lua require("goto-preview").close_all_win()<CR>', {
+  desc = 'Close all Goto Preview windows',
+})
 
 -- formatter.nvim
 
