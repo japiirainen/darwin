@@ -45,6 +45,7 @@ in
     drb = "darwin-rebuild build --flake ${nixConfigDirectory}";
     drs = "darwin-rebuild switch --flake ${nixConfigDirectory}";
     flakeup = "nix flake update ${nixConfigDirectory}";
+    vimconf = "nvim ${nixConfigDirectory}/configs/nvim/init.lua";
     nb = "nix build";
     nd = "nix develop";
     nf = "nix flake";
