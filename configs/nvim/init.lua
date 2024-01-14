@@ -28,6 +28,7 @@ require('lazy').setup {
   'mhartington/formatter.nvim',
   'tpope/vim-sleuth',
   'mg979/vim-visual-multi',
+  'isovector/cornelis',
 
   { 'github/copilot.vim', lazy = false },
 
@@ -230,12 +231,22 @@ require('lazy').setup {
     build = ':TSUpdate',
   },
 
-  { 'isovector/cornelis', lazy = false },
-
   {
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = true,
+  },
+
+  {
+    -- Support for the lean theorem prover
+    'Julian/lean.nvim',
+    event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
+
+    dependencies = {
+      'neovim/nvim-lspconfig',
+      'nvim-lua/plenary.nvim',
+      'hrsh7th/nvim-cmp',
+    },
   },
 }
 
@@ -260,7 +271,6 @@ o.undofile = true
 o.ignorecase = true
 o.smartcase = true
 o.updatetime = 50
-o.updatetime = 100
 o.completeopt = 'menuone,noselect'
 o.termguicolors = true
 o.scrolloff = 8
@@ -827,6 +837,13 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+require('lean').setup {
+  abbreviations = { builtin = true },
+  lsp = { on_attach = on_attach },
+  lsp3 = { on_attach = on_attach },
+  mappings = true,
+}
+
 -- nvim-cmp
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
@@ -919,11 +936,6 @@ let g:cornelis_agda_prefix = "\\"
 
 -- enables Agda input mode
 function Agda_input()
-  vim.api.nvim_exec(
-    [[
-  runtime agda-input.vim
-  ]],
-    false
-  )
+  vim.api.nvim_exec([[runtime agda-input.vim]], false)
 end
 map('n', '<leader>ia', ':lua Agda_input()<CR>', { desc = 'Enable agda input mode' })
