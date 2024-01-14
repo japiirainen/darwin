@@ -40,6 +40,7 @@ require('lazy').setup {
     priority = 1000,
   },
   { 'dracula/vim', name = 'dracula', lazy = false },
+  { 'rose-pine/neovim', name = 'rose-pine', lazy = false },
 
   {
     -- Set lualine as statusline
@@ -48,7 +49,7 @@ require('lazy').setup {
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'dracula',
+        theme = 'rose-pine',
         component_separators = '|',
         section_separators = '',
       },
@@ -256,7 +257,7 @@ g.mapleader = ' '
 g.maplocalleader = ','
 
 cmd 'set background=dark'
-colorscheme 'dracula'
+colorscheme 'rose-pine'
 
 map('i', 'jk', '<Esc>')
 

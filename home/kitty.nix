@@ -1,7 +1,7 @@
-{ config, ... }: {
+{ ... }: {
   programs.kitty.enable = true;
 
-  programs.kitty.theme = "Dracula";
+  programs.kitty.theme = "Rosé Pine";
 
   programs.kitty.settings = {
 
