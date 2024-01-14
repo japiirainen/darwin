@@ -249,6 +249,10 @@ require('lazy').setup {
       'hrsh7th/nvim-cmp',
     },
   },
+
+  { dependencies = {
+    'nvim-lua/plenary.nvim',
+  }, 'ThePrimeagen/harpoon' },
 }
 
 -- basic vim/neovim settings
@@ -646,6 +650,29 @@ augroup END
   false
 )
 
+-- harpoon
+
+require('harpoon').setup()
+local mark = require 'harpoon.mark'
+local ui = require 'harpoon.ui'
+
+map('n', '<leader>aa', mark.add_file, { desc = 'Add file to harpoon' })
+map('n', '<leader>ae', ui.toggle_quick_menu, { desc = 'Toggle quick menu' })
+map('n', '<leader>ah', function()
+  ui.nav_file(1)
+end, { desc = 'Navigate to file 1' })
+map('n', '<leader>at', function()
+  ui.nav_file(2)
+end, { desc = 'Navigate to file 2' })
+map('n', '<leader>an', function()
+  ui.nav_file(3)
+end, { desc = 'Navigate to file 3' })
+map('n', '<leader>as', function()
+  ui.nav_file(4)
+end, { desc = 'Navigate to file 4' })
+
+-- lsp-servers
+
 local servers = {
   lua_ls = {
     Lua = {
@@ -793,6 +820,7 @@ end
 
 -- document existing key chains
 require('which-key').register {
+  ['<leader>a'] = { name = '[A]ction', _ = 'which_key_ignore' },
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
   ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
