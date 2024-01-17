@@ -130,6 +130,12 @@
       # gcp
       inherit (pkgs) google-cloud-sdk;
 
+      # azure
+      inherit (pkgs) azure-cli;
+
+      # pulumi
+      inherit (pkgs) pulumi;
+
       # postgresql
       inherit (pkgs) postgresql;
 
