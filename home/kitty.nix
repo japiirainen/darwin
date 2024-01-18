@@ -8,10 +8,10 @@
     # font settings
 
     # font_family = "DejaVuSansM Nerd Font Mono";
-    # font_size = "15.0";
+    # font_size = "16.0";
 
-    font_family = "JetBrainsMono Nerd Font Mono";
-    font_size = "16.0";
+    # font_family = "JetBrainsMono Nerd Font Mono";
+    # font_size = "16.0";
 
     # font_family = "Terminess Nerd Font Mono";
     # font_size = "18.0";
@@ -20,7 +20,13 @@
     # font_size = "20.0";
 
     # font_family = "FiraCode Nerd Font Mono";
-    # font_size = "14.0";
+    # font_size = "16.0";
+
+    # font_family = "UbuntuMono Nerd Font Mono";
+    # font_size = "16.0";
+
+    font_family = "VictorMono Nerd Font Mono";
+    font_size = "18.0";
 
     adjust_line_height = "100%";
     disable_ligatures = "cursor";

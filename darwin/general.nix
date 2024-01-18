@@ -91,6 +91,8 @@
         "DejaVuSansMono"
         "JetBrainsMono"
         "Terminus"
+        "UbuntuMono"
+        "VictorMono"
       ];
     })
   ];
