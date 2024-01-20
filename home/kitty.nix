@@ -6,7 +6,6 @@
   programs.kitty.settings = {
     font_family = "PragmataPro Mono Liga";
     font_size = "20.0";
-    symbol_map = "codepoints UbuntuMono Nerd Font Mono";
 
     adjust_line_height = "100%";
     disable_ligatures = "cursor";
