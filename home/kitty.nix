@@ -4,29 +4,9 @@
   programs.kitty.theme = "Rosé Pine";
 
   programs.kitty.settings = {
-
-    # font settings
-
-    # font_family = "DejaVuSansM Nerd Font Mono";
-    # font_size = "16.0";
-
-    # font_family = "JetBrainsMono Nerd Font Mono";
-    # font_size = "16.0";
-
-    # font_family = "Terminess Nerd Font Mono";
-    # font_size = "18.0";
-
-    # font_family = "CozetteVector";
-    # font_size = "20.0";
-
-    # font_family = "FiraCode Nerd Font Mono";
-    # font_size = "16.0";
-
-    # font_family = "UbuntuMono Nerd Font Mono";
-    # font_size = "16.0";
-
-    font_family = "VictorMono Nerd Font Mono";
-    font_size = "18.0";
+    font_family = "PragmataPro Mono Liga";
+    font_size = "20.0";
+    symbol_map = "codepoints UbuntuMono Nerd Font Mono";
 
     adjust_line_height = "100%";
     disable_ligatures = "cursor";

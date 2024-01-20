@@ -93,6 +93,7 @@
         "Terminus"
         "UbuntuMono"
         "VictorMono"
+        "Iosevka"
       ];
     })
   ];
