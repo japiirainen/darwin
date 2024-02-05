@@ -41,8 +41,8 @@
           src = pkgs.fetchFromGitHub {
             repo = "agda-stdlib";
             owner = "agda";
-            rev = "92f79251170958b216f6d1466d05ae5b079b646c";
-            sha256 = "sha256-rFzTA504a6aFiWi92PfoC7jQJd7Ljiki+fi5DeewZ1c=";
+            rev = "e2bd4c5636962ac93c7e2b650f913c7f9155b37d";
+            sha256 = "sha256-2olWXS+vlTPTLa9bUw8LYQlxfFYbDEJmtFqBtTZMf58=";
           };
         }))
       ]);
@@ -102,7 +102,10 @@
       # npm packages
       inherit (pkgs.nodePackages) prettier;
 
-      inherit (pkgs) uiua;
+      inherit (pkgs)
+        uiua
+        koka
+        ;
 
       # a minimal python setup with commonly needed libs
       inherit (pkgs)
@@ -112,16 +115,16 @@
         pre-commit
         poetry
         ;
+
       python311 = pkgs.python311.withPackages
         (p: with p; [
           numpy
           sympy
-          vulture
+          ipython
           matplotlib
           fastapi
           pydantic
           gunicorn
-          ipython
         ]);
 
       # racket
