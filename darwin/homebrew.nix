@@ -55,6 +55,7 @@ in
       "skhd"
       "elan"
       "ghcup"
+      "pulumi"
     ];
   };
 }

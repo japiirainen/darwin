@@ -66,6 +66,7 @@
         ripgrep
         vim
         fd
+        jq
         curl
         less
         eza
@@ -135,9 +136,6 @@
 
       # azure
       inherit (pkgs) azure-cli;
-
-      # pulumi
-      inherit (pkgs) pulumi;
 
       # postgresql
       inherit (pkgs) postgresql;

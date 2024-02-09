@@ -41,6 +41,8 @@ require('lazy').setup {
   },
   { 'dracula/vim', name = 'dracula', lazy = false },
   { 'rose-pine/neovim', name = 'rose-pine', lazy = false },
+  { 'navarasu/onedark.nvim', lazy = false },
+  { 'folke/tokyonight.nvim', lazy = false },
 
   {
     -- Set lualine as statusline
@@ -49,7 +51,7 @@ require('lazy').setup {
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'rose-pine',
+        theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
       },
@@ -274,7 +276,7 @@ g.mapleader = ' '
 g.maplocalleader = ','
 
 cmd 'set background=dark'
-colorscheme 'rose-pine'
+colorscheme 'tokyonight-night'
 
 map('i', 'jk', '<Esc>')
 

@@ -1,7 +1,9 @@
 { ... }: {
   programs.kitty.enable = true;
 
-  programs.kitty.theme = "Rosé Pine";
+  # programs.kitty.theme = "Rosé Pine";
+  # programs.kitty.theme = "One Dark";
+  programs.kitty.theme = "Tokyo Night";
 
   programs.kitty.settings = {
     font_family = "PragmataPro Mono Liga";
