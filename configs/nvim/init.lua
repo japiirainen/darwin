@@ -276,7 +276,7 @@ g.mapleader = ' '
 g.maplocalleader = ','
 
 cmd 'set background=dark'
-colorscheme 'tokyonight-night'
+colorscheme 'tokyonight-moon'
 
 map('i', 'jk', '<Esc>')
 
