@@ -3,7 +3,7 @@
 
   # programs.kitty.theme = "Rosé Pine";
   # programs.kitty.theme = "One Dark";
-  programs.kitty.theme = "Tokyo Night Moon";
+  programs.kitty.theme = "Tokyo Night Storm";
 
   programs.kitty.settings = {
     font_family = "PragmataPro Mono Liga";
