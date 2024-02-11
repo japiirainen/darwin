@@ -314,7 +314,7 @@ o.list = true
 o.listchars = 'tab:→ ,trail:·,extends:›,precedes:‹,nbsp:·'
 
 -- copilot
-g.copilot_enabled = true
+g.copilot_enabled = false
 
 -- neogit
 require('neogit').setup {}
