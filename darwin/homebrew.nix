@@ -56,6 +56,8 @@ in
       "elan"
       "ghcup"
       "pulumi"
+      "podman"
+      "podman-compose"
     ];
   };
 }

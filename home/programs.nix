@@ -87,7 +87,6 @@
         bun
         cbqn-replxx
         pnpm
-        podman
         ;
 
       # Nix related tools

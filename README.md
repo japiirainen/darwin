@@ -21,3 +21,17 @@ set `fish` as default shell after applying flake.
 ```sh
 make set-fish
 ```
+
+## Setting up podman
+
+To use `podman` one must run these steps manually:
+
+```sh
+podman machine init
+```
+
+Then to start `podman` after each boot:
+
+```sh
+podman machine start
+```
