@@ -35,6 +35,10 @@ in
     auto-optimise-store = true;
   };
 
+  system.activationScripts.extraActivation.text = ''
+    softwareupdate --install-rosetta --agree-to-license
+  '';
+
   nix.settings.substituters = [
     "https://cachix.org/api/v1/cache/japiirainen"
     "https://cachix.org/api/v1/cache/nix-community"
