@@ -73,7 +73,7 @@
         bottom
         wget
         dhall
-        cargo
+        rustup
         kitty-themes
         ;
 
@@ -125,6 +125,7 @@
           fastapi
           pydantic
           gunicorn
+          sqlparse
         ]);
 
       # racket
