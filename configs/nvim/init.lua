@@ -30,6 +30,11 @@ require('lazy').setup {
   'mg979/vim-visual-multi',
   'isovector/cornelis',
 
+  -- Git related plugins
+  'tpope/vim-fugitive',
+  'tpope/vim-rhubarb',
+  'sindrets/diffview.nvim',
+
   { 'github/copilot.vim', lazy = false },
 
   { 'numToStr/Comment.nvim', opts = {} },
@@ -94,18 +99,6 @@ require('lazy').setup {
       require('oil').setup {}
       map('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
     end,
-  },
-
-  {
-    'NeogitOrg/neogit',
-    dependencies = {
-      'nvim-lua/plenary.nvim', -- required
-      'sindrets/diffview.nvim', -- optional - Diff integration
-
-      -- Only one of these is needed, not both.
-      'nvim-telescope/telescope.nvim', -- optional
-      'ibhagwan/fzf-lua', -- optional
-    },
   },
 
   -- Adds git related signs to the gutter, as well as utilities for managing changes
@@ -314,11 +307,7 @@ o.list = true
 o.listchars = 'tab:→ ,trail:·,extends:›,precedes:‹,nbsp:·'
 
 -- copilot
-g.copilot_enabled = false
-
--- neogit
-require('neogit').setup {}
-map('n', '<leader>gg', '<CMD>Neogit<CR>', { desc = 'Open Neogit' })
+g.copilot_enabled = true
 
 -- telescope
 -- See `:help telescope` and `:help telescope.setup()`
@@ -878,6 +867,7 @@ require('which-key').register {
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
   ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+  ['<leader>gh'] = { name = '[H]istory', _ = 'which_key_ignore' },
   ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
   ['<leader>l'] = { name = '[L]sp', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
@@ -1023,3 +1013,21 @@ function Agda_input()
   vim.api.nvim_exec([[runtime agda-input.vim]], false)
 end
 map('n', '<leader>ia', ':lua Agda_input()<CR>', { desc = 'Enable agda input mode' })
+
+-- vim-rhubarb
+
+vim.api.nvim_create_user_command('Browse', function(opts)
+  vim.fn.system { 'open', opts.fargs[1] }
+end, { nargs = 1 })
+
+-- diffview.nvim
+
+map('n', '<leader>gd', ':DiffviewOpen<CR>', { desc = 'Open [G]it [D]iff' })
+map('n', '<leader>gq', ':DiffviewClose<CR>', { desc = 'Close [G]it Diff' })
+map('n', '<leader>gha', ':DiffviewFileHistory<CR>', { desc = 'Open [G]it file-[History] [A]ll' })
+map(
+  'n',
+  '<leader>ghc',
+  ':DiffviewFileHistory %<CR>',
+  { desc = 'Open [G]it file-[History] [C]urrent' }
+)
