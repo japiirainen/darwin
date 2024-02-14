@@ -1020,6 +1020,15 @@ vim.api.nvim_create_user_command('Browse', function(opts)
   vim.fn.system { 'open', opts.fargs[1] }
 end, { nargs = 1 })
 
+-- vim-fugitive
+
+map('n', '<leader>gs', ':G st<CR>', { desc = '[G]it [S]tatus' })
+map('n', '<leader>gc', ':G commit<CR>', { desc = '[G]it [C]ommit' })
+map('n', '<leader>gp', ':G push<CR>', { desc = '[G]it [P]ush' })
+map('n', '<leader>gl', ':G pull<CR>', { desc = '[G]it [L]og' })
+map('n', '<leader>gw', ':Gwrite<CR>', { desc = '[G]it [W]rite' })
+map('n', '<leader>ga', ':G aa<CR>', { desc = '[G]it [B]lame' })
+
 -- diffview.nvim
 
 map('n', '<leader>gd', ':DiffviewOpen<CR>', { desc = 'Open [G]it [D]iff' })
