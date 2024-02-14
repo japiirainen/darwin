@@ -1,12 +1,13 @@
-_:
+{ pkgs, ... }:
 let
   messageFile = ".config/git/message";
 in
 {
-  programs = {
-    git.enable = true;
+  home.packages = with pkgs; [ git-lfs ];
 
+  programs = {
     git = {
+      enable = true;
       userEmail = "joona.piirainen@gmail.com";
 
       userName = "japiirainen";
