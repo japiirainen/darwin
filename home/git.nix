@@ -39,6 +39,24 @@ in
         commit = {
           template = "~/${messageFile}";
         };
+
+        merge = {
+          conflictstyle = "zdiff3";
+        };
+
+        # Automaically push branch to remote
+        push = {
+          default = "current";
+        };
+
+        # reuse recovered resolution
+        rerere = {
+          enabled = true;
+        };
+
+        diff = {
+          algorithm = "histogram";
+        };
       };
     };
 
