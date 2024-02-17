@@ -1,6 +1,5 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 let
-  inherit (lib) concatStringsSep optional;
   inherit (config.lib.file) mkOutOfStoreSymlink;
   inherit (config.home.user-info) nixConfigDirectory;
 in
