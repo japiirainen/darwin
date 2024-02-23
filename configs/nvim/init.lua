@@ -27,6 +27,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup {
   'mhartington/formatter.nvim',
   'tpope/vim-sleuth',
+  'tpope/vim-surround',
   'mg979/vim-visual-multi',
   'isovector/cornelis',
 
