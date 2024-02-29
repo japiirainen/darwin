@@ -57,7 +57,7 @@ require('lazy').setup {
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'rose-pine',
+        theme = 'dracula',
         component_separators = '|',
         section_separators = '',
       },
@@ -270,7 +270,7 @@ g.mapleader = ' '
 g.maplocalleader = ','
 
 cmd 'set background=dark'
-colorscheme 'rose-pine'
+colorscheme 'dracula'
 
 map('i', 'jk', '<Esc>')
 
@@ -621,8 +621,8 @@ require('formatter').setup {
     python = {
       function()
         return {
-          exe = 'black',
-          args = { '-q', '-' },
+          exe = 'ruff',
+          args = { 'format', '-q', '-' },
           stdin = true,
         }
       end,
