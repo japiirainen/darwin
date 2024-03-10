@@ -678,6 +678,15 @@ require('formatter').setup {
         }
       end,
     },
+    swift = {
+      function()
+        return {
+          exe = 'swiftformat',
+          args = { '--output', 'stdout', vim.api.nvim_buf_get_name(0) },
+          stdin = true,
+        }
+      end,
+    },
   },
 }
 

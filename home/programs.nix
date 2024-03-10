@@ -128,19 +128,10 @@
           sqlparse
         ]);
 
-      # racket
       inherit (pkgs) racket;
-
-      # gcp
       inherit (pkgs) google-cloud-sdk;
-
-      # azure
       inherit (pkgs) azure-cli;
-
-      # postgresql
       inherit (pkgs) postgresql;
-
-      # redis
       inherit (pkgs) redis;
     };
 }
