@@ -69,8 +69,6 @@ require('lazy').setup {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
-      { 'williamboman/mason.nvim', config = true },
-      'williamboman/mason-lspconfig.nvim',
       { 'j-hui/fidget.nvim', opts = {} },
       'folke/neodev.nvim',
     },
@@ -728,6 +726,8 @@ local servers = {
   bashls = {},
   hls = {},
 
+  sourcekit = {},
+
   clangd = {},
 
   tsserver = {},
@@ -885,9 +885,6 @@ require('which-key').register({
   ['<leader>h'] = { 'Git [H]unk' },
 }, { mode = 'v' })
 
-require('mason').setup()
-require('mason-lspconfig').setup()
-
 require('neodev').setup()
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -895,23 +892,16 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
+local lspconf = require 'lspconfig'
 
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-  automatic_installation = false,
-}
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end,
-}
+for server_name, config in pairs(servers) do
+  lspconf[server_name].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = config,
+    filetypes = (config or {}).filetypes,
+  }
+end
 
 require('lean').setup {
   abbreviations = { builtin = true },
