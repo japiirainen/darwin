@@ -133,5 +133,10 @@
       inherit (pkgs) azure-cli;
       inherit (pkgs) postgresql;
       inherit (pkgs) redis;
+
+      # swift stuff
+      inherit (pkgs)
+        sourcekit-lsp
+        ;
     };
 }

@@ -273,6 +273,10 @@ colorscheme 'rose-pine'
 
 map('i', 'jk', '<Esc>')
 
+-- move text up and down in visual mode
+vim.keymap.set('x', '<s-j>', ":move '>+1<cr>gv-gv")
+vim.keymap.set('x', '<S-k>', ":move '<-2<CR>gv-gv")
+
 wo.number = true
 wo.signcolumn = 'yes'
 wo.cursorline = true
@@ -682,7 +686,7 @@ require('formatter').setup {
       function()
         return {
           exe = 'swiftformat',
-          args = { '--output', 'stdout', vim.api.nvim_buf_get_name(0) },
+          args = { '--output', 'stdout', '--indent', '2', vim.api.nvim_buf_get_name(0) },
           stdin = true,
         }
       end,
