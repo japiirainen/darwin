@@ -59,6 +59,7 @@ in
       "podman"
       "podman-compose"
       "swiftformat"
+      "swiftlint"
     ];
   };
 }
