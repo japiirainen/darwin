@@ -58,7 +58,7 @@ require('lazy').setup {
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'rose-pine',
+        theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
       },
@@ -269,7 +269,7 @@ g.mapleader = ' '
 g.maplocalleader = ','
 
 cmd 'set background=dark'
-colorscheme 'rose-pine'
+colorscheme 'tokyonight-storm'
 
 map('i', 'jk', '<Esc>')
 
