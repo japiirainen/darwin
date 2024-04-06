@@ -143,7 +143,7 @@
 
       };
 
-      darwinModules = {
+      baseDarwinModules = {
         jp-general = import ./darwin/general.nix;
         jp-homebrew = import ./darwin/homebrew.nix;
         jp-yabai = import ./darwin/yabai.nix;
@@ -167,7 +167,7 @@
         programs-kitty-extras = import ./modules/home/programs/kitty/extras.nix;
         home-user-info = { lib, ... }: {
           options.home.user-info =
-            (self.darwinModules.users-primaryUser { inherit lib; }).options.users.primaryUser;
+            (self.baseDarwinModules.users-primaryUser { inherit lib; }).options.users.primaryUser;
         };
       };
 
@@ -177,7 +177,7 @@
         # Personal machine
         jp-personal = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
           modules =
-            (attrValues self.darwinModules)
+            (attrValues self.baseDarwinModules)
             ++ (singleton {
               nixpkgs = nixpkgsDefaults;
               networking.computerName = "jp-personal";
@@ -193,7 +193,7 @@
         # Work machine
         jp-work = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
           modules =
-            (attrValues self.darwinModules)
+            (attrValues self.baseDarwinModules ++ [ import ./darwin/swift.nix ])
             ++ (singleton {
               nixpkgs = nixpkgsDefaults;
               networking.computerName = "jp-work";

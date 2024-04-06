@@ -58,8 +58,6 @@ in
       "pulumi"
       "podman"
       "podman-compose"
-      "swiftformat"
-      "swiftlint"
     ];
   };
 }

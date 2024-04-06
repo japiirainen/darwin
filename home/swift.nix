@@ -1,0 +1,9 @@
+{ ... }:
+{
+  homebrew = {
+    brews = [
+      "swiftformat"
+      "swiftlint"
+    ];
+  };
+}
