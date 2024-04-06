@@ -741,7 +741,7 @@ local servers = {
 
   sourcekit = {},
 
-  clangd = {},
+  -- clangd = {},
 
   tsserver = {},
   eslint = {},
