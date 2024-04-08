@@ -55,7 +55,12 @@
     , ...
     } @ inputs:
     let
-      inherit (self.lib) makeOverridable optionalAttrs attrValues singleton;
+      inherit (self.lib)
+        makeOverridable
+        optionalAttrs
+        attrValues
+        singleton
+        ;
 
       homeStateVersion = "23.11";
 
@@ -193,7 +198,12 @@
         # Work machine
         jp-work = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
           modules =
-            (attrValues self.baseDarwinModules ++ [ import ./darwin/swift.nix ])
+            (attrValues
+              (
+                self.baseDarwinModules //
+                { jp-swift = import ./darwin/swift.nix; }
+              )
+            )
             ++ (singleton {
               nixpkgs = nixpkgsDefaults;
               networking.computerName = "jp-work";
