@@ -58,6 +58,7 @@ in
       "pulumi"
       "podman"
       "podman-compose"
+      "sdl2"
     ];
   };
 }
