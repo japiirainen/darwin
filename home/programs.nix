@@ -25,14 +25,13 @@
         vscodevim.vim
         jnoortheen.nix-ide
         bbenoist.nix
-        uiua-lang.uiua-vscode
       ];
     };
   };
 
   home.packages =
     lib.attrValues {
-      sp = sp.packages."aarch64-darwin".default;
+      # sp = sp.packages."aarch64-darwin".default;
       k = k.packages."aarch64-darwin".k;
 
       agda = pkgs.agda.withPackages (ps: [
@@ -103,7 +102,6 @@
       inherit (pkgs.nodePackages) prettier;
 
       inherit (pkgs)
-        uiua
         koka
         ;
 
