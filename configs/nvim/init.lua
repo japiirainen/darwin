@@ -773,6 +773,9 @@ local servers = {
 
   rust_analyzer = {
     ['rust-analyzer'] = {
+      check = {
+        command = 'clippy',
+      },
       imports = {
         granularity = {
           group = 'module',
