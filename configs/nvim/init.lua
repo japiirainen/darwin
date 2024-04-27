@@ -755,16 +755,14 @@ local servers = {
   dhall_lsp_server = {},
 
   nil_ls = {
-    settings = {
-      ['nil'] = {
-        formatting = {
-          command = { 'nixpkgs-fmt' },
-        },
-        nix = {
-          flake = {
-            autoArchive = true,
-            autoEvalInputs = false,
-          },
+    ['nil'] = {
+      formatting = {
+        command = { 'nixpkgs-fmt' },
+      },
+      nix = {
+        flake = {
+          autoArchive = true,
+          autoEvalInputs = false,
         },
       },
     },
@@ -774,22 +772,23 @@ local servers = {
   ruff_lsp = {},
 
   rust_analyzer = {
-    settings = {
-      ['rust-analyzer'] = {
-        imports = {
-          granularity = {
-            group = 'module',
-          },
-          prefix = 'self',
+    ['rust-analyzer'] = {
+      imports = {
+        granularity = {
+          group = 'module',
         },
-        cargo = {
-          buildScripts = {
-            enable = true,
-          },
-        },
-        procMacro = {
+        prefix = 'self',
+      },
+      cargo = {
+        buildScripts = {
           enable = true,
         },
+      },
+      procMacro = {
+        enable = true,
+      },
+      files = {
+        excludeDirs = { '.direnv' },
       },
     },
   },
@@ -818,12 +817,10 @@ local servers = {
   },
 
   yamlls = {
-    settings = {
-      yaml = {
-        format = {
-          printWidth = 100,
-          singleQuote = true,
-        },
+    yaml = {
+      format = {
+        printWidth = 100,
+        singleQuote = true,
       },
     },
   },
