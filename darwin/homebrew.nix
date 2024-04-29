@@ -49,6 +49,7 @@ in
       "microsoft-teams"
       "pgadmin4"
       "thunderbird"
+      "sage"
     ];
 
     brews = [
