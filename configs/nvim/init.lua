@@ -80,6 +80,16 @@ require('lazy').setup {
   },
 
   {
+    -- DAP Configuration & Plugins
+    'mfussenegger/nvim-dap',
+    dependencies = {
+      'rcarriga/nvim-dap-ui',
+      'theHamsta/nvim-dap-virtual-text',
+      'nvim-neotest/nvim-nio',
+    },
+  },
+
+  {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
@@ -895,6 +905,7 @@ require('which-key').register {
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
   ['<leader>i'] = { name = '[I]nput', _ = 'which_key_ignore' },
   ['<leader>x'] = { name = 'Trouble Diagnostics', _ = 'which_key_ignore' },
+  ['<leader>k'] = { name = 'DAP', _ = 'which_key_ignore' },
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
@@ -1069,3 +1080,85 @@ map(
   '<Plug>(DBUI_EditBindParameters)',
   { desc = '[D]atabase Edit Bind [P]arameters' }
 )
+
+-- nvim-dap
+
+local dap = require 'dap'
+local dapui = require 'dapui'
+local vt = require 'nvim-dap-virtual-text'
+
+dapui.setup {}
+vt.setup {}
+
+dap.adapters.python = function(cb, config)
+  if config.request == 'attach' then
+    local port = (config.connect or config).port
+    local host = (config.connect or config).host or '127.0.0.1'
+    cb {
+      type = 'server',
+      port = assert(port, '`connect.port` is required for a python `attach` configuration'),
+      host = host,
+      options = {
+        source_filetype = 'python',
+      },
+    }
+  else
+    cb {
+      type = 'executable',
+      command = 'python',
+      args = { '-m', 'debugpy.adapter' },
+      options = {
+        source_filetype = 'python',
+      },
+    }
+  end
+end
+
+local function python_dap_config(name, program)
+  return {
+    type = 'python',
+    request = 'launch',
+    name = name,
+    program = program,
+    cwd = '${workspaceFolder}',
+    projectRoot = '${workspaceFolder}',
+    pythonPath = function()
+      local python = os.getenv 'VIRTUAL_ENV' .. '/bin/python'
+      assert(vim.fn.executable(python) == 1, 'python executable not found')
+      return python
+    end,
+    exitAfterTaskReturns = false,
+    debugAutoInterpretAllModules = false,
+  }
+end
+
+dap.configurations.python = {
+  python_dap_config('Launch current file', '${file}'),
+  python_dap_config('Launch powermeet/alicia', '${workspaceFolder}/alicia/app.py'),
+  python_dap_config('Launch powermeet/core', '${workspaceFolder}/core/app.py'),
+}
+
+map('n', '<leader>kb', dap.toggle_breakpoint, { desc = 'Toggle [B]reakpoint' })
+map('n', '<leader>kk', dap.run_to_cursor, { desc = 'Run To Cursor' })
+map('n', '<leader>k?', function()
+  require('dapui').eval(nil, { enter = true })
+end, { desc = 'Evaluate Expression' })
+map('n', '<leader>kc', dap.continue, { desc = '[C]ontinue' })
+map('n', '<leader>ki', dap.step_into, { desc = 'Step [I]nto' })
+map('n', '<leader>ko', dap.step_over, { desc = 'Step [O]ver' })
+map('n', '<leader>ku', dap.step_out, { desc = 'Step Out' })
+map('n', '<leader>kv', dap.step_back, { desc = 'Step Back' })
+map('n', '<leader>kr', dap.restart, { desc = 'Restart' })
+
+dap.listeners.before.attach.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+  dapui.close()
+end
