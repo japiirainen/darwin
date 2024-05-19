@@ -51,6 +51,11 @@ require('lazy').setup {
   { 'folke/tokyonight.nvim', lazy = false },
   { 'zekzekus/menguless', lazy = false },
 
+  -- vim-dadbod
+  'tpope/vim-dadbod',
+  'kristijanhusak/vim-dadbod-ui',
+  'kristijanhusak/vim-dadbod-completion',
+
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -880,7 +885,7 @@ end
 require('which-key').register {
   ['<leader>a'] = { name = 'Harpoon', _ = 'which_key_ignore' },
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+  ['<leader>d'] = { name = '[D]atabase', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
   ['<leader>gh'] = { name = '[H]istory', _ = 'which_key_ignore' },
   ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
@@ -1044,4 +1049,23 @@ map(
   '<leader>ghc',
   ':DiffviewFileHistory %<CR>',
   { desc = 'Open [G]it file-[History] [C]urrent' }
+)
+
+-- vim-dadbod
+
+cmp.setup.filetype({ 'sql' }, {
+  sources = {
+    { name = 'vim-dadbod-completion' },
+    { name = 'buffer' },
+  },
+})
+
+map('n', '<leader>db', ':DBUIToggle<CR>', { desc = '[D]atabase [B]rowser' })
+map('n', '<leader>ds', '<Plug>(DBUI_SaveQuery)', { desc = '[D]atabase [S]ave Query' })
+map('n', '<leader>de', '<Plug>(DBUI_ExecuteQuery)', { desc = '[D]atabase [E]xecute Query' })
+map(
+  'n',
+  '<leader>dp',
+  '<Plug>(DBUI_EditBindParameters)',
+  { desc = '[D]atabase Edit Bind [P]arameters' }
 )
