@@ -63,7 +63,7 @@ require('lazy').setup {
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'tokyonight',
+        theme = '16color',
         component_separators = '|',
         section_separators = '',
       },
@@ -274,7 +274,7 @@ g.mapleader = ' '
 g.maplocalleader = ','
 
 cmd 'set background=dark'
-colorscheme 'tokyonight-storm'
+colorscheme 'default'
 
 map('i', 'jk', '<Esc>')
 
