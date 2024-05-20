@@ -86,6 +86,7 @@ require('lazy').setup {
       'rcarriga/nvim-dap-ui',
       'theHamsta/nvim-dap-virtual-text',
       'nvim-neotest/nvim-nio',
+      'mfussenegger/nvim-dap-python',
     },
   },
 
@@ -1084,35 +1085,61 @@ map(
 -- nvim-dap
 
 local dap = require 'dap'
-local dapui = require 'dapui'
 local vt = require 'nvim-dap-virtual-text'
 
-dapui.setup {}
 vt.setup {}
 
-dap.adapters.python = function(cb, config)
-  if config.request == 'attach' then
-    local port = (config.connect or config).port
-    local host = (config.connect or config).host or '127.0.0.1'
-    cb {
-      type = 'server',
-      port = assert(port, '`connect.port` is required for a python `attach` configuration'),
-      host = host,
-      options = {
-        source_filetype = 'python',
-      },
-    }
-  else
-    cb {
-      type = 'executable',
-      command = 'python',
-      args = { '-m', 'debugpy.adapter' },
-      options = {
-        source_filetype = 'python',
-      },
-    }
+map('n', '<leader>kb', dap.toggle_breakpoint, { desc = 'Toggle [B]reakpoint' })
+map('n', '<leader>kk', dap.run_to_cursor, { desc = 'Run To Cursor' })
+map('n', '<leader>kR', dap.repl.toggle, { desc = 'Toggle [R]epl' })
+
+map('n', '<leader>kc', dap.continue, { desc = '[C]ontinue' })
+map('n', '<leader>ki', dap.step_into, { desc = 'Step [I]nto' })
+map('n', '<leader>ko', dap.step_over, { desc = 'Step [O]ver' })
+map('n', '<leader>ku', dap.step_out, { desc = 'Step Out' })
+map('n', '<leader>kv', dap.step_back, { desc = 'Step Back' })
+map('n', '<leader>kr', dap.restart, { desc = 'Restart' })
+
+local use_dapui = false
+
+if use_dapui then
+  local dapui = require 'dapui'
+  dapui.setup {}
+  map('n', '<leader>k?', function()
+    require('dapui').eval(nil, { enter = true })
+  end, { desc = 'Evaluate Expression' })
+
+  dap.listeners.before.attach.dapui_config = function()
+    dapui.open()
+  end
+  dap.listeners.before.launch.dapui_config = function()
+    dapui.open()
+  end
+  dap.listeners.before.event_terminated.dapui_config = function()
+    dapui.close()
+  end
+  dap.listeners.before.event_exited.dapui_config = function()
+    dapui.close()
   end
 end
+
+-- dap python
+
+local dap_python = require 'dap-python'
+
+local function get_python_path()
+  local venv = os.getenv 'VIRTUAL_ENV'
+  if not venv then
+    -- If no virtualenv is active, use the system python
+    return 'python'
+  end
+  local python = venv .. '/bin/python'
+  assert(vim.fn.executable(python) == 1, 'python executable not found')
+  return python
+end
+
+dap_python.setup(get_python_path())
+dap_python.test_runner = 'pytest'
 
 local function python_dap_config(name, program)
   return {
@@ -1122,43 +1149,18 @@ local function python_dap_config(name, program)
     program = program,
     cwd = '${workspaceFolder}',
     projectRoot = '${workspaceFolder}',
-    pythonPath = function()
-      local python = os.getenv 'VIRTUAL_ENV' .. '/bin/python'
-      assert(vim.fn.executable(python) == 1, 'python executable not found')
-      return python
-    end,
-    exitAfterTaskReturns = false,
-    debugAutoInterpretAllModules = false,
+    pythonPath = get_python_path(),
   }
 end
 
-dap.configurations.python = {
-  python_dap_config('Launch current file', '${file}'),
-  python_dap_config('Launch powermeet/alicia', '${workspaceFolder}/alicia/app.py'),
-  python_dap_config('Launch powermeet/core', '${workspaceFolder}/core/app.py'),
-}
+local function insert_python_dap_config(config)
+  table.insert(require('dap').configurations.python, 1, config)
+end
 
-map('n', '<leader>kb', dap.toggle_breakpoint, { desc = 'Toggle [B]reakpoint' })
-map('n', '<leader>kk', dap.run_to_cursor, { desc = 'Run To Cursor' })
-map('n', '<leader>k?', function()
-  require('dapui').eval(nil, { enter = true })
-end, { desc = 'Evaluate Expression' })
-map('n', '<leader>kc', dap.continue, { desc = '[C]ontinue' })
-map('n', '<leader>ki', dap.step_into, { desc = 'Step [I]nto' })
-map('n', '<leader>ko', dap.step_over, { desc = 'Step [O]ver' })
-map('n', '<leader>ku', dap.step_out, { desc = 'Step Out' })
-map('n', '<leader>kv', dap.step_back, { desc = 'Step Back' })
-map('n', '<leader>kr', dap.restart, { desc = 'Restart' })
-
-dap.listeners.before.attach.dapui_config = function()
-  dapui.open()
-end
-dap.listeners.before.launch.dapui_config = function()
-  dapui.open()
-end
-dap.listeners.before.event_terminated.dapui_config = function()
-  dapui.close()
-end
-dap.listeners.before.event_exited.dapui_config = function()
-  dapui.close()
-end
+insert_python_dap_config(
+  python_dap_config('Launch powermeet/alicia', '${workspaceFolder}/alicia/main.py')
+)
+insert_python_dap_config(
+  python_dap_config('Launch powermeet/core', '${workspaceFolder}/core/main.py')
+)
+map('n', '<leader>kd', dap_python.test_method, { desc = '[D]ebug Test Method' })
