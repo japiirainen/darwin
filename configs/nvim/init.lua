@@ -50,25 +50,12 @@ require('lazy').setup {
   { 'navarasu/onedark.nvim', lazy = false },
   { 'folke/tokyonight.nvim', lazy = false },
   { 'zekzekus/menguless', lazy = false },
+  { 'robertmeta/nofrils', lazy = false },
 
   -- vim-dadbod
   'tpope/vim-dadbod',
   'kristijanhusak/vim-dadbod-ui',
   'kristijanhusak/vim-dadbod-completion',
-
-  {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = '16color',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
-  },
 
   {
     -- LSP Configuration & Plugins
@@ -284,8 +271,8 @@ require('lazy').setup {
 g.mapleader = ' '
 g.maplocalleader = ','
 
-cmd 'set background=dark'
-colorscheme 'default'
+cmd 'set background=light'
+colorscheme 'nofrils-acme'
 
 map('i', 'jk', '<Esc>')
 
