@@ -1,5 +1,6 @@
 local cmd = vim.cmd
 local colorscheme = vim.cmd.colorscheme
+local highlight = vim.cmd.highlight
 local map = vim.keymap.set
 local g = vim.g
 local o = vim.o
@@ -301,7 +302,6 @@ o.wildmenu = true
 o.relativenumber = true
 o.tabstop = 2
 o.softtabstop = 2
--- o.guicursor = ''
 o.shiftwidth = 2
 o.expandtab = true
 o.smartindent = true
@@ -312,6 +312,10 @@ o.incsearch = true
 o.autoread = true
 o.list = true
 o.listchars = 'tab:→ ,trail:·,extends:›,precedes:‹,nbsp:·'
+
+-- red cursor block
+highlight 'Cursor guifg=red guibg=red'
+o.guicursor = 'a:block-Cursor/lCursor'
 
 -- copilot
 g.copilot_enabled = true
