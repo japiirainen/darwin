@@ -74,6 +74,7 @@
         dhall
         rustup
         kitty-themes
+        ngrok
         ;
 
       inherit (pkgs)
