@@ -18,21 +18,17 @@ in
 {
   # Nix configuration
   nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-
-    keep-derivations = true;
-
+    experimental-features = "nix-command flakes auto-allocate-uids auto-allocate-uids";
+    auto-optimise-store = true;
     keep-outputs = true;
-
+    keep-derivations = true;
+    warn-dirty = false;
+    build-users-group = "nixbld";
+    builders-use-substitutes = true;
+    allow-import-from-derivation = true;
     # `0` denotes all available cores
     cores = 0;
-
     trusted-users = [ "root" config.users.primaryUser.username ];
-
-    auto-optimise-store = true;
   };
 
   system.activationScripts.extraActivation.text = ''

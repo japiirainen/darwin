@@ -272,8 +272,8 @@ require('lazy').setup {
 g.mapleader = ' '
 g.maplocalleader = ','
 
-cmd 'set background=light'
-colorscheme 'nofrils-acme'
+cmd 'set background=dark'
+colorscheme 'default'
 
 map('i', 'jk', '<Esc>')
 

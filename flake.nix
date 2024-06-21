@@ -3,7 +3,7 @@
   inputs = {
     # Package sets
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     # Manages configs links things into your home directory
@@ -62,7 +62,7 @@
         singleton
         ;
 
-      homeStateVersion = "23.11";
+      homeStateVersion = "24.05";
 
       nixpkgsDefaults = {
         config = {
@@ -154,6 +154,7 @@
         jp-yabai = import ./darwin/yabai.nix;
         jp-skhd = import ./darwin/skhd.nix;
         jp-spacebar = import ./darwin/spacebar.nix;
+        jp-builder = import ./darwin/builder.nix;
 
         users-primaryUser = import ./modules/darwin/users.nix;
       };
@@ -190,7 +191,6 @@
               nix.registry.my.flake = inputs.self;
             });
           inherit homeStateVersion;
-          system = "aarch64-darwin";
           homeModules = attrValues self.homeManagerModules;
           extraSpecialArgs = { inherit sp k; };
         });
@@ -213,7 +213,6 @@
           inherit homeStateVersion;
           username = "jp-mbp";
           nixConfigDirectory = "/Users/jp-mbp/dev/darwin";
-          system = "aarch64-darwin";
           homeModules = attrValues self.homeManagerModules;
           extraSpecialArgs = { inherit sp k; };
         });

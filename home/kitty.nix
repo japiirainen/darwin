@@ -7,8 +7,10 @@
   # programs.kitty.theme = "Dracula";
 
   programs.kitty.settings = {
-    font_family = "PragmataPro Mono Liga";
-    font_size = "20.0";
+    # font_family = "PragmataPro Mono Liga";
+    # font_family = "JetBrainsMono Nerd Font";
+    font_family = "JuliaMono";
+    font_size = "16.0";
 
     adjust_line_height = "100%";
     disable_ligatures = "cursor";

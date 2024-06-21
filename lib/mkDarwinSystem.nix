@@ -3,7 +3,7 @@ inputs: { username
         , email
         , nixConfigDirectory
         , # directory on the system where this flake is located
-          system
+          system ? "aarch64-darwin"
         , # `nix-darwin` modules to include
           modules
         , # Additional `nix-darwin` modules to include, useful when reusing a configuration with
