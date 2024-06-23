@@ -325,7 +325,7 @@ highlight 'Cursor guifg=red guibg=red'
 o.guicursor = 'a:block-Cursor/lCursor'
 
 -- copilot
-g.copilot_enabled = true
+g.copilot_enabled = false
 
 -- telescope
 -- See `:help telescope` and `:help telescope.setup()`
