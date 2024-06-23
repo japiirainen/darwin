@@ -635,6 +635,18 @@ require('formatter').setup {
         }
       end,
     },
+    ocaml = {
+      function()
+        return {
+          exe = 'ocamlformat',
+          args = {
+            '--enable-outside-detected-project',
+            vim.api.nvim_buf_get_name(0),
+          },
+          stdin = true,
+        }
+      end,
+    },
     python = {
       function()
         return {
@@ -841,6 +853,8 @@ local servers = {
       },
     },
   },
+
+  ocamllsp = {},
 }
 
 -- [[ Configure LSP ]]
