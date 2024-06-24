@@ -154,7 +154,6 @@
         jp-yabai = import ./darwin/yabai.nix;
         jp-skhd = import ./darwin/skhd.nix;
         jp-spacebar = import ./darwin/spacebar.nix;
-        jp-builder = import ./darwin/builder.nix;
 
         users-primaryUser = import ./modules/darwin/users.nix;
       };
@@ -183,7 +182,12 @@
         # Personal machine
         jp-personal = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
           modules =
-            (attrValues self.baseDarwinModules)
+            (attrValues
+              (
+                self.baseDarwinModules //
+                { jp-builder = import ./darwin/builder.nix; }
+              )
+            )
             ++ (singleton {
               nixpkgs = nixpkgsDefaults;
               networking.computerName = "jp-personal";
