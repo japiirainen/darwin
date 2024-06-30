@@ -281,7 +281,7 @@ g.mapleader = ' '
 g.maplocalleader = ','
 
 cmd 'set background=dark'
-colorscheme 'dracula'
+colorscheme 'onedark'
 
 map('i', 'jk', '<Esc>')
 
