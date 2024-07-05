@@ -1,6 +1,5 @@
 local cmd = vim.cmd
 local colorscheme = vim.cmd.colorscheme
-local highlight = vim.cmd.highlight
 local map = vim.keymap.set
 local g = vim.g
 local o = vim.o
@@ -53,6 +52,7 @@ require('lazy').setup {
   { 'folke/tokyonight.nvim', lazy = false },
   { 'zekzekus/menguless', lazy = false },
   { 'robertmeta/nofrils', lazy = false },
+  { 'jnurmine/Zenburn', lazy = false },
 
   -- vim-dadbod
   'tpope/vim-dadbod',
@@ -313,10 +313,10 @@ g.mapleader = ' '
 g.maplocalleader = ','
 
 cmd 'set background=dark'
-colorscheme 'default'
+colorscheme 'zenburn'
 
 -- red cursor block
--- highlight 'Cursor guifg=red guibg=red'
+-- vim.cmd.highlight 'Cursor guifg=red guibg=red'
 -- o.guicursor = 'a:block-Cursor/lCursor'
 
 map('i', 'jk', '<Esc>')
