@@ -74,6 +74,8 @@
         dhall
         rustup
         kitty-themes
+        sad
+        fzf
         ;
 
       inherit (pkgs)
