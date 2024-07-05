@@ -313,7 +313,11 @@ g.mapleader = ' '
 g.maplocalleader = ','
 
 cmd 'set background=dark'
-colorscheme 'tokyonight-storm'
+colorscheme 'default'
+
+-- red cursor block
+-- highlight 'Cursor guifg=red guibg=red'
+-- o.guicursor = 'a:block-Cursor/lCursor'
 
 map('i', 'jk', '<Esc>')
 
@@ -352,10 +356,6 @@ o.incsearch = true
 o.autoread = true
 o.list = true
 o.listchars = 'tab:→ ,trail:·,extends:›,precedes:‹,nbsp:·'
-
--- red cursor block
-highlight 'Cursor guifg=red guibg=red'
-o.guicursor = 'a:block-Cursor/lCursor'
 
 -- copilot
 g.copilot_enabled = false
