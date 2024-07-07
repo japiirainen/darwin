@@ -76,7 +76,10 @@
         sad
         fzf
         obsidian
+        texliveFull
         ;
+
+      latexmk = pkgs.texlivePackages.latexmk;
 
       inherit (pkgs)
         cloc

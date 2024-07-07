@@ -340,6 +340,14 @@ require('lazy').setup {
       end,
     },
   },
+
+  {
+    'lervag/vimtex',
+    lazy = false,
+    init = function()
+      vim.g.vimtex_view_method = 'zathura'
+    end,
+  },
 }
 
 -- basic vim/neovim settings
