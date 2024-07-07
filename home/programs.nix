@@ -1,4 +1,4 @@
-{ pkgs, lib, sp, k, ... }: {
+{ pkgs, lib, k, ... }: {
   programs = {
     bat.enable = true;
     bat.config.style = "plain";
@@ -31,7 +31,6 @@
 
   home.packages =
     lib.attrValues {
-      # sp = sp.packages."aarch64-darwin".default;
       k = k.packages."aarch64-darwin".k;
 
       agda = pkgs.agda.withPackages (ps: [
@@ -76,6 +75,7 @@
         kitty-themes
         sad
         fzf
+        obsidian
         ;
 
       inherit (pkgs)
