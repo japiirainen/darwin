@@ -359,8 +359,8 @@ cmd 'set background=light'
 colorscheme 'nofrils-acme'
 
 -- red cursor block
--- vim.cmd.highlight 'Cursor guifg=red guibg=red'
--- o.guicursor = 'a:block-Cursor/lCursor'
+vim.cmd.highlight 'Cursor guifg=red guibg=red'
+o.guicursor = 'a:block-Cursor/lCursor'
 
 map('i', 'jk', '<Esc>')
 
