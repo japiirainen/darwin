@@ -1,11 +1,11 @@
 { ... }: {
   programs.kitty.enable = true;
 
-  programs.kitty.theme = "Zenburn";
+  programs.kitty.theme = "Atom";
 
   programs.kitty.settings = {
-    font_family = "JetBrainsMono Nerd Font Mono";
-    font_size = "14.0";
+    font_family = "PragmataPro Mono Liga";
+    font_size = "16.0";
 
     adjust_line_height = "100%";
     disable_ligatures = "cursor";

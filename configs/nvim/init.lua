@@ -355,8 +355,8 @@ require('lazy').setup {
 g.mapleader = ' '
 g.maplocalleader = ','
 
-cmd 'set background=dark'
-colorscheme 'zenburn'
+cmd 'set background=light'
+colorscheme 'nofrils-acme'
 
 -- red cursor block
 -- vim.cmd.highlight 'Cursor guifg=red guibg=red'
