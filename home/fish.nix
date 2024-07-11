@@ -19,7 +19,7 @@ in
       body =
         ''
           # Set LS_COLORS
-          # set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate one-dark)
+          # set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate catppuccin-macchiato)
         ''
         + optionalString config.programs.bat.enable ''
           # Use correct theme for `bat`.

@@ -53,6 +53,7 @@ require('lazy').setup {
   { 'zekzekus/menguless', lazy = false },
   { 'robertmeta/nofrils', lazy = false },
   { 'jnurmine/Zenburn', lazy = false },
+  { 'catppuccin/nvim', lazy = false },
 
   -- vim-dadbod
   'tpope/vim-dadbod',
@@ -356,7 +357,7 @@ g.mapleader = ' '
 g.maplocalleader = ','
 
 cmd 'set background=light'
-colorscheme 'nofrils-acme'
+colorscheme 'catppuccin-macchiato'
 
 -- red cursor block
 vim.cmd.highlight 'Cursor guifg=red guibg=red'

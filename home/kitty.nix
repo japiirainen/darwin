@@ -1,7 +1,7 @@
 { ... }: {
   programs.kitty.enable = true;
 
-  programs.kitty.theme = "Atom";
+  programs.kitty.theme = "Catppuccin-Macchiato";
 
   programs.kitty.settings = {
     font_family = "PragmataPro Mono Liga";
