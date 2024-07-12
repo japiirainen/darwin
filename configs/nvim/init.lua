@@ -902,15 +902,6 @@ local servers = {
     },
   },
 
-  yamlls = {
-    yaml = {
-      format = {
-        printWidth = 100,
-        singleQuote = true,
-      },
-    },
-  },
-
   ocamllsp = {},
 }
 
