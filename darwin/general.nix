@@ -109,6 +109,7 @@ in
         "UbuntuMono"
         "VictorMono"
         "Iosevka"
+        "Mononoki"
       ];
     })
   ];

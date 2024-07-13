@@ -4,7 +4,7 @@
   programs.kitty.theme = "Catppuccin-Macchiato";
 
   programs.kitty.settings = {
-    font_family = "PragmataPro Mono Liga";
+    font_family = "MonoLisa";
     font_size = "16.0";
 
     adjust_line_height = "100%";
