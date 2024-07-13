@@ -1,5 +1,6 @@
 {
   description = "japiirainen darwin configuration";
+
   inputs = {
     # Package sets
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
