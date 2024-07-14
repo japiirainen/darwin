@@ -14,6 +14,12 @@ in
 
   programs.fish.functions = {
 
+    setup-atuin = {
+      body = ''
+        atuin init fish | source
+      '';
+    };
+
     # Sets Fish Shell to light or dark colorscheme based on `$term_background`.
     set-shell-colors = {
       body =
@@ -64,6 +70,7 @@ in
   programs.fish.interactiveShellInit = ''
     set -g fish_greeting ""
     ${pkgs.thefuck}/bin/thefuck --alias | source
+    setup-atuin
     # Run function to set colors that are dependant on `$term_background` and to register them so
     # they are triggerd when the relevent event happens or variable changes.
     set-shell-colors

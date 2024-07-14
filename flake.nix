@@ -168,6 +168,7 @@
         jp-fish = import ./home/fish.nix;
         jp-neovim = import ./home/neovim.nix;
         jp-skhdrc = import ./home/skhdrc.nix;
+        jp-atuin = import ./home/atuin.nix;
 
         programs-neovim-extras = import ./modules/home/programs/neovim/extras.nix;
         programs-kitty-extras = import ./modules/home/programs/kitty/extras.nix;
