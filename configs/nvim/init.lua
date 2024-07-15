@@ -359,9 +359,12 @@ g.maplocalleader = ','
 cmd 'set background=light'
 colorscheme 'catppuccin-macchiato'
 
--- red cursor block
-vim.cmd.highlight 'Cursor guifg=red guibg=red'
-o.guicursor = 'a:block-Cursor/lCursor'
+local enable_red_cursor_block = false
+
+if enable_red_cursor_block then
+  cmd 'highlight Cursor guifg=red guibg=red'
+  o.guicursor = 'a:block-Cursor/lCursor'
+end
 
 map('i', 'jk', '<Esc>')
 
