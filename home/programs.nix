@@ -6,8 +6,7 @@
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
 
-    htop.enable = true;
-    htop.settings.show_program_path = true;
+    btop.enable = true;
 
     ssh.enable = true;
     ssh.controlPath = "~/.ssh/%C";
