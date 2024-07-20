@@ -26,9 +26,7 @@ in
 
   programs.nix-index.enable = true;
 
-  # Fonts
-  fonts.fontDir.enable = true;
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     cozette
     julia-mono
     font-awesome_5
