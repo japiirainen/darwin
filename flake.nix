@@ -171,7 +171,6 @@
         jp-atuin = import ./home/atuin.nix;
 
         programs-neovim-extras = import ./modules/home/programs/neovim/extras.nix;
-        programs-kitty-extras = import ./modules/home/programs/kitty/extras.nix;
         home-user-info = { lib, ... }: {
           options.home.user-info =
             (self.baseDarwinModules.users-primaryUser { inherit lib; }).options.users.primaryUser;
