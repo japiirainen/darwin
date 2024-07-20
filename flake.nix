@@ -150,6 +150,7 @@
       };
 
       baseDarwinModules = {
+        jp-bootstrap = import ./darwin/bootstrap.nix;
         jp-general = import ./darwin/general.nix;
         jp-defaults = import ./darwin/defaults.nix;
         jp-homebrew = import ./darwin/homebrew.nix;
