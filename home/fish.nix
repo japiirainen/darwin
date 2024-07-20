@@ -65,6 +65,7 @@ in
     vi = "nvim";
     vim = "nvim";
     cat = "bat";
+    top = "btop";
   };
 
   programs.fish.interactiveShellInit = ''
