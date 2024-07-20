@@ -16,9 +16,6 @@ let
   '';
 in
 {
-  # Remove this when it stops breaking builds..
-  documentation.enable = false;
-
   environment.systemPackages = with pkgs; [
     icu
     zlib
@@ -28,12 +25,6 @@ in
   ];
 
   programs.nix-index.enable = true;
-
-  environment.loginShell = pkgs.fish;
-
-  environment.systemPath = [ "/opt/homebrew/bin" ];
-
-  environment.pathsToLink = [ "/Applications" ];
 
   # Fonts
   fonts.fontDir.enable = true;
@@ -69,6 +60,4 @@ in
   nix.gc.options = "--delete-older-than 15d";
   nix.optimise.automatic = true;
   nix.optimise.interval.Hour = 4;
-
-  system.stateVersion = 4;
 }
