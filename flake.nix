@@ -151,6 +151,7 @@
 
       baseDarwinModules = {
         jp-general = import ./darwin/general.nix;
+        jp-defaults = import ./darwin/defaults.nix;
         jp-homebrew = import ./darwin/homebrew.nix;
         jp-yabai = import ./darwin/yabai.nix;
         jp-skhd = import ./darwin/skhd.nix;
