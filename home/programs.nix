@@ -15,17 +15,6 @@
     # https://github.com/ajeetdsouza/zoxide
     # https://rycee.gitlab.io/home-manager/options.html#opt-programs.zoxide.enable
     zoxide.enable = true;
-
-    vscode = {
-      # only install vscode and extensions via nix for now
-      enable = true;
-      extensions = with pkgs.vscode-extensions; [
-        dracula-theme.theme-dracula
-        vscodevim.vim
-        jnoortheen.nix-ide
-        bbenoist.nix
-      ];
-    };
   };
 
   home.packages =
