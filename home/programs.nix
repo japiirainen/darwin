@@ -119,7 +119,7 @@
         poetry
         ;
 
-      python311 = pkgs.python311.withPackages
+      python312 = pkgs.python312.withPackages
         (p: with p; [
           numpy
           sympy
