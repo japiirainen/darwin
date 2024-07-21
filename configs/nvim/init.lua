@@ -31,6 +31,7 @@ require('lazy').setup {
   'mg979/vim-visual-multi',
   'isovector/cornelis',
   'rsmenon/vim-mathematica',
+  'kana/vim-textobj-user',
 
   -- Git related plugins
   'tpope/vim-fugitive',
