@@ -65,6 +65,7 @@
         fzf
         obsidian
         texliveFull
+        nerdfetch
         ;
 
       latexmk = pkgs.texlivePackages.latexmk;
