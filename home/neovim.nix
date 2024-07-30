@@ -17,8 +17,8 @@ in
 
   programs.neovim.withNodeJs = true;
 
-  programs.neovim.extras.termBufferAutoChangeDir = true;
-  programs.neovim.extras.nvrAliases.enable = true;
+  programs.neovim.extras.termBufferAutoChangeDir = false;
+  programs.neovim.extras.nvrAliases.enable = false;
   programs.neovim.extras.defaultEditor = true;
 
   programs.neovim.extraPackages = with pkgs; [
