@@ -34,9 +34,18 @@ require('lazy').setup {
   'kana/vim-textobj-user',
 
   -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
-  'sindrets/diffview.nvim',
+  {
+    'NeogitOrg/neogit',
+    dependencies = {
+      'nvim-lua/plenary.nvim', -- required
+      'sindrets/diffview.nvim', -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      'nvim-telescope/telescope.nvim', -- optional
+      'ibhagwan/fzf-lua', -- optional
+    },
+    config = true,
+  },
 
   { 'github/copilot.vim', lazy = false },
 
@@ -1113,33 +1122,6 @@ function Agda_input()
 end
 map('n', '<leader>ia', ':lua Agda_input()<CR>', { desc = 'Enable agda input mode' })
 
--- vim-rhubarb
-
-vim.api.nvim_create_user_command('Browse', function(opts)
-  vim.fn.system { 'open', opts.fargs[1] }
-end, { nargs = 1 })
-
--- vim-fugitive
-
-map('n', '<leader>gs', ':G st<CR>', { desc = '[G]it [S]tatus' })
-map('n', '<leader>gc', ':G commit<CR>', { desc = '[G]it [C]ommit' })
-map('n', '<leader>gp', ':G push<CR>', { desc = '[G]it [P]ush' })
-map('n', '<leader>gl', ':G pull<CR>', { desc = '[G]it [L]og' })
-map('n', '<leader>gw', ':Gwrite<CR>', { desc = '[G]it [W]rite' })
-map('n', '<leader>ga', ':G aa<CR>', { desc = '[G]it [B]lame' })
-
--- diffview.nvim
-
-map('n', '<leader>gd', ':DiffviewOpen<CR>', { desc = 'Open [G]it [D]iff' })
-map('n', '<leader>gq', ':DiffviewClose<CR>', { desc = 'Close [G]it Diff' })
-map('n', '<leader>gha', ':DiffviewFileHistory<CR>', { desc = 'Open [G]it file-[History] [A]ll' })
-map(
-  'n',
-  '<leader>ghc',
-  ':DiffviewFileHistory %<CR>',
-  { desc = 'Open [G]it file-[History] [C]urrent' }
-)
-
 -- vim-dadbod
 
 cmp.setup.filetype({ 'sql' }, {
@@ -1241,3 +1223,7 @@ insert_python_dap_config(
   python_dap_config('Launch powermeet/core', '${workspaceFolder}/core/main.py')
 )
 map('n', '<leader>kd', dap_python.test_method, { desc = '[D]ebug Test Method' })
+
+-- neovit
+
+map('n', '<leader>gg', ':Neogit<CR>', { desc = 'Toggle Neogit' })
