@@ -85,6 +85,9 @@
       # don't rename windows automatically
       set-option -g allow-rename off
 
+      # refresh status-bar every second
+      set-option -s status-interval 1
+
       # Design tweaks
       setw -g clock-mode-colour colour1
       setw -g mode-style 'fg=colour1 bg=colour18 bold'
@@ -94,7 +97,7 @@
       set -g status-justify left
       set -g status-style 'fg=colour1'
       set -g status-left ""
-      set -g status-right '%Y-%m-%d %H:%M '
+      set -g status-right '%Y-%m-%d %H:%M:%S'
       set -g status-right-length 50
       set -g status-left-length 10
       setw -g window-status-current-style 'fg=colour0 bg=colour1 bold'
