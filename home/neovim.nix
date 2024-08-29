@@ -40,6 +40,7 @@ in
     fzf-vim
     which-key-nvim
     vim-tmux-navigator
+    oil-nvim
   ];
 
   programs.neovim.extraPackages = with pkgs; [

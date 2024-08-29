@@ -105,6 +105,9 @@ lsp.tsserver.setup {}
 lsp.eslint.setup {}
 lsp.tailwindcss.setup {}
 
+-- directory browser/editor
+require('oil').setup {}
+
 -- key mappings
 
 require('which-key').register {
@@ -129,8 +132,8 @@ map('x', '<s-j>', ":move '>+1<cr>gv-gv")
 map('x', '<S-k>', ":move '<-2<CR>gv-gv")
 
 -- lsp
-map('n', '<leader>lp', vim.diagnostic.goto_prev, { desc = 'Goto [P]revious' })
-map('n', '<leader>ln>', vim.diagnostic.goto_next, { desc = 'Goto [N]ext' })
+map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Goto Previous [D]iagnostic' })
+map('n', ']d', vim.diagnostic.goto_next, { desc = 'Goto Next [D]iagnostic' })
 map('n', 'K', vim.lsp.buf.hover, { desc = 'Hover' })
 map('n', '<leader>lr', vim.lsp.buf.rename, { desc = '[R]ename' })
 map('n', '<leader>la', vim.lsp.buf.code_action, { desc = 'Code [A]ction' })
@@ -160,3 +163,6 @@ map('n', ']q', ':cnext<cr>', { desc = 'Quickfix prev' })
 
 -- completion
 map('i', '<C-Space>', '<C-x><C-o>', { desc = 'Open completions' })
+
+-- oil
+map('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
