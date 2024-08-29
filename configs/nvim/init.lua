@@ -114,6 +114,8 @@ require('which-key').register {
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
   ['<leader>l'] = { name = '[L]sp', _ = 'which_key_ignore' },
   ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
+  ['<leader>]'] = { name = 'Next', _ = 'which_key_ignore' },
+  ['<leader>['] = { name = 'Prev', _ = 'which_key_ignore' },
   ['<leader>t'] = { name = 'Jump To [T]ag', _ = 'which_key_ignore' },
 }
 require('which-key').register({
@@ -134,6 +136,7 @@ map('x', '<S-k>', ":move '<-2<CR>gv-gv")
 -- lsp
 map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Goto Previous [D]iagnostic' })
 map('n', ']d', vim.diagnostic.goto_next, { desc = 'Goto Next [D]iagnostic' })
+map('n', '<leader>ll', vim.diagnostic.setloclist, { desc = 'Set [L]ocation list' })
 map('n', 'K', vim.lsp.buf.hover, { desc = 'Hover' })
 map('n', '<leader>lr', vim.lsp.buf.rename, { desc = '[R]ename' })
 map('n', '<leader>la', vim.lsp.buf.code_action, { desc = 'Code [A]ction' })
@@ -158,8 +161,8 @@ map('n', '<leader>ff', ':Files<cr>', { desc = 'Find files' })
 map('n', '<leader>fs', ':grep<space>', { desc = 'Find from files' })
 
 -- quickfix
-map('n', '[q', ':cprev<cr>', { desc = 'Quickfix next' })
-map('n', ']q', ':cnext<cr>', { desc = 'Quickfix prev' })
+map('n', '[q', ':cprev<cr>', { desc = '[Q]uickfix next' })
+map('n', ']q', ':cnext<cr>', { desc = '[Q]uickfix prev' })
 
 -- completion
 map('i', '<C-Space>', '<C-x><C-o>', { desc = 'Open completions' })
