@@ -23,11 +23,7 @@ in
     # Sets Fish Shell to light or dark colorscheme based on `$term_background`.
     set-shell-colors = {
       body =
-        ''
-          # Set LS_COLORS
-          # set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate catppuccin-macchiato)
-        ''
-        + optionalString config.programs.bat.enable ''
+        optionalString config.programs.bat.enable ''
           # Use correct theme for `bat`.
           set -xg BAT_THEME "ansi"
         ''

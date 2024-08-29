@@ -1,8 +1,6 @@
 { ... }: {
   programs.kitty.enable = true;
 
-  programs.kitty.theme = "Catppuccin-Macchiato";
-
   programs.kitty.settings = {
     font_family = "MonoLisa";
     font_size = "16.0";
