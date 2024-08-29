@@ -25,12 +25,6 @@ if enable_red_cursor_block then
   o.guicursor = 'a:block-Cursor/lCursor'
 end
 
-map('i', 'jk', '<Esc>')
-
--- move text up and down in visual mode
-vim.keymap.set('x', '<s-j>', ":move '>+1<cr>gv-gv")
-vim.keymap.set('x', '<S-k>', ":move '<-2<CR>gv-gv")
-
 wo.number = true
 wo.signcolumn = 'yes'
 wo.cursorline = true
@@ -64,25 +58,105 @@ o.list = true
 o.listchars = 'tab:→ ,trail:·,extends:›,precedes:‹,nbsp:·'
 o.conceallevel = 2
 
--- jump to tag
-map('n', '<leader>t', '<C-]>')
+-- use 'rg' when ':grep':ing.
+cmd [[
+set grepprg=rg\ --line-number\ --column
+set grepprg=rg\ --line-number\ --column
+]]
 
-cmd([[
-set grepprg=rg\ --line-number\ --column
-set grepprg=rg\ --line-number\ --column
-]])
+-- Git
+require('neogit').setup {}
+
+-- Formatting
+require('conform').setup {
+  formatters_by_ft = {
+    lua = { 'stylua' },
+    python = { 'ruff', 'ruff_fix', 'ruff_format' },
+    nix = { 'nixfmt' },
+    ocaml = { 'ocamlformat' },
+    zig = { 'zigfmt' },
+    javascript = { 'prettier' },
+    typescript = { 'prettier' },
+  },
+  format_on_save = {},
+}
+
+-- lsp
+local lsp = require 'lspconfig'
+lsp.zls.setup {}
+lsp.lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
+      },
+    },
+  },
+}
+lsp.rust_analyzer.setup {
+  settings = {
+    ['rust-analyzer'] = {},
+  },
+}
+lsp.hls.setup {}
+lsp.pyright.setup {}
+lsp.ruff_lsp.setup {}
+lsp.tsserver.setup {}
+lsp.eslint.setup {}
+lsp.tailwindcss.setup {}
+
+-- key mappings
 
 require('which-key').register {
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+  ['<leader>l'] = { name = '[L]sp', _ = 'which_key_ignore' },
+  ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
   ['<leader>t'] = { name = 'Jump To [T]ag', _ = 'which_key_ignore' },
 }
-
--- register which-key VISUAL mode
--- required for visual <leader>hs (hunk stage) to work
 require('which-key').register({
   ['<leader>'] = { name = 'VISUAL <leader>' },
   ['<leader>h'] = { 'Git [H]unk' },
 }, { mode = 'v' })
 
-require('neogit').setup { }
+-- exit insert mode with 'jk'
+map('i', 'jk', '<Esc>')
+
+-- jump to tag
+map('n', '<leader>t', '<C-]>')
+
+-- move text up and down in visual mode
+map('x', '<s-j>', ":move '>+1<cr>gv-gv")
+map('x', '<S-k>', ":move '<-2<CR>gv-gv")
+
+-- lsp
+map('n', '<leader>lp', vim.diagnostic.goto_prev, { desc = 'Goto [P]revious' })
+map('n', '<leader>ln>', vim.diagnostic.goto_next, { desc = 'Goto [N]ext' })
+map('n', 'K', vim.lsp.buf.hover, { desc = 'Hover' })
+map('n', '<leader>lr', vim.lsp.buf.rename, { desc = '[R]ename' })
+map('n', '<leader>la', vim.lsp.buf.code_action, { desc = 'Code [A]ction' })
+map('n', '<leader>lrr', vim.lsp.buf.references, { desc = '[R]efe[R]ences' })
+map('n', '<leader>lh', vim.lsp.buf.signature_help, { desc = 'Signature [Help]' })
+map('n', 'gd', '<C-]>', { desc = '[G]oto [Definition]' })
+
+-- tmux - nvim navigation
+map('n', '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>')
+map('n', '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>')
+map('n', '<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>')
+map('n', '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>')
+map('n', '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>')
+
+-- git
 map('n', '<leader>gg', ':Neogit<CR>', { desc = 'Toggle Neogit' })
+map('n', '<leader>gf', ':GFiles<cr>', { desc = 'Git [F]iles' })
+
+-- files
+map('n', '<leader><leader>', ':Files<cr>', { desc = 'Find files' })
+map('n', '<leader>ff', ':Files<cr>', { desc = 'Find files' })
+map('n', '<leader>fs', ':grep<space>', { desc = 'Find from files' })
+
+-- quickfix
+map('n', '[q', ':cprev<cr>', { desc = 'Quickfix next' })
+map('n', ']q', ':cnext<cr>', { desc = 'Quickfix prev' })
+
+-- completion
+map('i', '<C-Space>', '<C-x><C-o>', { desc = 'Open completions' })

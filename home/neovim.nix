@@ -39,6 +39,7 @@ in
     neogit
     fzf-vim
     which-key-nvim
+    vim-tmux-navigator
   ];
 
   programs.neovim.extraPackages = with pkgs; [
