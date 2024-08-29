@@ -48,12 +48,6 @@ require('lazy').setup {
 
   { 'numToStr/Comment.nvim', opts = {} },
 
-  {
-    'm4xshen/hardtime.nvim',
-    dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
-    opts = {},
-  },
-
   -- colorschemes
   {
     'overcache/NeoSolarized',
