@@ -113,7 +113,7 @@ require('oil').setup {}
 require('which-key').register {
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
   ['<leader>l'] = { name = '[L]sp', _ = 'which_key_ignore' },
-  ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
+  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
   ['<leader>]'] = { name = 'Next', _ = 'which_key_ignore' },
   ['<leader>['] = { name = 'Prev', _ = 'which_key_ignore' },
   ['<leader>t'] = { name = 'Jump To [T]ag', _ = 'which_key_ignore' },
@@ -153,12 +153,12 @@ map('n', '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>')
 
 -- git
 map('n', '<leader>gg', ':Neogit<CR>', { desc = 'Toggle Neogit' })
-map('n', '<leader>gf', ':GFiles<cr>', { desc = 'Git [F]iles' })
+map('n', '<leader>sg', ':GFiles<cr>', { desc = 'Search [G]it Files' })
 
 -- files
-map('n', '<leader><leader>', ':Files<cr>', { desc = 'Find files' })
-map('n', '<leader>ff', ':Files<cr>', { desc = 'Find files' })
-map('n', '<leader>fs', ':grep<space>', { desc = 'Find from files' })
+map('n', '<leader><leader>', ':Files<cr>', { desc = 'Search For [F]ile' })
+map('n', '<leader>sf', ':Files<cr>', { desc = 'Search For [F]ile' })
+map('n', '<leader>ss', ':grep<space>', { desc = '[S]earch' })
 
 -- quickfix
 map('n', '[q', ':cprev<cr>', { desc = '[Q]uickfix next' })
