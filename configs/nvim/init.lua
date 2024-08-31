@@ -1,5 +1,6 @@
 local cmd = vim.cmd
 local colorscheme = vim.cmd.colorscheme
+local highlight = vim.cmd.highlight
 local map = vim.keymap.set
 local g = vim.g
 local o = vim.o
@@ -13,17 +14,10 @@ cmd 'set nocompatible'
 -- colorscheme + tweaks
 cmd 'set background=dark'
 colorscheme 'quiet'
-cmd 'highlight Keyword gui=bold'
-cmd 'highlight Comment gui=italic'
-cmd 'highlight Constant guifg=#999999'
-cmd 'highlight NormalFloat guibg=#333333'
-
-local enable_red_cursor_block = false
-
-if enable_red_cursor_block then
-  cmd 'highlight Cursor guifg=red guibg=red'
-  o.guicursor = 'a:block-Cursor/lCursor'
-end
+highlight 'Keyword gui=bold'
+highlight 'Comment gui=italic'
+highlight 'Constant guifg=#999999'
+highlight 'NormalFloat guibg=#333333'
 
 wo.number = true
 wo.signcolumn = 'yes'
@@ -57,6 +51,8 @@ o.autoread = true
 o.list = true
 o.listchars = 'tab:→ ,trail:·,extends:›,precedes:‹,nbsp:·'
 o.conceallevel = 2
+o.updatecount = 0
+o.ttyfast = true
 
 -- use 'rg' when ':grep':ing.
 cmd [[
@@ -123,7 +119,7 @@ require('which-key').add {
   { '<leader>s', group = '[S]earch' },
   { '<leader>s_', hidden = true },
   { '<leader>t', group = 'Jump To [T]ag' },
-  { '<leader>t_', hidden = true },
+  { '<leader>q', group = '[Q]uickfix' },
 }
 require('which-key').add({
   { '<leader>', group = 'VISUAL <leader>', mode = 'v' },
@@ -170,6 +166,7 @@ map('n', '<leader>ss', ':grep<space>', { desc = '[S]earch' })
 -- quickfix
 map('n', '[q', ':cprev<cr>', { desc = '[Q]uickfix next' })
 map('n', ']q', ':cnext<cr>', { desc = '[Q]uickfix prev' })
+map('n', '<leader>qo', ':copen<cr>', { desc = '[Q]uickfix open' })
 
 -- completion
 map('i', '<C-Space>', '<C-x><C-o>', { desc = 'Open completions' })
