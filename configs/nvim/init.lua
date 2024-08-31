@@ -72,9 +72,10 @@ require('conform').setup {
   formatters_by_ft = {
     lua = { 'stylua' },
     python = { 'ruff', 'ruff_fix', 'ruff_format' },
-    nix = { 'nixfmt' },
+    nix = { 'nixpkgs_fmt' },
     ocaml = { 'ocamlformat' },
     zig = { 'zigfmt' },
+    haskell = { 'fourmolu' },
     javascript = { 'prettier' },
     typescript = { 'prettier' },
   },
