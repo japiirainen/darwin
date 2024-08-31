@@ -111,17 +111,23 @@ require('oil').setup {}
 
 -- key mappings
 
-require('which-key').register {
-  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  ['<leader>l'] = { name = '[L]sp', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>]'] = { name = 'Next', _ = 'which_key_ignore' },
-  ['<leader>['] = { name = 'Prev', _ = 'which_key_ignore' },
-  ['<leader>t'] = { name = 'Jump To [T]ag', _ = 'which_key_ignore' },
+require('which-key').add {
+  { '<leader>[', group = 'Prev' },
+  { '<leader>[_', hidden = true },
+  { '<leader>]', group = 'Next' },
+  { '<leader>]_', hidden = true },
+  { '<leader>g', group = '[G]it' },
+  { '<leader>g_', hidden = true },
+  { '<leader>l', group = '[L]sp' },
+  { '<leader>l_', hidden = true },
+  { '<leader>s', group = '[S]earch' },
+  { '<leader>s_', hidden = true },
+  { '<leader>t', group = 'Jump To [T]ag' },
+  { '<leader>t_', hidden = true },
 }
-require('which-key').register({
-  ['<leader>'] = { name = 'VISUAL <leader>' },
-  ['<leader>h'] = { 'Git [H]unk' },
+require('which-key').add({
+  { '<leader>', group = 'VISUAL <leader>', mode = 'v' },
+  { '<leader>h', desc = 'Git [H]unk', mode = 'v' },
 }, { mode = 'v' })
 
 -- exit insert mode with 'jk'
@@ -141,7 +147,7 @@ map('n', '<leader>ll', vim.diagnostic.setloclist, { desc = 'Set [L]ocation list'
 map('n', 'K', vim.lsp.buf.hover, { desc = 'Hover' })
 map('n', '<leader>lr', vim.lsp.buf.rename, { desc = '[R]ename' })
 map('n', '<leader>la', vim.lsp.buf.code_action, { desc = 'Code [A]ction' })
-map('n', '<leader>lrr', vim.lsp.buf.references, { desc = '[R]efe[R]ences' })
+map('n', '<leader>llr', vim.lsp.buf.references, { desc = '[R]eferences' })
 map('n', '<leader>lh', vim.lsp.buf.signature_help, { desc = 'Signature [Help]' })
 map('n', 'gd', '<C-]>', { desc = '[G]oto [Definition]' })
 
