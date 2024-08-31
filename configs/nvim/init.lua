@@ -61,7 +61,7 @@ o.conceallevel = 2
 -- use 'rg' when ':grep':ing.
 cmd [[
 set grepprg=rg\ --line-number\ --column
-set grepprg=rg\ --line-number\ --column
+set grepformat=%f:%l:%c:%m
 ]]
 
 -- Git
