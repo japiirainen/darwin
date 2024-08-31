@@ -31,14 +31,6 @@
       };
     };
 
-    # sp
-    sp.url = "github:japiirainen/sp";
-    sp.inputs.nixpkgs.follows = "nixpkgs-unstable";
-
-    # ngn/k
-    k.url = "github:nathyong/ngnk-nix";
-    k.inputs.nixpkgs.follows = "nixpkgs-unstable";
-
     # Spacebar
     spacebar.url = "github:cmacrae/spacebar/v1.4.0";
     spacebar.inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -50,8 +42,6 @@
   outputs =
     { self
     , flake-utils
-    , sp
-    , k
     , ...
     } @ inputs:
     let
@@ -162,7 +152,7 @@
 
       homeManagerModules = {
         jp-home = import ./home;
-        jp-programs = import ./home/programs.nix;
+        jp-packages = import ./home/packages.nix;
         jp-git = import ./home/git.nix;
         jp-tmux = import ./home/tmux.nix;
         jp-kitty = import ./home/kitty.nix;
@@ -200,7 +190,6 @@
             });
           inherit homeStateVersion;
           homeModules = attrValues self.homeManagerModules;
-          extraSpecialArgs = { inherit sp k; };
         });
 
         # Work machine
@@ -222,7 +211,6 @@
           username = "jp-mbp";
           nixConfigDirectory = "/Users/jp-mbp/dev/darwin";
           homeModules = attrValues self.homeManagerModules;
-          extraSpecialArgs = { inherit sp k; };
         });
       };
     }

@@ -1,4 +1,7 @@
-{ ... }: {
+{ pkgs, ... }: {
+  # TODO: remove once unstable works again.
+  programs.kitty.package = pkgs.pkgs-stable.kitty;
+
   programs.kitty.enable = true;
 
   programs.kitty.settings = {

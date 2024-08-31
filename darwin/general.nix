@@ -20,7 +20,8 @@ in
     icu
     zlib
     coreutils
-    kitty
+    # TODO: remove once unstable works again.
+    pkgs-stable.kitty
     podman-az-login
   ];
 

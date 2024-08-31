@@ -38,7 +38,6 @@ in
     nil
     stylua
 
-    nodePackages.vim-language-server
     sumneko-lua-language-server
     vscode-langservers-extracted
     yaml-language-server
