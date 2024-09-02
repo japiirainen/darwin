@@ -19,29 +19,7 @@ in
   # Load the `init` module from the above configs
   programs.neovim.extraConfig = "lua require('init')";
 
-  programs.neovim.plugins = with pkgs.vimPlugins; [
-    (nvim-treesitter.withPlugins (p: [
-      p.bash
-      p.json
-      p.lua
-      p.markdown
-      p.nix
-      p.python
-      p.rust
-      p.zig
-      p.vimdoc
-      p.javascript
-      p.typescript
-      p.tsx
-    ]))
-    nvim-lspconfig
-    conform-nvim
-    neogit
-    fzf-vim
-    which-key-nvim
-    vim-tmux-navigator
-    oil-nvim
-  ];
+  programs.neovim.plugins = [ ];
 
   programs.neovim.extraPackages = with pkgs; [
     nodePackages.bash-language-server
