@@ -6,6 +6,9 @@ local g = vim.g
 local o = vim.o
 local wo = vim.wo
 
+g.mapleader = ' '
+g.maplocalleader = ','
+
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -308,9 +311,6 @@ require('lazy').setup {
 }
 
 -- basic vim/neovim settings
-
-g.mapleader = ' '
-g.maplocalleader = ','
 
 cmd 'set background=dark'
 colorscheme 'quiet'
