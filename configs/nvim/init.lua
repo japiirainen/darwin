@@ -29,6 +29,7 @@ require('lazy').setup {
   'rsmenon/vim-mathematica',
   'kana/vim-textobj-user',
   'isovector/cornelis',
+  'github/copilot.vim',
 
   {
     'NeogitOrg/neogit',
@@ -315,6 +316,8 @@ require('lazy').setup {
 }
 
 -- basic vim/neovim settings
+
+g.copilot_enabled = false
 
 cmd 'set background=dark'
 colorscheme 'quiet'
@@ -637,7 +640,7 @@ local servers = {
 
   clangd = {},
 
-  tsserver = {},
+  ts_ls = {},
   eslint = {},
   jsonls = {},
   html = {},
