@@ -61,6 +61,7 @@ in
       "podman-compose"
       "sdl2"
       "pnpm"
+      "portaudio"
     ];
   };
 }
