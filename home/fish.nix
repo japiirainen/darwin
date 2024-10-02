@@ -23,9 +23,13 @@ in
     # Sets Fish Shell to light or dark colorscheme based on `$term_background`.
     set-shell-colors = {
       body =
-        optionalString config.programs.bat.enable ''
+        ''
+          # Set LS_COLORS
+          set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate solarized-dark)
+        ''
+        + optionalString config.programs.bat.enable ''
           # Use correct theme for `bat`.
-          set -xg BAT_THEME "ansi"
+          set -xg BAT_THEME "Solarized (dark)"
         ''
         + optionalString (elem pkgs.bottom config.home.packages) ''
           # Use correct theme for `btm`.

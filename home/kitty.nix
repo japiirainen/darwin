@@ -2,6 +2,8 @@
   # TODO: remove once unstable works again.
   programs.kitty.package = pkgs.pkgs-stable.kitty;
 
+  programs.kitty.theme = "Solarized Dark";
+
   programs.kitty.enable = true;
 
   programs.kitty.settings = {

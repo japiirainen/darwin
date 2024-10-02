@@ -32,6 +32,16 @@ require('lazy').setup {
   'github/copilot.vim',
 
   {
+    'maxmx03/solarized.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function(_, opts)
+      require('solarized').setup(opts)
+    end,
+  },
+
+  {
     'NeogitOrg/neogit',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -320,7 +330,7 @@ require('lazy').setup {
 g.copilot_enabled = false
 
 cmd 'set background=dark'
-colorscheme 'quiet'
+colorscheme 'solarized'
 highlight 'Keyword gui=bold'
 highlight 'Comment gui=italic'
 highlight 'Constant guifg=#999999'
