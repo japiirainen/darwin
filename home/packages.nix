@@ -69,7 +69,6 @@
       fzf
       obsidian
       texliveFull
-      nerdfetch
       cloc
       termdown
       github-copilot-cli
