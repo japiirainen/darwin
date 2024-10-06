@@ -324,6 +324,24 @@ require('lazy').setup {
       end,
     },
   },
+
+  {
+    'Julian/lean.nvim',
+    event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
+
+    dependencies = {
+      'neovim/nvim-lspconfig',
+      'nvim-lua/plenary.nvim',
+      'hrsh7th/nvim-cmp',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+    },
+
+    opts = {
+      lsp = {},
+      mappings = true,
+    },
+  },
 }
 
 -- basic vim/neovim settings
@@ -922,3 +940,13 @@ function Agda_input()
   vim.api.nvim_exec([[runtime agda-input.vim]], false)
 end
 map('n', '<leader>ia', ':lua Agda_input()<CR>', { desc = 'Enable agda input mode' })
+
+-- lean.nvim
+-- set up leanls to use keybindings set up in `on_attach`
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    if vim.lsp.get_client_by_id(args.data.client_id).name == 'leanls' then
+      on_attach(true, args.buf)
+    end
+  end,
+})
