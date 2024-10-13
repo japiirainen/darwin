@@ -89,6 +89,7 @@
       postgresql
       redis
       sourcekit-lsp
+      cmake
       ;
 
     inherit (pkgs.texlivePackages) latexmk;

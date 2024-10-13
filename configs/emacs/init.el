@@ -1,7 +1,8 @@
 ;; japiirainen `emacs` configuration
 
-(setq gc-cons-threshold (* 50 1000 1000))
-(setq read-process-output-max (* 1024 1024))
+(defun system-is-mac ()
+  "Return true if system is darwin-based (Mac OS X)"
+  (string-equal system-type "darwin"))
 
 (defun start/org-babel-tangle-config ()
   "Automatically tangle our Emacs.org config file when we save it. Credit to Emacs From Scratch for this one!"
@@ -17,14 +18,11 @@
 (setq use-package-always-ensure t) ;; Always ensures that a package is installed
 (setq package-archives '(("melpa" . "https://melpa.org/packages/") ;; Sets default package repositories
                          ("org" . "https://orgmode.org/elpa/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")
-                         ("nongnu" . "https://elpa.nongnu.org/nongnu/"))) ;; For Eat Terminal
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
 
 (use-package evil
   :init ;; Execute code Before a package is loaded
   (evil-mode)
-  :config ;; Execute code After a package is loaded
-  (evil-set-initial-state 'eat-mode 'insert) ;; Set initial state in eat terminal to insert mode
   :custom ;; Customization of package custom variables
   (evil-want-keybinding nil)    ;; Disable evil bindings in other modes (It's not consistent and not good)
   (evil-want-C-u-scroll t)      ;; Set C-u to scroll up
@@ -136,6 +134,11 @@
   ;; Move customization variables to a separate file and load it, avoid filling up init.el with unnecessary variables
   (setq custom-file (locate-user-emacs-file "custom-vars.el"))
   (setq display-line-numbers-type 'relative)
+	(setq user-full-name "Joona Piiraine")
+	(setq user-mail-address "japiirainen@proton.me")
+	(setq gc-cons-threshold (* 50 1000 1000))
+	(setq read-process-output-max (* 1024 1024))
+	(setq mac-command-modifier 'meta)
   (load custom-file 'noerror 'nomessage)
   :bind (
          ([escape] . keyboard-escape-quit) ;; Makes Escape quit prompts (Minibuffer Escape)
@@ -152,6 +155,13 @@
 
 (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font Mono")) ;; Set your favorite font
 (setq-default line-spacing 0.12)
+
+(use-package emacs
+  :bind
+  ("C-=" . text-scale-increase)
+  ("C--" . text-scale-decrease)
+  ("<C-wheel-up>" . text-scale-increase)
+  ("<C-wheel-down>" . text-scale-decrease))
 
 (use-package ligature
   :config
@@ -240,6 +250,8 @@
     "d v" '(dired :wk "Open dired")
     "d j" '(dired-jump :wk "Dired jump to current"))
 
+  (start/leader-keys
+    "s" '(:ignore t :wk "Show"))
 )
 
 (use-package which-key
