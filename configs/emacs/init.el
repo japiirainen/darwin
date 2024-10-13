@@ -387,5 +387,9 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+(use-package direnv
+ :config
+ (direnv-mode))
+
 (use-package nix-mode
   :mode "\\.nix\\'")
