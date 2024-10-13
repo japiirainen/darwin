@@ -1,9 +1,5 @@
 ;; japiirainen `emacs` configuration
 
-(defun system-is-mac ()
-  "Return true if system is darwin-based (Mac OS X)"
-  (string-equal system-type "darwin"))
-
 (defun start/org-babel-tangle-config ()
   "Automatically tangle our Emacs.org config file when we save it. Credit to Emacs From Scratch for this one!"
   (when (string-equal (file-name-directory (buffer-file-name))
