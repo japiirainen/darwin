@@ -21,6 +21,12 @@
     };
     flake-utils.url = "github:numtide/flake-utils";
 
+    # Emacs overlay
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     # Agda mode for Neovim
     cornelis = {
       url = "github:isovector/cornelis";
@@ -62,6 +68,7 @@
           inputs.cornelis.overlays.cornelis
           inputs.spacebar.overlay.aarch64-darwin
           inputs.ocaml-overlay.overlays.default
+          inputs.emacs-overlay.overlays.default
         ] ++ singleton (
           final: prev: (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
             # Sub in x86 version of packages that don't build on Apple Silicon.
@@ -158,6 +165,7 @@
         jp-kitty = import ./home/kitty.nix;
         jp-fish = import ./home/fish.nix;
         jp-neovim = import ./home/neovim.nix;
+        jp-emacs = import ./home/emacs.nix;
         jp-skhdrc = import ./home/skhdrc.nix;
         jp-atuin = import ./home/atuin.nix;
         jp-helix = import ./home/helix.nix;

@@ -29,6 +29,7 @@ in
 
     taps = [
       "koekeishiya/formulae"
+      "d12frosted/emacs-plus"
     ];
 
     masApps = {
@@ -62,6 +63,7 @@ in
       "sdl2"
       "pnpm"
       "portaudio"
+      "emacs-plus@30"
     ];
   };
 }
