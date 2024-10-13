@@ -29,7 +29,6 @@ require('lazy').setup {
   'rsmenon/vim-mathematica',
   'kana/vim-textobj-user',
   'isovector/cornelis',
-  'Olical/conjure',
   'github/copilot.vim',
 
   {
