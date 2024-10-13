@@ -1,15 +1,3 @@
-;; japiirainen `emacs` configuration
-
-(defun start/org-babel-tangle-config ()
-  "Automatically tangle our Emacs.org config file when we save it. Credit to Emacs From Scratch for this one!"
-  (when (string-equal (file-name-directory (buffer-file-name))
-                      (expand-file-name user-emacs-directory))
-    ;; Dynamic scoping to the rescue
-    (let ((org-confirm-babel-evaluate nil))
-      (org-babel-tangle))))
-
-(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'start/org-babel-tangle-config)))
-
 (require 'use-package-ensure) ;; Load use-package-always-ensure
 (setq use-package-always-ensure t) ;; Always ensures that a package is installed
 (setq package-archives '(("melpa" . "https://melpa.org/packages/") ;; Sets default package repositories
@@ -193,7 +181,7 @@
   :config
   (general-evil-setup)
   ;; Set up space as the leader key
-  (general-create-definer start/leader-keys
+  (general-create-definer jp/leader-keys
     :states '(normal insert visual motion emacs)
     :keymaps 'override
     :prefix "SPC"           ;; Set leader key
@@ -215,24 +203,24 @@
     :states 'motion
     "g c" '(comment-line :wk "Comment lines"))
 
-  (start/leader-keys
+  (jp/leader-keys
     "p" '(projectile-command-map :wk "Projectile command map"))
 
-  (start/leader-keys
+  (jp/leader-keys
     "f"   '(:ignore t :wk "Find")
     "f f" '(find-file :wk "Find file")
-    "f c" '((lambda () (interactive) (find-file "~/dev/darwin/configs/emacs/init.el")) :wk "Edit emacs config")
+    "f c" '((lambda () (interactive) (find-file "~/dev/darwin/configs/emacs/init.org")) :wk "Edit emacs config")
     "f r" '(consult-recent-file :wk "Recent files")
     "f s" '(consult-find :wk "Search for files")
     "f g" '(consult-ripgrep :wk "Ripgrep search in files")
     "f l" '(consult-line :wk "Find line")
     "f i" '(consult-imenu :wk "Imenu buffer locations"))
 
-  (start/leader-keys
+  (jp/leader-keys
     "g" '(:ignore t :wk "Git")
     "g g" '(magit-status :wk "Magit status"))
 	
-  (start/leader-keys
+  (jp/leader-keys
     "b" '(:ignore t :wk "Buffer Bookmarks")
     "b b" '(consult-buffer :wk "Switch buffer")
     "b k" '(kill-this-buffer :wk "Kill this buffer")
@@ -242,12 +230,12 @@
     "b r" '(revert-buffer :wk "Reload buffer")
     "b j" '(consult-bookmark :wk "Bookmark jump"))
  
-  (start/leader-keys
+  (jp/leader-keys
     "d" '(:ignore t :wk "Dired")
     "d v" '(dired :wk "Open dired")
     "d j" '(dired-jump :wk "Dired jump to current"))
 
-  (start/leader-keys
+  (jp/leader-keys
     "s" '(:ignore t :wk "Show"))
 )
 
