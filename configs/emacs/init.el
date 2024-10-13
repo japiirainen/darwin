@@ -148,7 +148,7 @@
 (set-face-attribute 'default nil
                     :font "JetBrainsMono Nerd Font Mono" ;; Set your favorite type of font or download JetBrains Mono
                     :height 140
-                    :weight 'medium)
+                    :weight 'normal)
 ;; This sets the default font on all graphical frames created after restarting Emacs.
 ;; Does the same thing as 'set-face-attribute default' above, but emacsclient fonts
 ;; are not right unless I also add this method of setting the default font.
@@ -224,7 +224,7 @@
   (jp/leader-keys
     "f"   '(:ignore t :wk "Find")
     "f f" '(find-file :wk "Find file")
-    "f c" '((lambda () (interactive) (find-file "~/dev/darwin/configs/emacs/init.org")) :wk "Edit emacs config")
+    "f c" '((lambda () (interactive) (find-file "~/dev/darwin/configs/emacs/init.el")) :wk "Edit emacs config")
     "f r" '(consult-recent-file :wk "Recent files")
     "f s" '(consult-find :wk "Search for files")
     "f g" '(consult-ripgrep :wk "Ripgrep search in files")
@@ -311,7 +311,7 @@
   ;; Optional customizations
   :custom
   (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
-  (corfu-auto t)                 ;; Enable auto completion
+  (corfu-auto nil)                 ;; Enable auto completion
   (corfu-auto-prefix 2)          ;; Minimum length of prefix for auto completion.
   (corfu-popupinfo-mode t)       ;; Enable popup information
   (corfu-popupinfo-delay 0.5)    ;; Lower popupinfo delay to 0.5 seconds from 2 seconds
