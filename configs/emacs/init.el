@@ -391,6 +391,9 @@
  :config
  (direnv-mode))
 
+(use-package yasnippet-snippets
+  :hook (prog-mode . yas-minor-mode))
+
 (use-package nix-mode
   :mode "\\.nix\\'")
 
