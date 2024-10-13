@@ -215,9 +215,9 @@
   (start/leader-keys
     "f"   '(:ignore t :wk "Find")
     "f f" '(find-file :wk "Find file")
-    "f c" '((lambda () (interactive) (find-file "~/.config/emacs/config.org")) :wk "Edit emacs config")
+    "f c" '((lambda () (interactive) (find-file "~/dev/darwin/configs/emacs/init.el")) :wk "Edit emacs config")
     "f r" '(consult-recent-file :wk "Recent files")
-    "f s" '(consult-fd :wk "Fd search for files")
+    "f s" '(consult-find :wk "Search for files")
     "f g" '(consult-ripgrep :wk "Ripgrep search in files")
     "f l" '(consult-line :wk "Find line")
     "f i" '(consult-imenu :wk "Imenu buffer locations"))
