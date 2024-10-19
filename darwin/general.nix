@@ -1,28 +1,10 @@
-{ pkgs
-, config
-, ...
-}:
-let
-  podman-az-login = pkgs.writeShellScriptBin "podman-az-login" ''
-    #!/usr/bin/env bash
-
-    set -xe
-
-    token=$(az acr login --name adalyonimgs --expose-token --output tsv --query accessToken)
-    user="00000000-0000-0000-0000-000000000000"
-
-    podman login adalyonimgs.azurecr.io -u "$user" -p "$token"
-
-  '';
-in
-{
+{ pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     icu
     zlib
     coreutils
     # TODO: remove once unstable works again.
     pkgs-stable.kitty
-    podman-az-login
   ];
 
   programs.nix-index.enable = true;

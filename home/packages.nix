@@ -85,10 +85,8 @@
       nil
       racket
       google-cloud-sdk
-      azure-cli
       postgresql
       redis
-      sourcekit-lsp
       cmake
       ;
 
