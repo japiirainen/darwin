@@ -30,16 +30,7 @@ require('lazy').setup {
   'kana/vim-textobj-user',
   'isovector/cornelis',
   'github/copilot.vim',
-
-  {
-    'maxmx03/solarized.nvim',
-    lazy = false,
-    priority = 1000,
-    opts = {},
-    config = function(_, opts)
-      require('solarized').setup(opts)
-    end,
-  },
+  'jnurmine/Zenburn',
 
   {
     'NeogitOrg/neogit',
@@ -348,7 +339,7 @@ require('lazy').setup {
 g.copilot_enabled = false
 
 cmd 'set background=dark'
-colorscheme 'solarized'
+colorscheme 'zenburn'
 highlight 'Keyword gui=bold'
 highlight 'Comment gui=italic'
 highlight 'Constant guifg=#999999'
