@@ -200,19 +200,12 @@
 
         # Work machine
         jp-work = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
-          modules =
-            (attrValues
-              (
-                self.baseDarwinModules //
-                { jp-swift = import ./darwin/swift.nix; }
-              )
-            )
-            ++ (singleton {
-              nixpkgs = nixpkgsDefaults;
-              networking.computerName = "jp-work";
-              networking.hostName = "jp-work";
-              nix.registry.my.flake = inputs.self;
-            });
+          modules = (singleton {
+            nixpkgs = nixpkgsDefaults;
+            networking.computerName = "jp-work";
+            networking.hostName = "jp-work";
+            nix.registry.my.flake = inputs.self;
+          });
           inherit homeStateVersion;
           username = "jp-mbp";
           nixConfigDirectory = "/Users/jp-mbp/dev/darwin";
