@@ -2,6 +2,69 @@
 let
   inherit (lib) mkIf;
   brewEnabled = config.homebrew.enable;
+  emacsBrews = [
+    "emacs-plus@30"
+    "m4"
+    "autoconf"
+    "awk"
+    "libpng"
+    "freetype"
+    "fontconfig"
+    "gettext"
+    "pcre2"
+    "python-packaging"
+    "glib"
+    "xorgproto"
+    "libxau"
+    "libxdmcp"
+    "libxcb"
+    "libx11"
+    "libxext"
+    "libxrender"
+    "lzo"
+    "pixman"
+    "cairo"
+    "capstone"
+    "dtc"
+    "fribidi"
+    "jpeg-turbo"
+    "lz4"
+    "zstd"
+    "libtiff"
+    "gdk-pixbuf"
+    "giflib"
+    "gnu-sed"
+    "gnu-tar"
+    "libevent"
+    "libunistring"
+    "libidn2"
+    "libnghttp2"
+    "libtasn1"
+    "nettle"
+    "p11-kit"
+    "unbound"
+    "gnutls"
+    "graphite2"
+    "grep"
+    "icu4c@75"
+    "harfbuzz"
+    "jansson"
+    "pango"
+    "librsvg"
+    "libslirp"
+    "libssh"
+    "libusb"
+    "little-cms2"
+    "make"
+    "ncurses"
+    "pkg-config"
+    "snappy"
+    "vde"
+    "qemu"
+    "texinfo"
+    "tree-sitter"
+    "webp"
+  ];
 in
 {
   environment.shellInit = mkIf brewEnabled ''
@@ -37,23 +100,15 @@ in
     };
 
     casks = [
-      "raycast"
       "google-chrome"
-      "qutebrowser"
-      "notion"
-      "spotify"
-      "miro"
-      "zoom"
       "firefox"
       "1password"
       "docker"
-      "microsoft-teams"
       "pgadmin4"
-      "thunderbird"
       "sage"
     ];
 
-    brews = [
+    brews = emacsBrews ++ [
       "skhd"
       "elan"
       "ghcup"
@@ -63,7 +118,6 @@ in
       "sdl2"
       "pnpm"
       "portaudio"
-      "emacs-plus@30"
     ];
   };
 }
