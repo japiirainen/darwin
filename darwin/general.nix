@@ -3,8 +3,7 @@
     icu
     zlib
     coreutils
-    # TODO: remove once unstable works again.
-    pkgs-stable.kitty
+    kitty
   ];
 
   programs.nix-index.enable = true;
