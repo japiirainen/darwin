@@ -58,7 +58,7 @@
         singleton
         ;
 
-      homeStateVersion = "24.05";
+      homeStateVersion = "24.11";
 
       nixpkgsDefaults = {
         config = {
@@ -184,28 +184,27 @@
           modules =
             (attrValues
               (
-                self.baseDarwinModules //
-                { jp-builder = import ./darwin/builder.nix; }
+                self.baseDarwinModules # // { jp-builder = import ./darwin/builder.nix; }
               )
             )
-            ++ (singleton {
+            ++ singleton {
               nixpkgs = nixpkgsDefaults;
               networking.computerName = "jp-personal";
               networking.hostName = "jp-personal";
               nix.registry.my.flake = inputs.self;
-            });
+            };
           inherit homeStateVersion;
           homeModules = attrValues self.homeManagerModules;
         });
 
         # Work machine
         jp-work = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
-          modules = (singleton {
+          modules = singleton {
             nixpkgs = nixpkgsDefaults;
             networking.computerName = "jp-work";
             networking.hostName = "jp-work";
             nix.registry.my.flake = inputs.self;
-          });
+          };
           inherit homeStateVersion;
           username = "jp-mbp";
           nixConfigDirectory = "/Users/jp-mbp/dev/darwin";

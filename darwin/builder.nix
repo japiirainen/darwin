@@ -11,5 +11,4 @@
     StandardOutPath = "/var/log/linux-builder.log";
     StandardErrorPath = "/var/log/linux-builder.log";
   };
-
 }
