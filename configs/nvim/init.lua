@@ -281,41 +281,6 @@ require('lazy').setup {
   },
 
   {
-    'epwalsh/obsidian.nvim',
-    version = '*',
-    lazy = true,
-    ft = 'markdown',
-    event = {
-      'BufReadPre ' .. vim.fn.expand '~' .. 'dev/jp-vault/**.md',
-      'BufNewFile ' .. vim.fn.expand '~' .. 'dev/jp-vault/**.md',
-    },
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'hrsh7th/nvim-cmp',
-      'nvim-telescope/telescope.nvim',
-      'nvim-treesitter/nvim-treesitter',
-    },
-    opts = {
-      workspaces = {
-        {
-          name = 'personal',
-          path = '~/dev/jp-vault/',
-        },
-      },
-
-      new_notes_location = 'current_dir',
-
-      daily_notes = {
-        folder = 'daily',
-      },
-
-      follow_url_func = function(url)
-        vim.fn.jobstart { 'open', url }
-      end,
-    },
-  },
-
-  {
     'Julian/lean.nvim',
     event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
 

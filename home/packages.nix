@@ -67,7 +67,6 @@
       kitty-themes
       sad
       fzf
-      obsidian
       texliveFull
       cloc
       termdown
