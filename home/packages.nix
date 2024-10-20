@@ -49,8 +49,6 @@
         matplotlib
       ]);
 
-    ocamllsp = pkgs.ocamlPackages.ocaml-lsp;
-
     inherit (pkgs)
       tree
       ripgrep

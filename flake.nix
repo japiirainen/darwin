@@ -40,10 +40,6 @@
     # Spacebar
     spacebar.url = "github:cmacrae/spacebar/v1.4.0";
     spacebar.inputs.nixpkgs.follows = "nixpkgs-unstable";
-
-    # Ocaml
-    ocaml-overlay.url = "github:nix-ocaml/nix-overlays";
-    ocaml-overlay.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
   outputs =
     { self
@@ -67,7 +63,6 @@
         overlays = attrValues self.overlays ++ [
           inputs.cornelis.overlays.cornelis
           inputs.spacebar.overlay.aarch64-darwin
-          inputs.ocaml-overlay.overlays.default
           inputs.emacs-overlay.overlays.default
         ] ++ singleton (
           final: prev: (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
@@ -182,32 +177,32 @@
         # Personal machine
         jp-personal = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
           modules =
-            (attrValues
-              (
-                self.baseDarwinModules # // { jp-builder = import ./darwin/builder.nix; }
-              )
-            )
+            attrValues self.baseDarwinModules
             ++ singleton {
               nixpkgs = nixpkgsDefaults;
               networking.computerName = "jp-personal";
               networking.hostName = "jp-personal";
               nix.registry.my.flake = inputs.self;
             };
+          extraModules = [ ];
           inherit homeStateVersion;
           homeModules = attrValues self.homeManagerModules;
         });
 
         # Work machine
         jp-work = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
-          modules = singleton {
-            nixpkgs = nixpkgsDefaults;
-            networking.computerName = "jp-work";
-            networking.hostName = "jp-work";
-            nix.registry.my.flake = inputs.self;
-          };
-          inherit homeStateVersion;
+          modules =
+            attrValues self.baseDarwinModules ++
+            singleton {
+              nixpkgs = nixpkgsDefaults;
+              networking.computerName = "jp-work";
+              networking.hostName = "jp-work";
+              nix.registry.my.flake = inputs.self;
+            };
+          extraModules = [ ];
           username = "jp-mbp";
           nixConfigDirectory = "/Users/jp-mbp/dev/darwin";
+          inherit homeStateVersion;
           homeModules = attrValues self.homeManagerModules;
         });
       };
