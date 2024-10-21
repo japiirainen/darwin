@@ -98,6 +98,11 @@
 
       # don't rename windows automatically
       set-option -g allow-rename off
+
+      # zenburn
+      setw -g clock-mode-colour colour117
+      set -g status-bg colour235
+      set -g status-fg colour248
     '';
   };
 }
