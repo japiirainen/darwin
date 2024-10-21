@@ -7,6 +7,17 @@
 
     plugins = with pkgs; [
       tmuxPlugins.better-mouse-mode
+      {
+        plugin = tmuxPlugins.resurrect;
+        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+      }
+      {
+        plugin = tmuxPlugins.continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-save-interval '60' # minutes
+        '';
+      }
     ];
 
     extraConfig = ''
