@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   programs.atuin = {
     enable = true;
     # TODO: this currently fails die to someone already creating ~/.config/atuin/

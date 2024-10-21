@@ -27,7 +27,7 @@ in
     marksman
     nodePackages.typescript-language-server
     deadnix
-    nixpkgs-fmt
+    nixfmt-rfc-style
     statix
     nil
     stylua
@@ -37,7 +37,6 @@ in
     tailwindcss-language-server
     ruff-lsp
   ];
-
 
   xdg.configFile."zls.json".text = ''
     {

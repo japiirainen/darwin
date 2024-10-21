@@ -42,10 +42,11 @@
     spacebar.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
   outputs =
-    { self
-    , flake-utils
-    , ...
-    } @ inputs:
+    {
+      self,
+      flake-utils,
+      ...
+    }@inputs:
     let
       inherit (self.lib)
         makeOverridable
@@ -60,18 +61,23 @@
         config = {
           allowUnfree = true;
         };
-        overlays = attrValues self.overlays ++ [
-          inputs.cornelis.overlays.cornelis
-          inputs.spacebar.overlay.aarch64-darwin
-          inputs.emacs-overlay.overlays.default
-        ] ++ singleton (
-          final: prev: (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
-            # Sub in x86 version of packages that don't build on Apple Silicon.
-            inherit (final.pkgs-x86)
-              idris2
-              ;
-          }) // { }
-        );
+        overlays =
+          attrValues self.overlays
+          ++ [
+            inputs.cornelis.overlays.cornelis
+            inputs.spacebar.overlay.aarch64-darwin
+            inputs.emacs-overlay.overlays.default
+          ]
+          ++ singleton (
+            final: prev:
+            (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
+              # Sub in x86 version of packages that don't build on Apple Silicon.
+              inherit (final.pkgs-x86)
+                idris2
+                ;
+            })
+            // { }
+          );
       };
 
       primaryUserDefaults = {
@@ -82,9 +88,11 @@
       };
     in
     {
-      lib = inputs.nixpkgs-unstable.lib.extend (_: _: {
-        mkDarwinSystem = import ./lib/mkDarwinSystem.nix inputs;
-      });
+      lib = inputs.nixpkgs-unstable.lib.extend (
+        _: _: {
+          mkDarwinSystem = import ./lib/mkDarwinSystem.nix inputs;
+        }
+      );
 
       overlays = {
         # Overlays to add different versions `nixpkgs` into package set
@@ -109,7 +117,8 @@
           };
         };
 
-        apple-silicon = _: prev:
+        apple-silicon =
+          _: prev:
           optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
             # Add access to x86 packages system is running Apple Silicon
             pkgs-x86 = import inputs.nixpkgs-unstable {
@@ -122,16 +131,19 @@
         vimUtils = import ./overlays/vimUtils.nix;
 
         # Overlay that adds some additional Neovim plugins
-        vimPlugins = final: prev:
+        vimPlugins =
+          final: prev:
           let
             inherit (self.overlays.vimUtils final prev) vimUtils;
           in
           {
-            vimPlugins = prev.vimPlugins.extend (_: _:
+            vimPlugins = prev.vimPlugins.extend (
+              _: _:
               # Useful for testing/using Vim plugins that aren't in `nixpkgs`.
               vimUtils.buildVimPluginsFromFlakeInputs inputs [
                 # Add flake input names here for a Vim plugin repos
-              ] // {
+              ]
+              // {
                 # Other Vim plugins
                 inherit (inputs.cornelis.packages.${prev.stdenv.system}) cornelis-vim;
               }
@@ -165,46 +177,54 @@
         jp-atuin = import ./home/atuin.nix;
         jp-helix = import ./home/helix.nix;
 
-        home-user-info = { lib, ... }: {
-          options.home.user-info =
-            (self.baseDarwinModules.users-primaryUser { inherit lib; }).options.users.primaryUser;
-        };
+        home-user-info =
+          { lib, ... }:
+          {
+            options.home.user-info =
+              (self.baseDarwinModules.users-primaryUser { inherit lib; }).options.users.primaryUser;
+          };
       };
 
       # System configurations
 
       darwinConfigurations = {
         # Personal machine
-        jp-personal = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
-          modules =
-            attrValues self.baseDarwinModules
-            ++ singleton {
-              nixpkgs = nixpkgsDefaults;
-              networking.computerName = "jp-personal";
-              networking.hostName = "jp-personal";
-              nix.registry.my.flake = inputs.self;
-            };
-          extraModules = [ ];
-          inherit homeStateVersion;
-          homeModules = attrValues self.homeManagerModules;
-        });
+        jp-personal = makeOverridable self.lib.mkDarwinSystem (
+          primaryUserDefaults
+          // {
+            modules =
+              attrValues self.baseDarwinModules
+              ++ singleton {
+                nixpkgs = nixpkgsDefaults;
+                networking.computerName = "jp-personal";
+                networking.hostName = "jp-personal";
+                nix.registry.my.flake = inputs.self;
+              };
+            extraModules = [ ];
+            inherit homeStateVersion;
+            homeModules = attrValues self.homeManagerModules;
+          }
+        );
 
         # Work machine
-        jp-work = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
-          modules =
-            attrValues self.baseDarwinModules ++
-            singleton {
-              nixpkgs = nixpkgsDefaults;
-              networking.computerName = "jp-work";
-              networking.hostName = "jp-work";
-              nix.registry.my.flake = inputs.self;
-            };
-          extraModules = [ ];
-          username = "jp-mbp";
-          nixConfigDirectory = "/Users/jp-mbp/dev/darwin";
-          inherit homeStateVersion;
-          homeModules = attrValues self.homeManagerModules;
-        });
+        jp-work = makeOverridable self.lib.mkDarwinSystem (
+          primaryUserDefaults
+          // {
+            modules =
+              attrValues self.baseDarwinModules
+              ++ singleton {
+                nixpkgs = nixpkgsDefaults;
+                networking.computerName = "jp-work";
+                networking.hostName = "jp-work";
+                nix.registry.my.flake = inputs.self;
+              };
+            extraModules = [ ];
+            username = "jp-mbp";
+            nixConfigDirectory = "/Users/jp-mbp/dev/darwin";
+            inherit homeStateVersion;
+            homeModules = attrValues self.homeManagerModules;
+          }
+        );
       };
     }
     // flake-utils.lib.eachDefaultSystem (system: {

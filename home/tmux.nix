@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.tmux = {
     # TODO: remove once unstable works again
     package = pkgs.pkgs-stable.tmux;

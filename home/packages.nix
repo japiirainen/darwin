@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   programs = {
     bat.enable = true;
     bat.config.style = "plain";
@@ -20,15 +21,16 @@
   home.packages = lib.attrValues ({
     agda = pkgs.agda.withPackages (ps: [ ps.standard-library ]);
 
-    haskell = pkgs.haskellPackages.ghcWithPackages
-      (p: with p; [
+    haskell = pkgs.haskellPackages.ghcWithPackages (
+      p: with p; [
         ghcid
         cabal-install
         text
         containers
         data-ordlist
         fourmolu
-      ]);
+      ]
+    );
 
     hls = pkgs.haskell-language-server;
 
@@ -41,13 +43,14 @@
       poetry
       ;
 
-    python312 = pkgs.python312.withPackages
-      (p: with p; [
+    python312 = pkgs.python312.withPackages (
+      p: with p; [
         numpy
         sympy
         ipython
         matplotlib
-      ]);
+      ]
+    );
 
     inherit (pkgs)
       tree

@@ -76,7 +76,7 @@ require('lazy').setup {
       formatters_by_ft = {
         lua = { 'stylua' },
         python = { 'ruff', 'ruff_fix', 'ruff_format' },
-        nix = { 'nixpkgs_fmt' },
+        nix = { 'nixfmt' },
         ocaml = { 'ocamlformat' },
         zig = { 'zigfmt' },
         haskell = { 'fourmolu' },

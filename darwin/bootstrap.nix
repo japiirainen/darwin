@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   # Nix configuration
   nix.settings = {
@@ -16,8 +21,14 @@
     builders-use-substitutes = true;
     allow-import-from-derivation = true;
     cores = 0; # `0` denotes all available cores
-    extra-platforms = lib.mkIf (pkgs.system == "aarch64-darwin") [ "x86_64-darwin" "aarch64-darwin" ];
-    trusted-users = [ "root" config.users.primaryUser.username ];
+    extra-platforms = lib.mkIf (pkgs.system == "aarch64-darwin") [
+      "x86_64-darwin"
+      "aarch64-darwin"
+    ];
+    trusted-users = [
+      "root"
+      config.users.primaryUser.username
+    ];
 
     substituters = [
       "https://cachix.org/api/v1/cache/japiirainen"
