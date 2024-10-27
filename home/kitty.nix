@@ -1,6 +1,6 @@
 { ... }:
 {
-  programs.kitty.themeFile = "Zenburn";
+  programs.kitty.themeFile = "Atom";
 
   programs.kitty.enable = true;
 

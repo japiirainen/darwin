@@ -26,11 +26,11 @@ in
       body =
         ''
           # Set LS_COLORS
-          set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate zenburn)
+          set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate one-dark)
         ''
         + optionalString config.programs.bat.enable ''
           # Use correct theme for `bat`.
-          set -xg BAT_THEME "zenburn"
+          set -xg BAT_THEME "base16"
         ''
         + optionalString (elem pkgs.bottom config.home.packages) ''
           # Use correct theme for `btm`.
