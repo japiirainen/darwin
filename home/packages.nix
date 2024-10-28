@@ -88,6 +88,7 @@
       postgresql
       redis
       cmake
+      vivid
       ;
 
     inherit (pkgs.texlivePackages) latexmk;
