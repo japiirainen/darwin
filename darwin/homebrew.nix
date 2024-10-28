@@ -95,10 +95,6 @@ in
       "d12frosted/emacs-plus"
     ];
 
-    masApps = {
-      Slack = 803453959;
-    };
-
     casks = [
       "google-chrome"
       "firefox"
@@ -106,10 +102,12 @@ in
       "docker"
       "pgadmin4"
       "sage"
+      "raycast"
+      "slack"
     ];
 
     brews = emacsBrews ++ [
-      "skhd"
+      # "skhd"
       "elan"
       "ghcup"
       "pulumi"

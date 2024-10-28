@@ -1,6 +1,6 @@
 { ... }:
 {
-  programs.kitty.themeFile = "Atom";
+  programs.kitty.themeFile = "OneDark-Pro";
 
   programs.kitty.enable = true;
 

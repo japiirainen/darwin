@@ -1,7 +1,7 @@
 .PHONY: bootstrap set-fish
 
 bootstrap:
-	nix build --extra-experimental-features 'nix-command flakes' .#darwinConfigurations.jp-mbp.system && \
+	nix build --extra-experimental-features 'nix-command flakes auto-allocate-uids' .#darwinConfigurations.jp-work.system && \
 	./result/sw/bin/darwin-rebuild switch --flake .
 
 set-fish:

@@ -2,7 +2,7 @@
 
 {
   # temporarily disabled since broken. configured using homebrew instead...
-  services.skhd.enable = false;
+  services.skhd.enable = true;
 
   services.skhd.package = pkgs.skhd;
 

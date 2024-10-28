@@ -47,7 +47,8 @@
 
   services.nix-daemon.enable = true;
 
-  nix.configureBuildUsers = true;
+  # TODO: change to `true` once upstream issue is fixed!
+  nix.configureBuildUsers = false;
 
   # Shells
   environment.shells = with pkgs; [

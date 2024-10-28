@@ -219,8 +219,8 @@
                 nix.registry.my.flake = inputs.self;
               };
             extraModules = [ ];
-            username = "jp-mbp";
-            nixConfigDirectory = "/Users/jp-mbp/dev/darwin";
+            username = "jp-work";
+            nixConfigDirectory = "/Users/jp-work/dev/darwin";
             inherit homeStateVersion;
             homeModules = attrValues self.homeManagerModules;
           }
