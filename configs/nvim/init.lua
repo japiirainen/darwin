@@ -304,7 +304,7 @@ require('lazy').setup {
 g.copilot_enabled = false
 
 cmd 'set background=dark'
-colorscheme 'default'
+colorscheme 'zenburn'
 highlight 'Keyword gui=bold'
 highlight 'Comment gui=italic'
 highlight 'Constant guifg=#999999'

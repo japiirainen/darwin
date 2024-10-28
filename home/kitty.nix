@@ -1,6 +1,6 @@
 { ... }:
 {
-  programs.kitty.themeFile = "OneDark-Pro";
+  programs.kitty.themeFile = "Zenburn";
 
   programs.kitty.enable = true;
 
