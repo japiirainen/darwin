@@ -116,6 +116,7 @@ in
       "sdl2"
       "pnpm"
       "portaudio"
+      "cloudflared"
     ];
   };
 }
