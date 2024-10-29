@@ -107,7 +107,6 @@ in
     ];
 
     brews = emacsBrews ++ [
-      # "skhd"
       "elan"
       "ghcup"
       "pulumi"
