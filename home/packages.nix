@@ -89,6 +89,7 @@
       redis
       cmake
       vivid
+      turbo
       ;
 
     inherit (pkgs.texlivePackages) latexmk;
