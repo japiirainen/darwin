@@ -31,6 +31,7 @@ require('lazy').setup {
   'isovector/cornelis',
   'github/copilot.vim',
   'jnurmine/Zenburn',
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
 
   {
     'NeogitOrg/neogit',
@@ -304,7 +305,7 @@ require('lazy').setup {
 g.copilot_enabled = false
 
 cmd 'set background=dark'
-colorscheme 'zenburn'
+colorscheme 'catppuccin-mocha'
 highlight 'Keyword gui=bold'
 highlight 'Comment gui=italic'
 highlight 'Constant guifg=#999999'

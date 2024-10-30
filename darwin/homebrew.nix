@@ -113,7 +113,6 @@ in
       "podman"
       "podman-compose"
       "sdl2"
-      "pnpm"
       "portaudio"
       "cloudflared"
     ];

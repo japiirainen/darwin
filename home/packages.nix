@@ -73,7 +73,7 @@
       termdown
       github-copilot-cli
       typescript
-      nodejs
+      nodejs_22
       deno
       bun
       cbqn-replxx
@@ -89,6 +89,7 @@
       redis
       cmake
       vivid
+      pnpm_8
       turbo
       ;
 
