@@ -91,6 +91,7 @@
       vivid
       pnpm_8
       turbo
+      openfga-cli
       ;
 
     inherit (pkgs.texlivePackages) latexmk;
