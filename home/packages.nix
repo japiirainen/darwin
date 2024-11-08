@@ -73,6 +73,8 @@
       termdown
       github-copilot-cli
       typescript
+      typescript-language-server
+      vscode-langservers-extracted
       nodejs_22
       deno
       bun
