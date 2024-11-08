@@ -302,7 +302,7 @@ require('lazy').setup {
 
 -- basic vim/neovim settings
 
-g.copilot_enabled = false
+g.copilot_enabled = true
 
 cmd 'set background=dark'
 colorscheme 'catppuccin-mocha'
