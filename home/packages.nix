@@ -94,6 +94,7 @@
       pnpm_8
       turbo
       openfga-cli
+      uiua
       ;
 
     inherit (pkgs.texlivePackages) latexmk;

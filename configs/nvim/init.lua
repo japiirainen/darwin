@@ -298,6 +298,23 @@ require('lazy').setup {
       mappings = true,
     },
   },
+
+  'Apeiros-46B/uiua.vim',
+
+  {
+    'mlochbaum/BQN',
+    config = function(plugin)
+      vim.opt.rtp:append(plugin.dir .. '/editors/vim')
+      vim.api.nvim_exec(
+        [[
+          au! BufRead,BufNewFile *.bqn setf bqn
+          au! BufRead,BufNewFile * if getline(1) =~ '^#!.*bqn$' | setf bqn | endif
+        ]],
+        false
+      )
+    end,
+  },
+  { url = 'https://git.sr.ht/~detegr/nvim-bqn' },
 }
 
 -- basic vim/neovim settings
@@ -651,7 +668,7 @@ local servers = {
   },
 
   pyright = {},
-  ruff_lsp = {},
+  ruff = {},
 
   rust_analyzer = {
     ['rust-analyzer'] = {
@@ -702,6 +719,7 @@ local servers = {
   },
 
   ocamllsp = {},
+  uiua = {},
 }
 
 -- [[ Configure LSP ]]

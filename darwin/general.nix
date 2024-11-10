@@ -13,6 +13,8 @@
     cozette
     julia-mono
     font-awesome_5
+    uiua386
+    bqn386
     (nerdfonts.override {
       fonts = [
         "Meslo"
