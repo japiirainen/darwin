@@ -95,6 +95,7 @@
       turbo
       openfga-cli
       uiua
+      rlwrap
       ;
 
     inherit (pkgs.texlivePackages) latexmk;
