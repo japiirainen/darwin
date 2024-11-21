@@ -28,6 +28,7 @@ in
         upd = "! git pull && git submodule update --recursive";
         pushu = "! git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)";
         load = "! git fetch && git pull --rebase";
+        rbm = "! git rebase origin/main";
       };
 
       # Enhanced diffs
