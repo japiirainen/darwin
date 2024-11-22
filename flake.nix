@@ -173,7 +173,6 @@
         jp-fish = import ./home/fish.nix;
         jp-neovim = import ./home/neovim.nix;
         jp-emacs = import ./home/emacs.nix;
-        jp-skhdrc = import ./home/skhdrc.nix;
         jp-atuin = import ./home/atuin.nix;
         jp-helix = import ./home/helix.nix;
 
