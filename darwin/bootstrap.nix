@@ -13,7 +13,6 @@
       "auto-allocate-uids"
       "auto-allocate-uids"
     ];
-    auto-optimise-store = true;
     keep-outputs = true;
     keep-derivations = true;
     warn-dirty = false;
@@ -40,6 +39,8 @@
       "japiirainen.cachix.org-1:DN3k1GBybULfClDDZccSKQP4OQXFNHdliEnZHTFhhnw="
     ];
   };
+
+  nix.optimise.automatic = true;
 
   system.activationScripts.extraActivation.text = ''
     softwareupdate --install-rosetta --agree-to-license
