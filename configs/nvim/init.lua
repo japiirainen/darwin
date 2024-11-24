@@ -86,6 +86,7 @@ require('lazy').setup {
         javascriptreact = { 'prettier' },
         typescriptreact = { 'prettier' },
         rust = { 'rustfmt', lsp_format = 'fallback' },
+        purescript = { 'purs-tidy' },
       },
       format_on_save = {},
     },
@@ -315,6 +316,7 @@ require('lazy').setup {
     end,
   },
   { url = 'https://git.sr.ht/~detegr/nvim-bqn' },
+  'purescript-contrib/purescript-vim',
 }
 
 -- basic vim/neovim settings
@@ -720,6 +722,7 @@ local servers = {
 
   ocamllsp = {},
   uiua = {},
+  purescriptls = {},
 }
 
 -- [[ Configure LSP ]]
