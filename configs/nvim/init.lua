@@ -33,6 +33,11 @@ require('lazy').setup {
   'jnurmine/Zenburn',
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
 
+  -- vim-dadbod
+  'tpope/vim-dadbod',
+  'kristijanhusak/vim-dadbod-ui',
+  'kristijanhusak/vim-dadbod-completion',
+
   {
     'NeogitOrg/neogit',
     dependencies = {
@@ -927,3 +932,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+
+-- vim-dadbod
+cmp.setup.filetype({ 'sql' }, {
+  sources = {
+    { name = 'vim-dadbod-completion' },
+    { name = 'buffer' },
+  },
+})
+map('n', '<leader>db', ':DBUIToggle<CR>', { desc = '[D]atabase [B]rowser' })
+map('n', '<leader>ds', '<Plug>(DBUI_SaveQuery)', { desc = '[D]atabase [S]ave Query' })
+map('n', '<leader>de', '<Plug>(DBUI_ExecuteQuery)', { desc = '[D]atabase [E]xecute Query' })
+map(
+  'n',
+  '<leader>dp',
+  '<Plug>(DBUI_EditBindParameters)',
+  { desc = '[D]atabase Edit Bind [P]arameters' }
+)
