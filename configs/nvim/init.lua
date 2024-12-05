@@ -1,6 +1,5 @@
 local cmd = vim.cmd
 local colorscheme = vim.cmd.colorscheme
-local highlight = vim.cmd.highlight
 local map = vim.keymap.set
 local g = vim.g
 local o = vim.o
@@ -330,10 +329,6 @@ g.copilot_enabled = true
 
 cmd 'set background=dark'
 colorscheme 'catppuccin-mocha'
-highlight 'Keyword gui=bold'
-highlight 'Comment gui=italic'
-highlight 'Constant guifg=#999999'
-highlight 'NormalFloat guibg=#333333'
 
 local enable_red_cursor_block = false
 
