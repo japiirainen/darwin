@@ -328,7 +328,7 @@ require('lazy').setup {
 g.copilot_enabled = true
 
 cmd 'set background=dark'
-colorscheme 'catppuccin-mocha'
+colorscheme 'catppuccin-frappe'
 
 local enable_red_cursor_block = false
 
