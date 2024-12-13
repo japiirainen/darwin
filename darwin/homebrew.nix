@@ -117,6 +117,7 @@ in
       "portaudio"
       "cloudflared"
       "hashicorp/tap/terraform"
+      "pnpm"
     ];
   };
 }

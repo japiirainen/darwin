@@ -91,7 +91,6 @@
       redis
       cmake
       vivid
-      pnpm_8
       turbo
       openfga-cli
       uiua
