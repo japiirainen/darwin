@@ -5,7 +5,7 @@
   programs.kitty.enable = true;
 
   programs.kitty.settings = {
-    font_family = "Terminess Nerd Font Mono";
+    font_family = "PragmataPro Mono Liga";
     font_size = "18.0";
 
     adjust_line_height = "100%";
