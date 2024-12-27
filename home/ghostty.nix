@@ -15,5 +15,8 @@
 
     background-opacity = 0.90
     background-blur-radius = 40
+
+    copy-on-select = clipboard
+    shell-integration-features = cursor,sudo,no-title
   '';
 }
