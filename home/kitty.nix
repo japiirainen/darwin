@@ -1,6 +1,6 @@
 { ... }:
 {
-  programs.kitty.themeFile = "Catppuccin-Frappe";
+  programs.kitty.themeFile = "Catppuccin-Mocha";
 
   programs.kitty.enable = true;
 

@@ -336,7 +336,7 @@ require('lazy').setup {
 g.copilot_enabled = false
 
 cmd 'set background=dark'
-colorscheme 'catppuccin-frappe'
+colorscheme 'catppuccin-mocha'
 
 local enable_red_cursor_block = false
 
@@ -959,4 +959,5 @@ vim.api.nvim_set_keymap('n', '<C-M-k>', ':Treewalker Up<CR>', { noremap = true }
 vim.api.nvim_set_keymap('n', '<C-M-h>', ':Treewalker Left<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-M-l>', ':Treewalker Right<CR>', { noremap = true })
 
+-- xiyaowong/transparent.nvim
 cmd 'TransparentEnable'

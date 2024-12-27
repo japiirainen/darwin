@@ -7,7 +7,7 @@
     font-size = 18
 
     # ghostty +list-theme
-    theme = catppuccin-frappe
+    theme = catppuccin-mocha
 
     macos-titlebar-style = hidden
     macos-titlebar-proxy-icon = hidden
