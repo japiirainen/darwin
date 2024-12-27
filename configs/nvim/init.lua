@@ -84,7 +84,7 @@ require('lazy').setup {
         nix = { 'nixfmt' },
         ocaml = { 'ocamlformat' },
         zig = { 'zigfmt' },
-        haskell = { 'fourmolu' },
+        haskell = { 'ormolu' },
         javascript = { 'prettier' },
         typescript = { 'prettier' },
         javascriptreact = { 'prettier' },
@@ -321,11 +321,19 @@ require('lazy').setup {
   },
   { url = 'https://git.sr.ht/~detegr/nvim-bqn' },
   'purescript-contrib/purescript-vim',
+
+  {
+    'aaronik/treewalker.nvim',
+    opts = {
+      highlight = true,
+    },
+  },
+  'xiyaowong/transparent.nvim',
 }
 
 -- basic vim/neovim settings
 
-g.copilot_enabled = true
+g.copilot_enabled = false
 
 cmd 'set background=dark'
 colorscheme 'catppuccin-frappe'
@@ -944,3 +952,11 @@ map(
   '<Plug>(DBUI_EditBindParameters)',
   { desc = '[D]atabase Edit Bind [P]arameters' }
 )
+
+-- treewalker.nvim
+vim.api.nvim_set_keymap('n', '<C-M-j>', ':Treewalker Down<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-M-k>', ':Treewalker Up<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-M-h>', ':Treewalker Left<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-M-l>', ':Treewalker Right<CR>', { noremap = true })
+
+cmd 'TransparentEnable'

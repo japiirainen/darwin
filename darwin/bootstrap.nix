@@ -32,11 +32,13 @@
     substituters = [
       "https://cachix.org/api/v1/cache/japiirainen"
       "https://cachix.org/api/v1/cache/nix-community"
+      "https://ideal.cachix.org"
     ];
 
     trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "japiirainen.cachix.org-1:DN3k1GBybULfClDDZccSKQP4OQXFNHdliEnZHTFhhnw="
+      "ideal.cachix.org-1:mZP+EJyp4LBboHqvRABbQU3AgD24Dgie3RkWP6/Yc6c="
     ];
   };
 

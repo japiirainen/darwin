@@ -175,6 +175,7 @@
         jp-emacs = import ./home/emacs.nix;
         jp-atuin = import ./home/atuin.nix;
         jp-helix = import ./home/helix.nix;
+        jp-ghostty = import ./home/ghostty.nix;
 
         home-user-info =
           { lib, ... }:

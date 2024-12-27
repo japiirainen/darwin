@@ -83,8 +83,8 @@ in
       set -p fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
     end
   '';
-  homebrew = {
 
+  homebrew = {
     enable = true;
     onActivation.autoUpdate = true;
     onActivation.cleanup = "zap";
@@ -105,6 +105,7 @@ in
       "sage"
       "raycast"
       "slack"
+      "ghostty"
     ];
 
     brews = emacsBrews ++ [
