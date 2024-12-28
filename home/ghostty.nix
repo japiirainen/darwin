@@ -9,6 +9,8 @@
     # ghostty +list-theme
     theme = catppuccin-mocha
 
+    mouse-hide-while-typing = true
+
     macos-titlebar-style = hidden
     macos-titlebar-proxy-icon = hidden
     macos-option-as-alt = true
