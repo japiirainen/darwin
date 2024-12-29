@@ -331,22 +331,6 @@ require('lazy').setup {
     },
   },
   'xiyaowong/transparent.nvim',
-
-  {
-    'nvim-neotest/neotest',
-    dependencies = {
-      'nvim-neotest/nvim-nio',
-      'nvim-lua/plenary.nvim',
-      'antoinemadec/FixCursorHold.nvim',
-      'nvim-treesitter/nvim-treesitter',
-      'marilari88/neotest-vitest',
-    },
-    opts = {
-      adapters = {
-        ['neotest-vitest'] = {},
-      },
-    },
-  },
 }
 
 -- basic vim/neovim settings
@@ -981,12 +965,3 @@ vim.api.nvim_set_keymap('n', '<C-M-l>', ':Treewalker Right<CR>', { noremap = tru
 -- xiyaowong/transparent.nvim
 cmd 'TransparentEnable'
 map('n', '<leader>tt', ':TransparentToggle<CR>', { desc = '[T]oggle [T]ransparency' })
-
--- nvim-neotest/neotest
-map('n', '<leader>nn', ":lua require('neotest').run.run()<CR>", { desc = '[N]eotest [N]earest' })
-map(
-  'n',
-  '<leader>nf',
-  ":lua require('neotest').run.run(vim.fn.expand '%')<CR>",
-  { desc = '[N]eotest [F]ile' }
-)
