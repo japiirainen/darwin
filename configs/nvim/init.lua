@@ -340,7 +340,7 @@ g.copilot_enabled = false
 cmd 'set background=dark'
 colorscheme 'dracula'
 
-local enable_red_cursor_block = false
+local enable_red_cursor_block = true
 
 if enable_red_cursor_block then
   cmd 'highlight Cursor guifg=red guibg=red'
