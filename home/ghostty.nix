@@ -3,11 +3,12 @@
   xdg.configFile."ghostty/config".text = ''
     # ghostty +show-config --default --docs | nvim
 
-    font-family = PragmataPro Mono Liga
-    font-size = 18
+    # font-family = PragmataPro Mono Liga
+    font-family = JetBrainsMono Nerd Font Mono
+    font-size = 15
 
     # ghostty +list-theme
-    theme = catppuccin-mocha
+    theme = Dracula
 
     mouse-hide-while-typing = true
 
@@ -15,6 +16,7 @@
     macos-titlebar-proxy-icon = hidden
     macos-option-as-alt = true
 
+    # enable transparency
     background-opacity = 0.90
     background-blur-radius = 40
 

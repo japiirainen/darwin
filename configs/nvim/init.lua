@@ -31,6 +31,8 @@ require('lazy').setup {
   'github/copilot.vim',
   'jnurmine/Zenburn',
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  'dracula/vim',
+  'cocopon/iceberg.vim',
 
   -- vim-dadbod
   'tpope/vim-dadbod',
@@ -336,7 +338,7 @@ require('lazy').setup {
 g.copilot_enabled = false
 
 cmd 'set background=dark'
-colorscheme 'catppuccin-mocha'
+colorscheme 'dracula'
 
 local enable_red_cursor_block = false
 
@@ -961,3 +963,4 @@ vim.api.nvim_set_keymap('n', '<C-M-l>', ':Treewalker Right<CR>', { noremap = tru
 
 -- xiyaowong/transparent.nvim
 cmd 'TransparentEnable'
+map('n', '<leader>tt', ':TransparentToggle<CR>', { desc = '[T]oggle [T]ransparency' })
