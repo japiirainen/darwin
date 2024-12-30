@@ -8,7 +8,7 @@
     font-size = 15
 
     # ghostty +list-theme
-    theme = Dracula
+    theme = iceberg-dark
 
     mouse-hide-while-typing = true
 
@@ -17,8 +17,8 @@
     macos-option-as-alt = true
 
     # enable transparency
-    background-opacity = 0.90
-    background-blur-radius = 40
+    # background-opacity = 0.90
+    # background-blur-radius = 40
 
     copy-on-select = clipboard
     shell-integration-features = cursor,sudo,no-title
