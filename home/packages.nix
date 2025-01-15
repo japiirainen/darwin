@@ -95,6 +95,7 @@
       openfga-cli
       uiua
       rlwrap
+      terraform-ls
       ;
 
     inherit (pkgs.texlivePackages) latexmk;

@@ -531,6 +531,7 @@ vim.defer_fn(function()
       'vimdoc',
       'vim',
       'bash',
+      'terraform',
     },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
@@ -733,6 +734,7 @@ local servers = {
   ocamllsp = {},
   uiua = {},
   purescriptls = {},
+  terraformls = {},
 }
 
 -- [[ Configure LSP ]]
