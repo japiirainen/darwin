@@ -33,6 +33,8 @@ require('lazy').setup {
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
   'dracula/vim',
   'cocopon/iceberg.vim',
+  'EdenEast/nightfox.nvim',
+  'rose-pine/neovim',
 
   -- vim-dadbod
   'tpope/vim-dadbod',
@@ -338,7 +340,7 @@ require('lazy').setup {
 g.copilot_enabled = true
 
 cmd 'set background=dark'
-colorscheme 'dracula'
+colorscheme 'rose-pine'
 
 local enable_red_cursor_block = true
 
