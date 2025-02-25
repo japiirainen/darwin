@@ -44,22 +44,53 @@ in
           template = "~/${messageFile}";
         };
 
+        branch = {
+          sort = "-committerdate";
+        };
+
+        column = {
+          ui = "auto";
+        };
+
         merge = {
           conflictstyle = "zdiff3";
         };
 
-        # Automaically push branch to remote
         push = {
-          default = "current";
+          default = "simple";
+          autoSetupRemote = true;
+          followTags = true;
+        };
+
+        pull = {
+          rebase = true;
+        };
+
+        fetch = {
+          prune = true;
+          pruneTags = true;
+          all = true;
+        };
+
+        commit = {
+          verbose = true;
+        };
+
+        help = {
+          autocorrect = "prompt";
         };
 
         # reuse recovered resolution
         rerere = {
           enabled = true;
+          autoupdate = true;
         };
 
         diff = {
           algorithm = "histogram";
+          colorMoved = "plain";
+          mnemonicPrefix = true;
+          renames = true;
         };
       };
     };
