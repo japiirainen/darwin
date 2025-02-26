@@ -18,6 +18,7 @@ in
 
       aliases = {
         co = "checkout";
+        sw = "switch";
         br = "branch";
         ci = "commit";
         st = "status";
