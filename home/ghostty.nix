@@ -9,7 +9,8 @@
 
     # ghostty +list-theme
     # theme = iceberg-dark
-    theme = rose-pine
+    # theme = rose-pine
+    theme = catppuccin-frappe
 
     mouse-hide-while-typing = true
 
