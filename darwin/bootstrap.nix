@@ -48,11 +48,6 @@
     softwareupdate --install-rosetta --agree-to-license
   '';
 
-  services.nix-daemon.enable = true;
-
-  # TODO: change to `true` once upstream issue is fixed!
-  nix.configureBuildUsers = false;
-
   # Shells
   environment.shells = with pkgs; [
     bashInteractive
@@ -79,5 +74,5 @@
 
   environment.variables.SHELL = "${pkgs.fish}/bin/fish";
 
-  system.stateVersion = 4;
+  system.stateVersion = 5;
 }

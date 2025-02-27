@@ -85,7 +85,6 @@
       nix-update
       statix
       nil
-      racket
       google-cloud-sdk
       postgresql
       redis

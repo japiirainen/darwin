@@ -15,19 +15,14 @@
     font-awesome_5
     uiua386
     bqn386
-    (nerdfonts.override {
-      fonts = [
-        "Meslo"
-        "FiraCode"
-        "DejaVuSansMono"
-        "JetBrainsMono"
-        "Terminus"
-        "UbuntuMono"
-        "VictorMono"
-        "Iosevka"
-        "Mononoki"
-      ];
-    })
+    nerd-fonts.meslo-lg
+    nerd-fonts.fira-code
+    nerd-fonts.dejavu-sans-mono
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.ubuntu-mono
+    nerd-fonts.victor-mono
+    nerd-fonts.iosevka
+    nerd-fonts.mononoki
   ];
 
   # Keyboard
@@ -35,7 +30,7 @@
   system.keyboard.remapCapsLockToControl = true;
 
   # Add ability to use TouchID for sudo auth
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   # Store management
   nix.gc.automatic = true;

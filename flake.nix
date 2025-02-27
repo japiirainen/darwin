@@ -55,7 +55,7 @@
         singleton
         ;
 
-      homeStateVersion = "24.11";
+      homeStateVersion = "25.05";
 
       nixpkgsDefaults = {
         config = {
