@@ -41,4 +41,9 @@
     AppleShowAllExtensions = true;
     _FXShowPosixPathInTitle = true;
   };
+
+  # Screenshots location
+  system.defaults.screencapture = {
+    location = "~/Pictures/Screenshots";
+  };
 }
