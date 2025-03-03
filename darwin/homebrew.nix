@@ -93,7 +93,6 @@ in
     taps = [
       "koekeishiya/formulae"
       "d12frosted/emacs-plus"
-      "hashicorp/tap"
     ];
 
     casks = [
@@ -117,7 +116,6 @@ in
       "sdl2"
       "portaudio"
       "cloudflared"
-      "hashicorp/tap/terraform"
       "pnpm"
     ];
   };

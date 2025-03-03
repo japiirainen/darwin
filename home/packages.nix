@@ -94,6 +94,7 @@
       openfga-cli
       uiua
       rlwrap
+      terraform
       terraform-ls
       ;
 
