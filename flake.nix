@@ -169,7 +169,6 @@
         jp-packages = import ./home/packages.nix;
         jp-git = import ./home/git.nix;
         jp-tmux = import ./home/tmux.nix;
-        jp-kitty = import ./home/kitty.nix;
         jp-fish = import ./home/fish.nix;
         jp-neovim = import ./home/neovim.nix;
         jp-emacs = import ./home/emacs.nix;

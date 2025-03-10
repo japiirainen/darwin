@@ -4,7 +4,6 @@
     icu
     zlib
     coreutils
-    kitty
   ];
 
   programs.nix-index.enable = true;

@@ -65,7 +65,6 @@
       wget
       dhall
       rustup
-      kitty-themes
       sad
       fzf
       texliveFull
