@@ -105,6 +105,7 @@ in
       "raycast"
       "slack"
       "ghostty"
+      "tidal"
     ];
 
     brews = emacsBrews ++ [
