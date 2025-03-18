@@ -79,6 +79,7 @@
       bun
       cbqn-replxx
       cachix
+      nix-index
       comma
       nix-tree
       nix-update
