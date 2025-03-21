@@ -160,6 +160,7 @@
         jp-yabai = import ./darwin/yabai.nix;
         jp-skhd = import ./darwin/skhd.nix;
         jp-spacebar = import ./darwin/spacebar.nix;
+        jp-jankyborders = import ./darwin/jankyborders.nix;
 
         users-primaryUser = import ./modules/darwin/users.nix;
       };
