@@ -1,0 +1,14 @@
+{
+  "Vitest": {
+    "prefix": "vitest",
+    "body": [
+      "import { describe, beforeEach, test, expect, vitest } from 'vitest'",
+      "",
+      "describe('${1:Test Suite Name}', () => {",
+      "  beforeEach(async () => {",
+      "  })",
+      "})"
+    ],
+    "description": "Vitest suite boilerplate"
+  }
+}
