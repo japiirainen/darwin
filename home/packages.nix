@@ -70,7 +70,6 @@
       texliveFull
       cloc
       termdown
-      github-copilot-cli
       typescript
       typescript-language-server
       vscode-langservers-extracted
@@ -96,6 +95,7 @@
       rlwrap
       terraform
       terraform-ls
+      gh
       ;
 
     inherit (pkgs.texlivePackages) latexmk;

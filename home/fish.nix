@@ -67,6 +67,8 @@ in
     vim = "nvim";
     cat = "bat";
     top = "btop";
+    explain = "gh copilot explain";
+    suggest = "gh copilot suggest";
   };
 
   programs.fish.interactiveShellInit = ''
