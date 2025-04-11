@@ -10,6 +10,7 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
+    MANPAGER = "nvim +Man!";
   };
 
   # Put neovim configuration located in this repository into place in a way that edits to the
