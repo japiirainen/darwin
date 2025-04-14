@@ -21,12 +21,6 @@
     };
     flake-utils.url = "github:numtide/flake-utils";
 
-    # Emacs overlay
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     # Agda mode for Neovim
     cornelis = {
       url = "github:isovector/cornelis";
@@ -66,7 +60,6 @@
           ++ [
             inputs.cornelis.overlays.cornelis
             inputs.spacebar.overlay.aarch64-darwin
-            inputs.emacs-overlay.overlays.default
           ]
           ++ singleton (
             final: prev:
