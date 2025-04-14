@@ -96,6 +96,7 @@
       terraform
       terraform-ls
       gh
+      neovide
       ;
 
     inherit (pkgs.texlivePackages) latexmk;
