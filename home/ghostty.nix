@@ -8,9 +8,9 @@
     font-size = 15
 
     # ghostty +list-theme
-    # theme = iceberg-dark
     # theme = rose-pine
-    theme = catppuccin-frappe
+    # theme = catppuccin-frappe
+    theme = iceberg-dark
 
     mouse-hide-while-typing = true
 
