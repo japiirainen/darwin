@@ -804,7 +804,7 @@ require('which-key').add {
   { '<leader>w', group = '[W]orkspace' },
   { '<leader>i', group = '[I]nput' },
   { '<leader>x', group = 'Trouble Diagnostics' },
-  { '<leader>t', group = 'Jump To [T]ag' },
+  { '<leader>t', group = '[T]oggle' },
   { '<leader>q', group = '[Q]uickfix' },
   { '<leader>n', group = '[N]eotest' },
 }
@@ -883,7 +883,21 @@ cmp.setup {
     { name = 'luasnip' },
     { name = 'path' },
   },
+  enabled = function()
+    return vim.g.cmptoggle
+  end,
 }
+
+-- toggle `nvim-cmp` enabled state
+
+vim.g.cmptoggle = false
+
+vim.keymap.set(
+  'n',
+  '<leader>tc',
+  '<cmd>lua vim.g.cmptoggle = not vim.g.cmptoggle<CR>',
+  { desc = 'Toggle `nvim-cmp` enabled state' }
+)
 
 -- neogit
 
