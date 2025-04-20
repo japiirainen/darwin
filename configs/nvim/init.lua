@@ -94,6 +94,7 @@ require('lazy').setup {
         typescriptreact = { 'prettier' },
         rust = { 'rustfmt', lsp_format = 'fallback' },
         purescript = { 'purs-tidy' },
+        cabal = { 'cabal_fmt' },
       },
       format_on_save = {},
     },
