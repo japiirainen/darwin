@@ -3,8 +3,7 @@
   xdg.configFile."ghostty/config".text = ''
     # ghostty +show-config --default --docs | nvim
 
-    # font-family = PragmataPro Mono Liga
-    font-family = JetBrainsMono Nerd Font Mono
+    font-family = CommitMono Nerd Font Mono
     font-size = 15
 
     # ghostty +list-theme

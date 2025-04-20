@@ -22,6 +22,7 @@
     nerd-fonts.victor-mono
     nerd-fonts.iosevka
     nerd-fonts.mononoki
+    nerd-fonts.commit-mono
   ];
 
   # Keyboard
