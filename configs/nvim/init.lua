@@ -334,6 +334,13 @@ require('lazy').setup {
   'xiyaowong/transparent.nvim',
 
   {
+    'folke/snacks.nvim',
+    opts = {
+      picker = {},
+    },
+  },
+
+  {
     'zbirenbaum/copilot.lua',
     cmd = 'Copilot',
     event = 'InsertEnter',
@@ -346,6 +353,16 @@ require('lazy').setup {
         },
       }
     end,
+  },
+  {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    dependencies = {
+      { 'zbirenbaum/copilot.lua' },
+      { 'nvim-lua/plenary.nvim', branch = 'master' },
+      { 'echasnovski/mini.nvim', version = '*' },
+    },
+    build = 'make tiktoken',
+    opts = {},
   },
 }
 
@@ -1014,3 +1031,19 @@ map(
   '<cmd>lua require("copilot.suggestion").toggle_auto_trigger()<CR>',
   { desc = 'Toggle `copilot.lua suggestions` enabled state' }
 )
+
+-- CopilotChat.nvim
+
+map('n', '<leader>cc', ':CopilotChatToggle<CR>', { desc = '[C]opilot [C]hat' })
+-- Explain the selected code in visual mode
+map('v', '<leader>ce', ':CopilotChatExplain<CR>', { desc = '[C]opilot [E]xplain Code' })
+-- Attempt to fix the selected code in visual mode
+map('v', '<leader>cf', ':CopilotChatFix<CR>', { desc = '[C]opilot [F]ix Code' })
+-- Optimize the selected code in visual mode
+map('v', '<leader>co', ':CopilotChatOptimize<CR>', { desc = '[C]opilot [O]ptimize Code' })
+-- Generate documentation for the selected code in visual mode
+map('v', '<leader>cd', ':CopilotChatDocs<CR>', { desc = '[C]opilot [D]ocument Code' })
+-- Generate tests for the selected code in visual mode
+map('v', '<leader>ct', ':CopilotChatTests<CR>', { desc = '[C]opilot Generate [T]ests' })
+-- Reset the chat history in normal mode
+map('n', '<leader>cr', ':CopilotChatReset<CR>', { desc = '[C]opilot [R]eset Chat' })
