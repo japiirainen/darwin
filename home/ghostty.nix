@@ -17,10 +17,6 @@
     macos-titlebar-proxy-icon = hidden
     macos-option-as-alt = true
 
-    # enable transparency
-    background-opacity = 0.90
-    background-blur-radius = 40
-
     copy-on-select = clipboard
     shell-integration-features = cursor,sudo,no-title
   '';

@@ -332,7 +332,6 @@ require('lazy').setup {
       highlight = true,
     },
   },
-  'xiyaowong/transparent.nvim',
 
   {
     'folke/snacks.nvim',
@@ -1011,10 +1010,6 @@ vim.api.nvim_set_keymap('n', '<C-M-j>', ':Treewalker Down<CR>', { noremap = true
 vim.api.nvim_set_keymap('n', '<C-M-k>', ':Treewalker Up<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-M-h>', ':Treewalker Left<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-M-l>', ':Treewalker Right<CR>', { noremap = true })
-
--- xiyaowong/transparent.nvim
-cmd 'TransparentEnable'
-map('n', '<leader>tt', ':TransparentToggle<CR>', { desc = '[T]oggle [T]ransparency' })
 
 -- copilot.lua
 
