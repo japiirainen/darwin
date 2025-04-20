@@ -28,7 +28,6 @@ require('lazy').setup {
   'rsmenon/vim-mathematica',
   'kana/vim-textobj-user',
   'isovector/cornelis',
-  'github/copilot.vim',
   'jnurmine/Zenburn',
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
   'dracula/vim',
@@ -268,12 +267,12 @@ require('lazy').setup {
         desc = 'Buffer Diagnostics (Trouble)',
       },
       {
-        '<leader>cs',
+        '<leader>xs',
         '<cmd>Trouble symbols toggle focus=false<cr>',
         desc = 'Symbols (Trouble)',
       },
       {
-        '<leader>cl',
+        '<leader>xl',
         '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
         desc = 'LSP Definitions / references / ... (Trouble)',
       },
@@ -333,11 +332,24 @@ require('lazy').setup {
     },
   },
   'xiyaowong/transparent.nvim',
+
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function()
+      require('copilot').setup {
+        suggestion = {
+          keymap = {
+            accept = false,
+          },
+        },
+      }
+    end,
+  },
 }
 
 -- basic vim/neovim settings
-
-g.copilot_enabled = false
 
 cmd 'set background=dark'
 -- colorscheme 'catppuccin-frappe'
@@ -794,7 +806,7 @@ require('which-key').add {
   { '<leader>[', group = 'Prev' },
   { '<leader>]', group = 'Next' },
   { '<leader>a', group = 'Harpoon' },
-  { '<leader>c', group = '[C]ode' },
+  { '<leader>c', group = '[C]opilot' },
   { '<leader>d', group = '[D]atabase' },
   { '<leader>g', group = '[G]it' },
   { '<leader>gh', group = '[H]istory' },
@@ -985,3 +997,20 @@ vim.api.nvim_set_keymap('n', '<C-M-l>', ':Treewalker Right<CR>', { noremap = tru
 -- xiyaowong/transparent.nvim
 cmd 'TransparentEnable'
 map('n', '<leader>tt', ':TransparentToggle<CR>', { desc = '[T]oggle [T]ransparency' })
+
+-- copilot.lua
+
+map('i', '<Tab>', function()
+  if require('copilot.suggestion').is_visible() then
+    require('copilot.suggestion').accept()
+  else
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Tab>', true, false, true), 'n', false)
+  end
+end, { desc = 'Super Tab' })
+
+map(
+  'n',
+  '<leader>ts',
+  '<cmd>lua require("copilot.suggestion").toggle_auto_trigger()<CR>',
+  { desc = 'Toggle `copilot.lua suggestions` enabled state' }
+)
