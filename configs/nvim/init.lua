@@ -369,15 +369,7 @@ require('lazy').setup {
 -- basic vim/neovim settings
 
 cmd 'set background=dark'
--- colorscheme 'catppuccin-frappe'
 colorscheme 'iceberg'
-
-local enable_red_cursor_block = true
-
-if enable_red_cursor_block then
-  cmd 'highlight Cursor guifg=red guibg=red'
-  o.guicursor = 'a:block-Cursor/lCursor'
-end
 
 map('i', 'jk', '<Esc>')
 
