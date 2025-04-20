@@ -165,7 +165,6 @@
         jp-tmux = import ./home/tmux.nix;
         jp-fish = import ./home/fish.nix;
         jp-neovim = import ./home/neovim.nix;
-        jp-emacs = import ./home/emacs.nix;
         jp-atuin = import ./home/atuin.nix;
         jp-ghostty = import ./home/ghostty.nix;
         jp-helix = import ./home/helix.nix;
