@@ -912,7 +912,7 @@ cmp.setup {
 
 -- toggle `nvim-cmp` enabled state
 
-vim.g.cmptoggle = false
+vim.g.cmptoggle = true
 
 vim.keymap.set(
   'n',
