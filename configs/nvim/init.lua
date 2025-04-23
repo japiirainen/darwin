@@ -835,6 +835,7 @@ require('which-key').add {
 require('which-key').add({
   { '<leader>', group = 'VISUAL <leader>', mode = 'v' },
   { '<leader>h', desc = 'Git [H]unk', mode = 'v' },
+  { '<leader>c', desc = '[C]opilot', mode = 'v' },
 }, { mode = 'v' })
 
 require('neodev').setup()
