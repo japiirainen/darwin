@@ -78,6 +78,12 @@ require('lazy').setup {
   },
 
   {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
+  },
+
+  {
     'stevearc/conform.nvim',
     config = true,
     opts = {
@@ -679,7 +685,6 @@ local servers = {
 
   clangd = {},
 
-  ts_ls = {},
   eslint = {},
   jsonls = {},
   html = {},
@@ -1036,3 +1041,20 @@ map('v', '<leader>cd', ':CopilotChatDocs<CR>', { desc = '[C]opilot [D]ocument Co
 map('v', '<leader>ct', ':CopilotChatTests<CR>', { desc = '[C]opilot Generate [T]ests' })
 -- Reset the chat history in normal mode
 map('n', '<leader>cr', ':CopilotChatReset<CR>', { desc = '[C]opilot [R]eset Chat' })
+
+-- typescript-tools.nvim
+
+require('typescript-tools').setup {
+  settings = {
+    expose_as_code_action = 'all',
+    tsserver_max_memory = 'auto',
+    complete_function_calls = true,
+    include_completions_with_insert_text = true,
+    code_lens = 'off',
+    disable_member_code_lens = true,
+    jsx_close_tag = {
+      enable = true,
+      filetypes = { 'javascriptreact', 'typescriptreact' },
+    },
+  },
+}
