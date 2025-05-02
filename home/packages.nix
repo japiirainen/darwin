@@ -96,6 +96,7 @@
       terraform
       terraform-ls
       gh
+      pnpm
       ;
 
     inherit (pkgs.texlivePackages) latexmk;
