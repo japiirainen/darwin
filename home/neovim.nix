@@ -36,7 +36,6 @@ in
     vscode-langservers-extracted
     yaml-language-server
     tailwindcss-language-server
-    ruff-lsp
   ];
 
   xdg.configFile."zls.json".text = ''
