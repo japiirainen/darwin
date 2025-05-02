@@ -1048,8 +1048,8 @@ require('typescript-tools').setup {
   settings = {
     expose_as_code_action = 'all',
     tsserver_max_memory = 'auto',
-    complete_function_calls = true,
-    include_completions_with_insert_text = true,
+    complete_function_calls = false,
+    include_completions_with_insert_text = false,
     code_lens = 'off',
     disable_member_code_lens = true,
     jsx_close_tag = {
