@@ -35,6 +35,8 @@ require('lazy').setup {
   'EdenEast/nightfox.nvim',
   'rose-pine/neovim',
 
+  'xiyaowong/transparent.nvim',
+
   -- vim-dadbod
   'tpope/vim-dadbod',
   'kristijanhusak/vim-dadbod-ui',
@@ -375,7 +377,7 @@ require('lazy').setup {
 -- basic vim/neovim settings
 
 cmd 'set background=dark'
-colorscheme 'iceberg'
+colorscheme 'dracula'
 
 map('i', 'jk', '<Esc>')
 
@@ -1058,3 +1060,7 @@ require('typescript-tools').setup {
     },
   },
 }
+
+-- xiyaowong/transparent.nvim
+cmd 'TransparentEnable'
+map('n', '<leader>tt', ':TransparentToggle<CR>', { desc = '[T]oggle [T]ransparency' })

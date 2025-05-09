@@ -9,7 +9,8 @@
     # ghostty +list-theme
     # theme = rose-pine
     # theme = catppuccin-frappe
-    theme = iceberg-dark
+    # theme = iceberg-dark
+    theme = Dracula
 
     mouse-hide-while-typing = true
 
@@ -19,5 +20,9 @@
 
     copy-on-select = clipboard
     shell-integration-features = cursor,sudo,no-title
+
+    # enable transparency
+    background-opacity = 0.80
+    background-blur = true
   '';
 }
