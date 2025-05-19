@@ -73,7 +73,7 @@
       typescript
       typescript-language-server
       vscode-langservers-extracted
-      nodejs_23
+      nodejs_24
       deno
       bun
       cbqn-replxx

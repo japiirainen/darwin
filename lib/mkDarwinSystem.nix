@@ -39,6 +39,8 @@ inputs.darwin.lib.darwinSystem {
               ;
           };
 
+          system.primaryUser = username;
+
           # Support legacy workflows that use `<nixpkgs>` etc.
           nix.nixPath.nixpkgs = "${inputs.nixpkgs-unstable}";
 

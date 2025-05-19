@@ -49,8 +49,8 @@ in
   # Aliases
 
   programs.fish.shellAliases = with pkgs; {
-    drb = "darwin-rebuild build --flake ${nixConfigDirectory}";
-    drs = "darwin-rebuild switch --flake ${nixConfigDirectory}";
+    drb = "sudo darwin-rebuild build --flake ${nixConfigDirectory}";
+    drs = "sudo darwin-rebuild switch --flake ${nixConfigDirectory}";
     flakeup = "nix flake update --flake ${nixConfigDirectory}";
     vimconf = "nvim ${nixConfigDirectory}/configs/nvim/init.lua";
     nb = "nix build";
