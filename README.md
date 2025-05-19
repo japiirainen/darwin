@@ -9,7 +9,7 @@ This repository contains my [nix](https://nixos.org) configurations for my macOS
 ## Rebuilding after configuration changes
 
 ```sh
-darwin-rebuild switch --flake ${nixConfigDirectory}
+sudo darwin-rebuild switch --flake ${nixConfigDirectory}
 
 # or
 
