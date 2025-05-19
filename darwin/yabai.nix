@@ -20,18 +20,8 @@
         left_padding = "8";
         right_padding = "8";
         window_gap = "8";
-        external_bar = "main:28:0";
+        # external_bar = "main:28:0";
       };
     };
   };
-
-  #services.yabai.extraConfig = ''
-  #yabai -m rule --add title = 'Preferences' manage=off layer=above
-  #yabai -m rule --add title='^(Opening)' manage=off layer=above
-  #yabai -m rule --add title='Library' manage=off layer=above
-  #yabai -m rule --add app='^System Preferences$' manage=off layer=above
-  #yabai -m rule --add app='Activity Monitor' manage=off layer=above
-  #yabai -m rule --add app='Finder' manage=off layer=above
-  #yabai -m rule --add app='^System Information$' manage=off layer=above}
-  #'';
 }
