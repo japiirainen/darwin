@@ -11,6 +11,14 @@
 
     ssh.enable = true;
     ssh.controlPath = "~/.ssh/%C";
+    ssh.matchBlocks = {
+      "*sr.ht" = {
+        identityFile = "~/.ssh/srht";
+      };
+    };
+    ssh.extraConfig = ''
+      PreferredAuthentications publickey
+    '';
 
     # Zoxide, a faster way to navigate the filesystem
     # https://github.com/ajeetdsouza/zoxide
