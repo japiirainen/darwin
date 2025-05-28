@@ -34,6 +34,8 @@
     # Spacebar
     spacebar.url = "github:cmacrae/spacebar/v1.4.0";
     spacebar.inputs.nixpkgs.follows = "nixpkgs-unstable";
+
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
   outputs =
     {
@@ -60,6 +62,7 @@
           ++ [
             inputs.cornelis.overlays.cornelis
             inputs.spacebar.overlay.aarch64-darwin
+            inputs.nix-vscode-extensions.overlays.default
           ]
           ++ singleton (
             final: prev:
@@ -168,6 +171,7 @@
         jp-atuin = import ./home/atuin.nix;
         jp-ghostty = import ./home/ghostty.nix;
         jp-helix = import ./home/helix.nix;
+        jp-vscode = import ./home/vscode.nix;
 
         home-user-info =
           { lib, ... }:

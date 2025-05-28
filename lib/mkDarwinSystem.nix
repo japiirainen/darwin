@@ -49,6 +49,7 @@ inputs.darwin.lib.darwinSystem {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = extraSpecialArgs;
+          home-manager.backupFileExtension = "backup";
           home-manager.users.${username} = {
             imports = homeModules ++ extraHomeModules;
             home.stateVersion = homeStateVersion;
