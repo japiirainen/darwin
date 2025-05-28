@@ -3,7 +3,7 @@
   xdg.configFile."ghostty/config".text = ''
     # ghostty +show-config --default --docs | nvim
 
-    font-family = CommitMono Nerd Font Mono
+    font-family = JuliaMono
     font-size = 15
 
     # ghostty +list-theme
