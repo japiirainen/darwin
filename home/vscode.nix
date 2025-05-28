@@ -9,6 +9,8 @@
         jnoortheen.nix-ide
         vscodevim.vim
         leanprover.lean4
+        github.copilot
+        github.copilot-chat
       ];
 
       userSettings = {
