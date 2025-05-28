@@ -313,6 +313,10 @@ require('lazy').setup {
     opts = {
       lsp = {},
       mappings = true,
+      goal_markers = {
+        unsolved = ' ⚒ ',
+        accomplished = '✓',
+      },
     },
   },
 
