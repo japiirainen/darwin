@@ -42,6 +42,7 @@ in
       "slack"
       "ghostty"
       "tidal"
+      "whatsapp"
     ];
 
     brews = [
