@@ -351,31 +351,6 @@ require('lazy').setup {
       picker = {},
     },
   },
-
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
-    config = function()
-      require('copilot').setup {
-        suggestion = {
-          keymap = {
-            accept = false,
-          },
-        },
-      }
-    end,
-  },
-  {
-    'CopilotC-Nvim/CopilotChat.nvim',
-    dependencies = {
-      { 'zbirenbaum/copilot.lua' },
-      { 'nvim-lua/plenary.nvim', branch = 'master' },
-      { 'echasnovski/mini.nvim', version = '*' },
-    },
-    build = 'make tiktoken',
-    opts = {},
-  },
 }
 
 -- basic vim/neovim settings
@@ -1014,39 +989,6 @@ vim.api.nvim_set_keymap('n', '<C-M-j>', ':Treewalker Down<CR>', { noremap = true
 vim.api.nvim_set_keymap('n', '<C-M-k>', ':Treewalker Up<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-M-h>', ':Treewalker Left<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-M-l>', ':Treewalker Right<CR>', { noremap = true })
-
--- copilot.lua
-
-map('i', '<Tab>', function()
-  if require('copilot.suggestion').is_visible() then
-    require('copilot.suggestion').accept()
-  else
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Tab>', true, false, true), 'n', false)
-  end
-end, { desc = 'Super Tab' })
-
-map(
-  'n',
-  '<leader>ts',
-  '<cmd>lua require("copilot.suggestion").toggle_auto_trigger()<CR>',
-  { desc = 'Toggle `copilot.lua suggestions` enabled state' }
-)
-
--- CopilotChat.nvim
-
-map('n', '<leader>cc', ':CopilotChatToggle<CR>', { desc = '[C]opilot [C]hat' })
--- Explain the selected code in visual mode
-map('v', '<leader>ce', ':CopilotChatExplain<CR>', { desc = '[C]opilot [E]xplain Code' })
--- Attempt to fix the selected code in visual mode
-map('v', '<leader>cf', ':CopilotChatFix<CR>', { desc = '[C]opilot [F]ix Code' })
--- Optimize the selected code in visual mode
-map('v', '<leader>co', ':CopilotChatOptimize<CR>', { desc = '[C]opilot [O]ptimize Code' })
--- Generate documentation for the selected code in visual mode
-map('v', '<leader>cd', ':CopilotChatDocs<CR>', { desc = '[C]opilot [D]ocument Code' })
--- Generate tests for the selected code in visual mode
-map('v', '<leader>ct', ':CopilotChatTests<CR>', { desc = '[C]opilot Generate [T]ests' })
--- Reset the chat history in normal mode
-map('n', '<leader>cr', ':CopilotChatReset<CR>', { desc = '[C]opilot [R]eset Chat' })
 
 -- typescript-tools.nvim
 
