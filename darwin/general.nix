@@ -9,7 +9,6 @@
   programs.nix-index.enable = true;
 
   fonts.packages = with pkgs; [
-    cozette
     julia-mono
     font-awesome_5
     uiua386

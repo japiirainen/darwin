@@ -71,7 +71,8 @@ in
 
   programs.fish.interactiveShellInit = ''
     set -g fish_greeting ""
-    ${pkgs.thefuck}/bin/thefuck --alias | source
+    set -xg PNPM_HOME /Users/jp-work/Library/pnpm
+    fish_add_path /Users/jp-work/Library/pnpm
     setup-atuin
     # Run function to set colors that are dependant on `$term_background` and to register them so
     # they are triggerd when the relevent event happens or variable changes.

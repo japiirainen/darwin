@@ -17,11 +17,11 @@
   };
 
   # Firewall
-  system.defaults.alf = {
-    globalstate = 1;
-    allowsignedenabled = 1;
-    allowdownloadsignedenabled = 1;
-    stealthenabled = 1;
+  networking.applicationFirewall = {
+    enable = true;
+    enableStealthMode = true;
+    allowSignedApp = true;
+    allowSigned = true;
   };
 
   # Dock

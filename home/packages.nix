@@ -104,12 +104,14 @@
       terraform
       terraform-ls
       gh
-      pnpm_9
+      pnpm
       typst
       ;
 
     inherit (pkgs.texlivePackages) latexmk;
 
-    inherit (pkgs.nodePackages) prettier;
+    inherit (pkgs.nodePackages)
+      prettier
+      ;
   });
 }
