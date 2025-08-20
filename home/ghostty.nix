@@ -3,14 +3,15 @@
   xdg.configFile."ghostty/config".text = ''
     # ghostty +show-config --default --docs | nvim
 
-    font-family = JuliaMono
+    # font-family = JuliaMono
+    font-family = Comic Code Ligatures
     font-size = 15
 
     # ghostty +list-theme
-    # theme = rose-pine
+    theme = rose-pine
     # theme = catppuccin-frappe
     # theme = iceberg-dark
-    theme = Dracula
+    # theme = Dracula
 
     mouse-hide-while-typing = true
 

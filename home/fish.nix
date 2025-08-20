@@ -26,7 +26,7 @@ in
       body =
         ''
           # Set LS_COLORS
-          set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate dracula)
+          set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate rose-pine)
         ''
         + optionalString config.programs.bat.enable ''
           # Use correct theme for `bat`.

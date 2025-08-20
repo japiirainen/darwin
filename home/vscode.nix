@@ -16,7 +16,7 @@
       userSettings = {
         "workbench.colorTheme" = "Dracula Theme";
 
-        "editor.fontFamily" = "JuliaMono";
+        "editor.fontFamily" = "Comic Code Ligatures";
         "editor.fontSize" = 15;
         "vim.insertModeKeyBindings" = [
           {
