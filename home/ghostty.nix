@@ -8,8 +8,8 @@
     font-size = 15
 
     # ghostty +list-theme
-    theme = rose-pine
-    # theme = catppuccin-frappe
+    # theme = rose-pine
+    theme = catppuccin-frappe
     # theme = iceberg-dark
     # theme = Dracula
 
