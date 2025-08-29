@@ -9,23 +9,14 @@
 
     btop.enable = true;
 
-    ssh.enable = true;
-    ssh.enableDefaultConfig = true;
-    ssh.matchBlocks = {
-      "*sr.ht" = {
-        controlPath = "~/.ssh/%C";
-        identityFile = "~/.ssh/srht";
-      };
-    };
-    ssh.extraConfig = ''
-      PreferredAuthentications publickey
-    '';
-
     # Zoxide, a faster way to navigate the filesystem
     # https://github.com/ajeetdsouza/zoxide
     # https://rycee.gitlab.io/home-manager/options.html#opt-programs.zoxide.enable
     zoxide.enable = true;
   };
+
+  programs.ssh.enable = true;
+  programs.ssh.controlPath = "~/.ssh/%C";
 
   home.packages = lib.attrValues ({
     agda = pkgs.agda.withPackages (ps: [ ps.standard-library ]);
