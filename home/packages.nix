@@ -10,9 +10,10 @@
     btop.enable = true;
 
     ssh.enable = true;
-    ssh.controlPath = "~/.ssh/%C";
+    ssh.enableDefaultConfig = true;
     ssh.matchBlocks = {
       "*sr.ht" = {
+        controlPath = "~/.ssh/%C";
         identityFile = "~/.ssh/srht";
       };
     };
