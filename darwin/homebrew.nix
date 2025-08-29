@@ -24,7 +24,8 @@ in
   homebrew = {
     enable = true;
     onActivation.autoUpdate = true;
-    onActivation.cleanup = "zap";
+    # NOTE: set to `zap` once docker issue is resolved
+    onActivation.cleanup = "none";
     global.brewfile = true;
 
     taps = [
