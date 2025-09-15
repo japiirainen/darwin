@@ -16,7 +16,8 @@
   };
 
   programs.ssh.enable = true;
-  programs.ssh.controlPath = "~/.ssh/%C";
+  programs.ssh.enableDefaultConfig = false;
+  programs.ssh.matchBlocks."*".controlPath = "~/.ssh/%C";
 
   home.packages = lib.attrValues ({
     agda = pkgs.agda.withPackages (ps: [ ps.standard-library ]);
