@@ -4,8 +4,9 @@
     # ghostty +show-config --default --docs | nvim
 
     # font-family = JuliaMono
-    font-family = Comic Code Ligatures
-    font-size = 15
+    # font-family = Comic Code Ligatures
+    font-family = UbuntuMono Nerd Font Mono
+    font-size = 18
 
     # ghostty +list-theme
     # theme = rose-pine
