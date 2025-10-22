@@ -9,6 +9,8 @@
     font-family = PragmataPro Liga
     font-size = 18
 
+    adjust-cell-height = 10%
+
     # ghostty +list-theme
     theme = rose-pine
     # theme = catppuccin-frappe
