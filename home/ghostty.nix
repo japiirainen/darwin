@@ -5,12 +5,13 @@
 
     # font-family = JuliaMono
     # font-family = Comic Code Ligatures
-    font-family = UbuntuMono Nerd Font Mono
+    # font-family = UbuntuMono Nerd Font Mono
+    font-family = PragmataPro Liga
     font-size = 18
 
     # ghostty +list-theme
-    # theme = rose-pine
-    theme = catppuccin-frappe
+    theme = rose-pine
+    # theme = catppuccin-frappe
     # theme = iceberg-dark
     # theme = Dracula
 

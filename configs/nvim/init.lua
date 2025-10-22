@@ -356,7 +356,7 @@ require('lazy').setup {
 -- basic vim/neovim settings
 
 cmd 'set background=dark'
-colorscheme 'catppuccin-frappe'
+colorscheme 'rose-pine'
 
 map('i', 'jk', '<Esc>')
 
