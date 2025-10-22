@@ -25,7 +25,7 @@
     shell-integration-features = cursor,sudo,no-title
 
     # enable transparency
-    background-opacity = 0.80
-    background-blur = true
+    # background-opacity = 0.80
+    # background-blur = true
   '';
 }

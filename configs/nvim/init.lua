@@ -1008,5 +1008,5 @@ require('typescript-tools').setup {
 }
 
 -- xiyaowong/transparent.nvim
-cmd 'TransparentEnable'
+-- cmd 'TransparentEnable'
 map('n', '<leader>tt', ':TransparentToggle<CR>', { desc = '[T]oggle [T]ransparency' })
