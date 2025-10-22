@@ -11,7 +11,7 @@ in
 {
   programs.fish.enable = true;
 
-  home.packages = with pkgs; [ fishPlugins.done ];
+  home.packages = [ ];
 
   programs.fish.functions = {
 
