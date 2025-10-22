@@ -6,17 +6,27 @@ in
   home.packages = with pkgs; [ git-lfs ];
 
   programs = {
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        light = false;
+      };
+    };
+
     git = {
       enable = true;
-      userEmail = "joona.piirainen@gmail.com";
 
-      userName = "japiirainen";
+      settings.user = {
+        email = "joona.piirainen@gmail.com";
+        name = "japiirainen";
+      };
 
       ignores = [ ".DS_Store" ];
 
       lfs.enable = true;
 
-      aliases = {
+      settings.alias = {
         co = "checkout";
         sw = "switch";
         br = "branch";
@@ -32,15 +42,7 @@ in
         rbm = "! git rebase origin/main";
       };
 
-      # Enhanced diffs
-      delta = {
-        enable = true;
-        options = {
-          light = false;
-        };
-      };
-
-      extraConfig = {
+      settings = {
         commit = {
           template = "~/${messageFile}";
         };
