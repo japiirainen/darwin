@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (lib) elem optionalString;
+  inherit (lib) optionalString;
   inherit (config.home.user-info) nixConfigDirectory;
 in
 {
@@ -14,14 +14,6 @@ in
   home.packages = [ ];
 
   programs.fish.functions = {
-
-    setup-atuin = {
-      body = ''
-        atuin init fish | source
-      '';
-    };
-
-    # Sets Fish Shell to light or dark colorscheme based on `$term_background`.
     set-shell-colors = {
       body = ''
         # Set LS_COLORS
@@ -30,16 +22,7 @@ in
       + optionalString config.programs.bat.enable ''
         # Use correct theme for `bat`.
         set -xg BAT_THEME "ansi"
-      ''
-      + optionalString (elem pkgs.bottom config.home.packages) ''
-        # Use correct theme for `btm`.
-        if test "$term_background" = light
-          alias btm "btm --color default-light"
-        else
-          alias btm "btm --color default"
-        end
       '';
-      onVariable = "term_background";
     };
   };
 
@@ -72,11 +55,8 @@ in
     set -g fish_greeting ""
     set -xg PNPM_HOME /Users/jp-work/Library/pnpm
     fish_add_path /Users/jp-work/Library/pnpm
-    setup-atuin
-    # Run function to set colors that are dependant on `$term_background` and to register them so
-    # they are triggerd when the relevent event happens or variable changes.
     set-shell-colors
-    # Set Fish colors that aren't dependant the `$term_background`.
+    # Set Fish colors that aren't dependant the
     set -g fish_color_quote        cyan      # color of commands
     set -g fish_color_redirection  brmagenta # color of IO redirections
     set -g fish_color_end          blue      # color of process separators like ';' and '&'
