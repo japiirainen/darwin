@@ -42,7 +42,6 @@ in
       "raycast"
       "slack"
       "ghostty"
-      "tidal"
       "whatsapp"
     ];
 
