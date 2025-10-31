@@ -103,6 +103,7 @@ require('lazy').setup {
         rust = { 'rustfmt', lsp_format = 'fallback' },
         purescript = { 'purs-tidy' },
         cabal = { 'cabal_fmt' },
+        go = { 'golangci-lint' },
       },
       format_on_save = {},
     },
@@ -745,6 +746,8 @@ local servers = {
   uiua = {},
   purescriptls = {},
   terraformls = {},
+  gopls = {},
+  golangci_lint_ls = {},
 }
 
 -- [[ Configure LSP ]]
