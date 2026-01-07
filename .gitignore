@@ -1,3 +1,4 @@
 result
 configs/emacs/*
 !configs/emacs/init.el
+.claude

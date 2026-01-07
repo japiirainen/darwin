@@ -5,7 +5,8 @@
 
     profiles.default = {
       extensions = with pkgs.vscode-marketplace; [
-        dracula-theme.theme-dracula
+        catppuccin.catppuccin-vsc
+        catppuccin.catppuccin-vsc-icons
         jnoortheen.nix-ide
         vscodevim.vim
         leanprover.lean4
@@ -14,7 +15,7 @@
       ];
 
       userSettings = {
-        "workbench.colorTheme" = "Dracula Theme";
+        "workbench.colorTheme" = "Catppuccin Frappé";
 
         "editor.fontFamily" = "Comic Code Ligatures";
         "editor.fontSize" = 15;
