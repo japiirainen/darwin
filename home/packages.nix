@@ -99,6 +99,7 @@
       gh
       pnpm
       typst
+      oxlint
       ;
 
     inherit (pkgs.texlivePackages) latexmk;

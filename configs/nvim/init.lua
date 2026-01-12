@@ -667,7 +667,6 @@ local servers = {
 
   clangd = {},
 
-  eslint = {},
   jsonls = {},
   html = {},
   cssls = {},
@@ -748,6 +747,7 @@ local servers = {
   terraformls = {},
   gopls = {},
   golangci_lint_ls = {},
+  oxlint = {},
 }
 
 -- [[ Configure LSP ]]
