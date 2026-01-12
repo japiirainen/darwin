@@ -32,7 +32,7 @@ in
     statix
     nil
     stylua
-    sumneko-lua-language-server
+    lua-language-server
     vscode-langservers-extracted
     yaml-language-server
     tailwindcss-language-server
