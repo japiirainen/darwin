@@ -747,7 +747,9 @@ local servers = {
   terraformls = {},
   gopls = {},
   golangci_lint_ls = {},
-  oxlint = {},
+  oxlint = {
+    cmd = { 'oxlint', '--lsp' },
+  },
 }
 
 -- [[ Configure LSP ]]
@@ -842,6 +844,7 @@ for server_name, config in pairs(servers) do
     on_attach = on_attach,
     settings = config,
     filetypes = (config or {}).filetypes,
+    cmd = (config or {}).cmd,
   }
 end
 
