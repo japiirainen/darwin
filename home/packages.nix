@@ -100,6 +100,7 @@
       pnpm
       typst
       oxlint
+      opencode
       ;
 
     inherit (pkgs.texlivePackages) latexmk;
