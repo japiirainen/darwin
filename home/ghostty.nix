@@ -12,7 +12,7 @@
     adjust-cell-height = 10%
 
     # ghostty +list-theme
-    theme = catppuccin-frappe
+    theme = catppuccin-macchiato
     # theme = Dark Pastel
     # theme = vimbones
     # theme = rose-pine

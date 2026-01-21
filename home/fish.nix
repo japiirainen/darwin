@@ -17,11 +17,11 @@ in
     set-shell-colors = {
       body = ''
         # Set LS_COLORS
-        set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate catppuccin-frappe)
+        set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate catppuccin-macchiato)
       ''
       + optionalString config.programs.bat.enable ''
         # Use correct theme for `bat`.
-        set -xg BAT_THEME "Catppuccin Frappe"
+        set -xg BAT_THEME "Catppuccin Macchiato"
       '';
     };
   };
