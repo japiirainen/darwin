@@ -20,7 +20,7 @@
     builders-use-substitutes = true;
     allow-import-from-derivation = true;
     cores = 0; # `0` denotes all available cores
-    extra-platforms = lib.mkIf (pkgs.system == "aarch64-darwin") [
+    extra-platforms = lib.mkIf (pkgs.stdenv.hostPlatform.system == "aarch64-darwin") [
       "x86_64-darwin"
       "aarch64-darwin"
     ];

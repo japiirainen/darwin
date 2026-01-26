@@ -28,7 +28,7 @@ in
     marksman
     nodePackages.typescript-language-server
     deadnix
-    nixfmt-rfc-style
+    nixfmt
     statix
     nil
     stylua
