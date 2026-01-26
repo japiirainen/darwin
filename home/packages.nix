@@ -101,6 +101,7 @@
       typst
       oxlint
       opencode
+      typescript-go
       ;
 
     inherit (pkgs.texlivePackages) latexmk;

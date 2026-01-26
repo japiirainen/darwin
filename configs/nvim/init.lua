@@ -80,12 +80,6 @@ require('lazy').setup {
   },
 
   {
-    'pmizio/typescript-tools.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    opts = {},
-  },
-
-  {
     'stevearc/conform.nvim',
     config = true,
     opts = {
@@ -750,6 +744,7 @@ local servers = {
   oxlint = {
     cmd = { 'oxlint', '--lsp' },
   },
+  tsgo = {},
 }
 
 -- [[ Configure LSP ]]
@@ -835,18 +830,43 @@ require('neodev').setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- Ensure the servers above are installed
-local lspconf = require 'lspconfig'
-
 for server_name, config in pairs(servers) do
-  lspconf[server_name].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = config,
-    filetypes = (config or {}).filetypes,
-    cmd = (config or {}).cmd,
-  }
+  vim.lsp.enable(server_name)
+
+  local lsp_config = {}
+
+  if config and next(config) ~= nil then
+    lsp_config.settings = config
+  end
+
+  if config and config.cmd then
+    lsp_config.cmd = config.cmd
+  end
+
+  if config and config.filetypes then
+    lsp_config.filetypes = config.filetypes
+  end
+
+  if config and config.init_options then
+    lsp_config.init_options = config.init_options
+  end
+
+  lsp_config.capabilities = capabilities
+  lsp_config.root_markers = { '.git' }
+
+  vim.lsp.config(server_name, lsp_config)
 end
+
+-- Set up on_attach behavior using LspAttach autocmd (required for new API)
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    -- Skip if already attached (lean has its own handler below)
+    if client and client.name ~= 'leanls' then
+      on_attach(client, args.buf)
+    end
+  end,
+})
 
 -- nvim-cmp
 local cmp = require 'cmp'
@@ -995,23 +1015,6 @@ vim.api.nvim_set_keymap('n', '<C-M-j>', ':Treewalker Down<CR>', { noremap = true
 vim.api.nvim_set_keymap('n', '<C-M-k>', ':Treewalker Up<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-M-h>', ':Treewalker Left<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-M-l>', ':Treewalker Right<CR>', { noremap = true })
-
--- typescript-tools.nvim
-
-require('typescript-tools').setup {
-  settings = {
-    expose_as_code_action = 'all',
-    tsserver_max_memory = 'auto',
-    complete_function_calls = false,
-    include_completions_with_insert_text = false,
-    code_lens = 'off',
-    disable_member_code_lens = true,
-    jsx_close_tag = {
-      enable = false,
-      filetypes = { 'javascriptreact', 'typescriptreact' },
-    },
-  },
-}
 
 -- xiyaowong/transparent.nvim
 -- cmd 'TransparentEnable'
