@@ -1,10 +1,9 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   programs.ghostty = {
     enable = true;
 
-    # Ghostty is installed via Homebrew on macOS.
-    package = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin null;
+    package = pkgs.ghostty-bin;
 
     enableFishIntegration = true;
 

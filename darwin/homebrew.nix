@@ -41,7 +41,6 @@ in
       "sage"
       "raycast"
       "slack"
-      "ghostty"
       "whatsapp"
       "spotify"
     ];
