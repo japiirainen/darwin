@@ -43,6 +43,8 @@ in
       "slack"
       "whatsapp"
       "spotify"
+      "soulseek"
+      "foobar2000"
     ];
 
     brews = [
