@@ -29,7 +29,8 @@ require('lazy').setup {
   'kana/vim-textobj-user',
   'isovector/cornelis',
   'jnurmine/Zenburn',
-  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  { 'catppuccin/nvim', name = 'catppuccin' },
+  { 'Mofiqul/vscode.nvim', name = 'vscode', priority = 1000 },
   'dracula/vim',
   'cocopon/iceberg.vim',
   'EdenEast/nightfox.nvim',
@@ -351,7 +352,7 @@ require('lazy').setup {
 -- basic vim/neovim settings
 
 cmd 'set background=dark'
-colorscheme 'catppuccin-macchiato'
+colorscheme 'vscode'
 
 map('i', 'jk', '<Esc>')
 

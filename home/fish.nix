@@ -17,11 +17,11 @@ in
     set-shell-colors = {
       body = ''
         # Set LS_COLORS
-        set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate catppuccin-macchiato)
+        set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate one-dark)
       ''
       + optionalString config.programs.bat.enable ''
         # Use correct theme for `bat`.
-        set -xg BAT_THEME "Catppuccin Macchiato"
+        set -xg BAT_THEME "Visual Studio Dark+"
       '';
     };
   };

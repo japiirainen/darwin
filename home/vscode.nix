@@ -5,8 +5,6 @@
 
     profiles.default = {
       extensions = with pkgs.vscode-marketplace; [
-        catppuccin.catppuccin-vsc
-        catppuccin.catppuccin-vsc-icons
         jnoortheen.nix-ide
         vscodevim.vim
         leanprover.lean4
@@ -15,7 +13,7 @@
       ];
 
       userSettings = {
-        "workbench.colorTheme" = "Catppuccin Frappé";
+        "workbench.colorTheme" = "Default Dark Modern";
 
         "editor.fontFamily" = "Comic Code Ligatures";
         "editor.fontSize" = 15;
