@@ -741,7 +741,6 @@ local servers = {
   purescriptls = {},
   terraformls = {},
   gopls = {},
-  golangci_lint_ls = {},
   oxlint = {
     cmd = { 'oxlint', '--lsp' },
   },
