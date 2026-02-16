@@ -36,6 +36,7 @@ in
       "google-chrome"
       "firefox"
       "1password"
+      "1password-cli"
       "docker"
       "pgadmin4"
       "sage"
