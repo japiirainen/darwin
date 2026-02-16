@@ -5,7 +5,7 @@
 
     package = pkgs.ghostty-bin;
 
-    enableFishIntegration = true;
+    enableFishIntegration = false;
 
     settings = {
       font-family = "PragmataPro Liga";
