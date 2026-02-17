@@ -36,6 +36,8 @@
     spacebar.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
+    opencode.url = "github:anomalyco/opencode";
   };
   outputs =
     {
@@ -63,6 +65,7 @@
             inputs.cornelis.overlays.cornelis
             inputs.spacebar.overlay.aarch64-darwin
             inputs.nix-vscode-extensions.overlays.default
+            inputs.opencode.overlays.default
           ]
           ++ singleton (
             final: prev:
