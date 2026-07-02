@@ -102,6 +102,7 @@
       oxlint
       opencode
       typescript-go
+      sioyek
       ;
 
     inherit (pkgs.texlivePackages) latexmk;
