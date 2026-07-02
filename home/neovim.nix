@@ -6,6 +6,8 @@ in
 {
   programs.neovim.enable = true;
   programs.neovim.vimAlias = true;
+  programs.neovim.withRuby = false;
+  programs.neovim.withPython3 = false;
 
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -23,10 +25,10 @@ in
   programs.neovim.plugins = [ ];
 
   programs.neovim.extraPackages = with pkgs; [
-    nodePackages.bash-language-server
+    bash-language-server
     shellcheck
     marksman
-    nodePackages.typescript-language-server
+    typescript-language-server
     deadnix
     nixfmt
     statix

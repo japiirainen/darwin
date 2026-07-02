@@ -17,7 +17,7 @@
 
   programs.ssh.enable = true;
   programs.ssh.enableDefaultConfig = false;
-  programs.ssh.matchBlocks."*".controlPath = "~/.ssh/%C";
+  programs.ssh.settings."*".controlPath = "~/.ssh/%C";
 
   home.packages = lib.attrValues ({
     agda = pkgs.agda.withPackages (ps: [ ps.standard-library ]);
@@ -102,13 +102,10 @@
       oxlint
       opencode
       typescript-go
+      prettier
       sioyek
       ;
 
     inherit (pkgs.texlivePackages) latexmk;
-
-    inherit (pkgs.nodePackages)
-      prettier
-      ;
   });
 }
