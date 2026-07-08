@@ -38,6 +38,7 @@ in
     vscode-langservers-extracted
     yaml-language-server
     tailwindcss-language-server
+    tree-sitter
   ];
 
   xdg.configFile."zls.json".text = ''
