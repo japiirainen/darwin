@@ -39,6 +39,8 @@ local treesitter_parsers = {
   'typescript',
   'vim',
   'vimdoc',
+  'latex',
+  'bibtex',
 }
 local treesitter_filetypes = {}
 for _, parser in ipairs(treesitter_parsers) do
@@ -376,6 +378,16 @@ require('lazy').setup {
     opts = {
       picker = {},
     },
+  },
+
+  {
+    'lervag/vimtex',
+    lazy = false,
+    init = function()
+      vim.g.vimtex_compiler_method = 'latexmk'
+      vim.g.vimtex_view_method = 'skim'
+      vim.g.vimtex_quickfix_mode = 0
+    end,
   },
 }
 
@@ -770,6 +782,7 @@ local servers = {
     cmd = { 'oxlint', '--lsp' },
   },
   tsgo = {},
+  texlab = {},
 }
 
 -- [[ Configure LSP ]]

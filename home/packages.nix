@@ -69,6 +69,7 @@
       sad
       fzf
       texliveFull
+      texlab
       cloc
       termdown
       typescript

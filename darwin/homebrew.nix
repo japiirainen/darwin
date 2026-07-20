@@ -46,6 +46,7 @@ in
       "spotify"
       "soulseek"
       "foobar2000"
+      "skim"
     ];
 
     brews = [
