@@ -129,6 +129,7 @@ require('lazy').setup {
         purescript = { 'purs-tidy' },
         cabal = { 'cabal_fmt' },
         go = { 'golangci-lint' },
+        tex = { 'tex-fmt' },
       },
       format_on_save = {},
     },
@@ -385,7 +386,7 @@ require('lazy').setup {
     lazy = false,
     init = function()
       vim.g.vimtex_compiler_method = 'latexmk'
-      vim.g.vimtex_view_method = 'skim'
+      vim.g.vimtex_view_method = 'sioyek'
       vim.g.vimtex_quickfix_mode = 0
     end,
   },

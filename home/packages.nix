@@ -68,7 +68,7 @@
       rustup
       sad
       fzf
-      texliveFull
+      tex-fmt
       texlab
       cloc
       termdown
@@ -102,11 +102,8 @@
       typst
       oxlint
       opencode
-      typescript-go
       prettier
       sioyek
       ;
-
-    inherit (pkgs.texlivePackages) latexmk;
   });
 }

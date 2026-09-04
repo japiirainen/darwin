@@ -47,6 +47,8 @@ in
       "soulseek"
       "foobar2000"
       "skim"
+      "telegram"
+      "visual-studio-code"
     ];
 
     brews = [

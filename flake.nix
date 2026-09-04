@@ -5,6 +5,7 @@
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-sioyek.url = "github:NixOS/nixpkgs/e52c192be9d7b2c4bd4aed326c8731b35f8bb75c";
 
     # Manages configs links things into your home directory
     home-manager.url = "github:nix-community/home-manager/master";
@@ -35,8 +36,6 @@
     spacebar.url = "github:cmacrae/spacebar/v1.4.0";
     spacebar.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-
     opencode.url = "github:anomalyco/opencode";
   };
   outputs =
@@ -64,7 +63,6 @@
           ++ [
             inputs.cornelis.overlays.cornelis
             inputs.spacebar.overlay.aarch64-darwin
-            inputs.nix-vscode-extensions.overlays.default
             inputs.opencode.overlays.default
           ]
           ++ singleton (
@@ -114,6 +112,10 @@
             inherit (prev.stdenv) system;
             inherit (nixpkgsDefaults) config;
           };
+        };
+
+        sioyek = _: prev: {
+          sioyek = inputs.nixpkgs-sioyek.legacyPackages.${prev.stdenv.hostPlatform.system}.sioyek;
         };
 
         apple-silicon =
@@ -173,7 +175,6 @@
         jp-neovim = import ./home/neovim.nix;
         jp-ghostty = import ./home/ghostty.nix;
         jp-helix = import ./home/helix.nix;
-        jp-vscode = import ./home/vscode.nix;
 
         home-user-info =
           { lib, ... }:
