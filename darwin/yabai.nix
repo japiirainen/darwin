@@ -11,7 +11,7 @@
         auto_balane = "off";
         split_ratio = "0.50";
         window_animation_duration = "0.3";
-        insert_feedback_color = "0xff9dd274";
+        insert_feedback_color = "0xffa6d189"; # Catppuccin Frappe green
         window_placement = "second_child";
         focus_follows_mouse = "off";
         mouse_follows_focus = "off";

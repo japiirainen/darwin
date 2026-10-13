@@ -17,11 +17,11 @@ in
     set-shell-colors = {
       body = ''
         # Set LS_COLORS
-        set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate one-dark)
+        set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate catppuccin-frappe)
       ''
       + optionalString config.programs.bat.enable ''
         # Use correct theme for `bat`.
-        set -xg BAT_THEME "Visual Studio Dark+"
+        set -xg BAT_THEME "Catppuccin Frappe"
       '';
     };
   };
@@ -56,16 +56,27 @@ in
     set -xg PNPM_HOME /Users/jp-work/Library/pnpm
     fish_add_path /Users/jp-work/Library/pnpm
     set-shell-colors
-    # Set Fish colors that aren't dependant the
-    set -g fish_color_quote        cyan      # color of commands
-    set -g fish_color_redirection  brmagenta # color of IO redirections
-    set -g fish_color_end          blue      # color of process separators like ';' and '&'
-    set -g fish_color_error        red       # color of potential errors
+    # Catppuccin Frappe
+    set -g fish_color_normal       c6d0f5
+    set -g fish_color_command      8caaee
+    set -g fish_color_param        eebebe
+    set -g fish_color_comment      737994
+    set -g fish_color_autosuggestion 737994
+    set -g fish_color_quote        a6d189
+    set -g fish_color_redirection  f4b8e4
+    set -g fish_color_end          ef9f76
+    set -g fish_color_error        e78284
     set -g fish_color_match        --reverse # color of highlighted matching parenthesis
-    set -g fish_color_search_match --background=yellow
-    set -g fish_color_selection    --reverse # color of selected text (vi mode)
-    set -g fish_color_operator     green     # color of parameter expansion operators like '*' and '~'
-    set -g fish_color_escape       red       # color of character escapes like '\n' and and '\x70'
-    set -g fish_color_cancel       red       # color of the '^C' indicator on a canceled command
+    set -g fish_color_search_match f2d5cf --background=414559
+    set -g fish_color_selection    c6d0f5 --background=414559
+    set -g fish_color_operator     f4b8e4
+    set -g fish_color_escape       ea999c
+    set -g fish_color_cancel       e78284
+    set -g fish_color_valid_path   --underline
+    set -g fish_pager_color_progress 737994
+    set -g fish_pager_color_prefix  f4b8e4
+    set -g fish_pager_color_completion c6d0f5
+    set -g fish_pager_color_description 737994
+    set -g fish_pager_color_selected_background --background=414559
   '';
 }

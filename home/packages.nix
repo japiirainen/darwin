@@ -3,6 +3,7 @@
   programs = {
     bat.enable = true;
     bat.config.style = "plain";
+    bat.config.theme = "Catppuccin Frappe";
 
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
