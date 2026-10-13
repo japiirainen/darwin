@@ -104,6 +104,7 @@
       opencode
       prettier
       sioyek
+      yazi
       ;
   });
 }
