@@ -395,7 +395,9 @@ require('lazy').setup {
 -- basic vim/neovim settings
 
 cmd 'set background=dark'
-colorscheme 'catppuccin-frappe'
+colorscheme 'rose-pine-main'
+-- Keep concealed LaTeX symbols on the normal background.
+vim.api.nvim_set_hl(0, 'Conceal', { link = 'Normal' })
 
 map('i', 'jk', '<Esc>')
 

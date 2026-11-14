@@ -13,7 +13,7 @@
 
       adjust-cell-height = "10%";
 
-      theme = "Catppuccin Frappe";
+      theme = "Rose Pine";
 
       mouse-hide-while-typing = true;
 

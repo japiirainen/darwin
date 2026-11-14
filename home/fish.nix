@@ -16,12 +16,12 @@ in
   programs.fish.functions = {
     set-shell-colors = {
       body = ''
-        # Set LS_COLORS
-        set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate catppuccin-frappe)
+        # Rosé Pine directory listings.
+        set -xg LS_COLORS (${pkgs.vivid}/bin/vivid generate rose-pine)
       ''
       + optionalString config.programs.bat.enable ''
         # Use correct theme for `bat`.
-        set -xg BAT_THEME "Catppuccin Frappe"
+        set -xg BAT_THEME "rose-pine"
       '';
     };
   };
@@ -56,27 +56,27 @@ in
     set -xg PNPM_HOME /Users/jp-work/Library/pnpm
     fish_add_path /Users/jp-work/Library/pnpm
     set-shell-colors
-    # Catppuccin Frappe
-    set -g fish_color_normal       c6d0f5
-    set -g fish_color_command      8caaee
-    set -g fish_color_param        eebebe
-    set -g fish_color_comment      737994
-    set -g fish_color_autosuggestion 737994
-    set -g fish_color_quote        a6d189
-    set -g fish_color_redirection  f4b8e4
-    set -g fish_color_end          ef9f76
-    set -g fish_color_error        e78284
-    set -g fish_color_match        --reverse # color of highlighted matching parenthesis
-    set -g fish_color_search_match f2d5cf --background=414559
-    set -g fish_color_selection    c6d0f5 --background=414559
-    set -g fish_color_operator     f4b8e4
-    set -g fish_color_escape       ea999c
-    set -g fish_color_cancel       e78284
+    # Rosé Pine shell highlighting.
+    set -g fish_color_normal       e0def4
+    set -g fish_color_command      9ccfd8
+    set -g fish_color_param        e0def4
+    set -g fish_color_comment      6e6a86
+    set -g fish_color_autosuggestion 6e6a86
+    set -g fish_color_quote        f6c177
+    set -g fish_color_redirection  c4a7e7
+    set -g fish_color_end          ebbcba
+    set -g fish_color_error        eb6f92
+    set -g fish_color_match        --reverse
+    set -g fish_color_search_match e0def4 --background=403d52
+    set -g fish_color_selection    e0def4 --background=403d52
+    set -g fish_color_operator     31748f
+    set -g fish_color_escape       ebbcba
+    set -g fish_color_cancel       eb6f92
     set -g fish_color_valid_path   --underline
-    set -g fish_pager_color_progress 737994
-    set -g fish_pager_color_prefix  f4b8e4
-    set -g fish_pager_color_completion c6d0f5
-    set -g fish_pager_color_description 737994
-    set -g fish_pager_color_selected_background --background=414559
+    set -g fish_pager_color_progress 908caa
+    set -g fish_pager_color_prefix  9ccfd8
+    set -g fish_pager_color_completion e0def4
+    set -g fish_pager_color_description 908caa
+    set -g fish_pager_color_selected_background --background=403d52
   '';
 }

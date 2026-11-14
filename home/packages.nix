@@ -3,7 +3,11 @@
   programs = {
     bat.enable = true;
     bat.config.style = "plain";
-    bat.config.theme = "Catppuccin Frappe";
+    bat.config.theme = "rose-pine";
+    bat.themes.rose-pine.src = pkgs.fetchurl {
+      url = "https://raw.githubusercontent.com/rose-pine/tm-theme/6d556734541ccb04172e81fd58de4a35fff72d19/dist/rose-pine.tmTheme";
+      hash = "sha256-pOvfKUxgkK7/db6ZgDbE810PBUBm0vlXCp8iF/REE+Y=";
+    };
 
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
